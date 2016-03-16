@@ -57,3 +57,6 @@
 #define MVVMTemplate MVVMCollectionReusableView
 #define MVVMBaseTemplate UICollectionReusableView
 #include "MVVMClass.h"
+
+#undef MVVMTemplate
+#undef MVVMBaseTemplate
