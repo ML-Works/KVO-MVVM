@@ -8,10 +8,10 @@
 
 #import "NSObject+MVVMKVOPrivate.h"
 
-@implementation MVVMTemplate
+@implementation MVVM_TEMPLATE_CLASS
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *, id> *)change context:(void *)context {
-    [self mvvm_observeValueForKeyPath:keyPath ofObject:object change:change context:context superClass:[MVVMTemplate superclass]];
+    [self mvvm_observeValueForKeyPath:keyPath ofObject:object change:change context:context superClass:[MVVM_TEMPLATE_SUPERCLASS class]];
 }
 
 - (void)dealloc {

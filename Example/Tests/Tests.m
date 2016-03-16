@@ -94,4 +94,17 @@ static NSInteger observeCalledCount;
     XCTAssertNil(weakView);
 }
 
+- (void)testClassesExists {
+    XCTAssertNotNil([MVVMViewController class]);
+
+    XCTAssertNotNil([MVVMView class]);
+
+    XCTAssertNotNil([MVVMTableView class]);
+    XCTAssertNotNil([MVVMTableViewCell class]);
+
+    XCTAssertNotNil([MVVMCollectionView class]);
+    XCTAssertNotNil([MVVMCollectionViewCell class]);
+    XCTAssertNotNil([MVVMCollectionReusableView class]);
+}
+
 @end
