@@ -6,30 +6,92 @@
 //  Copyright (c) 2016 Anton Bukov. All rights reserved.
 //
 
-@import XCTest;
+#import <XCTest/XCTest.h>
 
-@interface Tests : XCTestCase
+#import "MVVMView.h"
+
+static NSInteger observeCalledCount;
+
+//
+
+@interface MVVMCycleModelObject : NSObject
+
+@property (assign, nonatomic) NSInteger state;
 
 @end
 
-@implementation Tests
+@implementation MVVMCycleModelObject
 
-- (void)setUp
-{
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+@end
+
+//
+
+@interface MVVMCycleView : MVVMView
+
+@property (strong, nonatomic) MVVMCycleModelObject *viewModel;
+
+@end
+
+@implementation MVVMCycleView
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self mvvm_observe:@"viewModel.state" with:^(typeof(self) self, NSNumber * value) {
+            observeCalledCount++;
+        }];
+    }
+    return self;
 }
 
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+@end
+
+//
+
+@interface MVVMTests : XCTestCase
+
+@property (strong, nonatomic) MVVMCycleModelObject *viewModel;
+
+@end
+
+@implementation MVVMTests
+
+- (void)setUp {
+    [super setUp];
+    self.viewModel = [[MVVMCycleModelObject alloc] init];
+}
+
+- (void)tearDown {
     [super tearDown];
 }
 
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+- (void)testLongLivedViewModel {
+    observeCalledCount = 0;
+    __weak MVVMCycleView *weakView = nil;
+
+    @autoreleasepool {
+        MVVMCycleView *view = [[MVVMCycleView alloc] initWithFrame:CGRectZero];
+        view.viewModel = self.viewModel;
+        self.viewModel.state = 1;
+        weakView = view;
+    }
+
+    XCTAssert(observeCalledCount == 3);
+    XCTAssertNil(weakView);
+}
+
+- (void)testShortLivedViewModel {
+    observeCalledCount = 0;
+    __weak MVVMCycleView *weakView = nil;
+
+    @autoreleasepool {
+        MVVMCycleView *view = [[MVVMCycleView alloc] initWithFrame:CGRectZero];
+        view.viewModel = [[MVVMCycleModelObject alloc] init];
+        view.viewModel.state = 2;
+        weakView = view;
+    }
+
+    XCTAssert(observeCalledCount == 3);
+    XCTAssertNil(weakView);
 }
 
 @end
-

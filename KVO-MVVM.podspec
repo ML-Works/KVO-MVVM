@@ -1,40 +1,22 @@
-#
-# Be sure to run `pod lib lint KVO-MVVM.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = "KVO-MVVM"
   s.version          = "0.1.0"
-  s.summary          = "A short description of KVO-MVVM."
+  s.summary          = "KVO binding especially for ViewModel observing by View"
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
+                        Simply observe ViewModel changes by View layer using block-based
+                        syntax over vanilla Cocoa KVO. The main idea is to observe keypaths
+                        like this one - @keypath(self.viewModel.state) and not to unsubscribe.
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/KVO-MVVM"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "https://github.com/ML-Works/KVO-MVVM"
   s.license          = 'MIT'
   s.author           = { "Anton Bukov" => "k06aaa@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/KVO-MVVM.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/ML-Works/KVO-MVVM.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/k06a'
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'KVO-MVVM' => ['Pod/Assets/*.png']
-  }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
