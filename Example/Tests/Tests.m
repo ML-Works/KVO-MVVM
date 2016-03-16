@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 
-#import "MVVMView.h"
+#import <KVO-MVVM/KVO-MVVM.h>
 
 static NSInteger observeCalledCount;
 

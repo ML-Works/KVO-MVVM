@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "MVVMKVOProtocol.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MVVMView : UIView
-
-- (void)mvvm_observe:(NSString *)keyPath with:(void (^)(id self, id value))block;
+@interface MVVMTemplate : MVVMBaseTemplate <MVVMKVO>
 
 @end
 

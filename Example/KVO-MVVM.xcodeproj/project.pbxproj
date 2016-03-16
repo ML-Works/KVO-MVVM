@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		538ADFCE5C543AF63E952EE1 /* libPods-KVO-MVVM_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5047A8897789856A98DFD3BF /* libPods-KVO-MVVM_Tests.a */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		DC962ADF74359E24D05866DF /* Pods_KVO_MVVM_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72194DB3D486A52491C1BD8 /* Pods_KVO_MVVM_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1037435381E89353AB4B20DE /* KVO-MVVM.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "KVO-MVVM.podspec"; path = "../KVO-MVVM.podspec"; sourceTree = "<group>"; };
+		2A3BD0661C99746D00CC5420 /* MVVMClass.m.temp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MVVMClass.m.temp; path = ../Pod/Classes/MVVMClass.m.temp; sourceTree = "<group>"; };
 		481A5389A50FACBF08C0F74B /* Pods-KVO-MVVM_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVO-MVVM_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KVO-MVVM_Tests/Pods-KVO-MVVM_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		5047A8897789856A98DFD3BF /* libPods-KVO-MVVM_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVO-MVVM_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -27,7 +29,6 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		A72194DB3D486A52491C1BD8 /* Pods_KVO_MVVM_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KVO_MVVM_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C090361135B142EE650FB1F1 /* Pods-KVO-MVVM_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVO-MVVM_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KVO-MVVM_Tests/Pods-KVO-MVVM_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C9B9BE6982FF8B2AE175716A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		DBF5FACFC0BBBB3D56335B62 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -41,7 +42,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				DC962ADF74359E24D05866DF /* Pods_KVO_MVVM_Tests.framework in Frameworks */,
+				538ADFCE5C543AF63E952EE1 /* libPods-KVO-MVVM_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +75,7 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				A72194DB3D486A52491C1BD8 /* Pods_KVO_MVVM_Tests.framework */,
+				5047A8897789856A98DFD3BF /* libPods-KVO-MVVM_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -101,6 +102,7 @@
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				2A3BD0661C99746D00CC5420 /* MVVMClass.m.temp */,
 				1037435381E89353AB4B20DE /* KVO-MVVM.podspec */,
 				C9B9BE6982FF8B2AE175716A /* README.md */,
 				DBF5FACFC0BBBB3D56335B62 /* LICENSE */,
@@ -332,11 +334,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C090361135B142EE650FB1F1 /* Pods-KVO-MVVM_Tests.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -355,11 +352,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 481A5389A50FACBF08C0F74B /* Pods-KVO-MVVM_Tests.release.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
