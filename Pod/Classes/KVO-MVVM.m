@@ -1,12 +1,12 @@
 //
-//  KVO-MVVM.h
+//  KVO-MVVM.m
 //  KVO-MVVM
 //
-//  Created by Anton Bukov on 16.03.16.
+//  Created by Andrew Podkovyrin on 16/03/16.
 //
 //
 
-#import <UIKit/UIKit.h>
+#import "KVO-MVVM.h"
 
 #pragma mark - UIViewController
 
@@ -14,7 +14,7 @@
 #undef MVVMBaseTemplate
 #define MVVMTemplate MVVMViewController
 #define MVVMBaseTemplate UIViewController
-#include "MVVMClass.h"
+#include "MVVMClass.m.temp"
 
 #pragma mark - UIView
 
@@ -22,7 +22,7 @@
 #undef MVVMBaseTemplate
 #define MVVMTemplate MVVMView
 #define MVVMBaseTemplate UIView
-#include "MVVMClass.h"
+#include "MVVMClass.m.temp"
 
 #pragma mark - UITableView
 
@@ -30,13 +30,13 @@
 #undef MVVMBaseTemplate
 #define MVVMTemplate MVVMTableView
 #define MVVMBaseTemplate UITableView
-#include "MVVMClass.h"
+#include "MVVMClass.m.temp"
 
 #undef MVVMTemplate
 #undef MVVMBaseTemplate
 #define MVVMTemplate MVVMTableViewCell
 #define MVVMBaseTemplate UITableViewCell
-#include "MVVMClass.h"
+#include "MVVMClass.m.temp"
 
 #pragma mark - UICollectionView
 
@@ -44,16 +44,16 @@
 #undef MVVMBaseTemplate
 #define MVVMTemplate MVVMCollectionView
 #define MVVMBaseTemplate UICollectionView
-#include "MVVMClass.h"
+#include "MVVMClass.m.temp"
 
 #undef MVVMTemplate
 #undef MVVMBaseTemplate
 #define MVVMTemplate MVVMCollectionViewCell
 #define MVVMBaseTemplate UICollectionViewCell
-#include "MVVMClass.h"
+#include "MVVMClass.m.temp"
 
 #undef MVVMTemplate
 #undef MVVMBaseTemplate
 #define MVVMTemplate MVVMCollectionReusableView
 #define MVVMBaseTemplate UICollectionReusableView
-#include "MVVMClass.h"
+#include "MVVMClass.m.temp"
