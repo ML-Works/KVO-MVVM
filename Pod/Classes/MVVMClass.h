@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MVVMTemplate : MVVMBaseTemplate <MVVMKVO>
+@interface MVVM_TEMPLATE_CLASS : MVVM_TEMPLATE_SUPERCLASS <MVVMKVO>
 
 @end
 
