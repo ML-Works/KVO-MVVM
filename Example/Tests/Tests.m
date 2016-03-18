@@ -98,6 +98,7 @@ static NSInteger observeCalledCount;
     XCTAssertNotNil([MVVMViewController class]);
 
     XCTAssertNotNil([MVVMView class]);
+    XCTAssertNotNil([MVVMButton class]);
 
     XCTAssertNotNil([MVVMTableView class]);
     XCTAssertNotNil([MVVMTableViewCell class]);

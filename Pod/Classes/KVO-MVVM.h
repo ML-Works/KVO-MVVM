@@ -24,6 +24,12 @@
 #define MVVM_TEMPLATE_SUPERCLASS UIView
 #include "MVVMClass.h"
 
+#undef MVVM_TEMPLATE_CLASS
+#undef MVVM_TEMPLATE_SUPERCLASS
+#define MVVM_TEMPLATE_CLASS MVVMButton
+#define MVVM_TEMPLATE_SUPERCLASS UIButton
+#include "MVVMClass.h"
+
 #pragma mark - UITableView
 
 #undef MVVM_TEMPLATE_CLASS
