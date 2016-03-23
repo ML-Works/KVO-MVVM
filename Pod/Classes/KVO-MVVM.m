@@ -8,6 +8,14 @@
 
 #import "KVO-MVVM.h"
 
+#pragma mark - NSObject
+
+#undef MVVM_TEMPLATE_CLASS
+#undef MVVM_TEMPLATE_SUPERCLASS
+#define MVVM_TEMPLATE_CLASS MVVMObject
+#define MVVM_TEMPLATE_SUPERCLASS NSObject
+#include "MVVMClass.m.temp"
+
 #pragma mark - UIViewController
 
 #undef MVVM_TEMPLATE_CLASS
