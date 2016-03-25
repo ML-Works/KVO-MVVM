@@ -10,6 +10,7 @@
 1. First `#import <KVO-MVVM/KVO-MVVM.h>`
 
 2. Then subclass from any of classes listed:
+   * MVVMObject
    * MVVMViewController
    * MVVMView
    * MVVMTableView
