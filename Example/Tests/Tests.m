@@ -10,10 +10,6 @@
 
 #import <KVO-MVVM/KVO-MVVM.h>
 
-static NSInteger observeCalledCount;
-
-//
-
 @interface MVVMCycleModelObject : NSObject
 
 @property (assign, nonatomic) NSInteger state;
@@ -34,10 +30,15 @@ static NSInteger observeCalledCount;
 
 @implementation MVVMCycleView
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame
+                  andPointer1:(NSInteger *)pointer1
+                  andPointer2:(NSInteger *)pointer2 {
     if (self = [super initWithFrame:frame]) {
         [self mvvm_observe:@"viewModel.state" with:^(typeof(self) self, NSNumber * value) {
-            observeCalledCount++;
+            (*pointer1)++;
+        }];
+        [self mvvm_observe:@"viewModel.state" with:^(typeof(self) self, NSNumber * value) {
+            (*pointer2)++;
         }];
     }
     return self;
@@ -65,36 +66,42 @@ static NSInteger observeCalledCount;
 }
 
 - (void)testLongLivedViewModel {
-    observeCalledCount = 0;
+    NSInteger observeCalledCount = 0;
+    NSInteger observeCalledCount2 = 0;
     __weak MVVMCycleView *weakView = nil;
 
     @autoreleasepool {
-        MVVMCycleView *view = [[MVVMCycleView alloc] initWithFrame:CGRectZero];
+        MVVMCycleView *view = [[MVVMCycleView alloc] initWithFrame:CGRectZero andPointer1:&observeCalledCount andPointer2:&observeCalledCount2];
         view.viewModel = self.viewModel;
         self.viewModel.state = 1;
         weakView = view;
     }
 
     XCTAssert(observeCalledCount == 3);
+    XCTAssert(observeCalledCount2 == 3);
     XCTAssertNil(weakView);
 }
 
 - (void)testShortLivedViewModel {
-    observeCalledCount = 0;
+    NSInteger observeCalledCount = 0;
+    NSInteger observeCalledCount2 = 0;
     __weak MVVMCycleView *weakView = nil;
 
     @autoreleasepool {
-        MVVMCycleView *view = [[MVVMCycleView alloc] initWithFrame:CGRectZero];
+        MVVMCycleView *view = [[MVVMCycleView alloc] initWithFrame:CGRectZero andPointer1:&observeCalledCount andPointer2:&observeCalledCount2];
         view.viewModel = [[MVVMCycleModelObject alloc] init];
         view.viewModel.state = 2;
         weakView = view;
     }
 
     XCTAssert(observeCalledCount == 3);
+    XCTAssert(observeCalledCount2 == 3);
     XCTAssertNil(weakView);
 }
 
 - (void)testClassesExists {
+    XCTAssertNotNil([MVVMObject class]);
+
     XCTAssertNotNil([MVVMViewController class]);
 
     XCTAssertNotNil([MVVMView class]);

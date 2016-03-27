@@ -15,16 +15,20 @@ static void *MVVMKVOContext = &MVVMKVOContext;
 
 #pragma mark -
 
+typedef void (^ObserveBlock)(id, id);
+typedef NSMutableArray<void (^)(id, id)> ObserveBlocksArray;
+typedef NSMutableDictionary<NSString *, ObserveBlocksArray *> ObserveBlocksDictionary;
+
 @interface NSObject (MVVMKVOPrivate_Properties)
 
-@property (strong, nonatomic) NSMutableDictionary<NSString *, void (^)(id, id)> *mvvm_blocks;
+@property (strong, nonatomic) ObserveBlocksDictionary *mvvm_blocks;
 
 @end
 
 @implementation NSObject (MVVMKVOPrivate_Properties)
 
-- (NSMutableDictionary<NSString *, void (^)(id, id)> *)mvvm_blocks {
-    NSMutableDictionary<NSString *, void (^)(id, id)> *blocks = objc_getAssociatedObject(self, @selector(mvvm_blocks));
+- (ObserveBlocksDictionary *)mvvm_blocks {
+    NSMutableDictionary *blocks = objc_getAssociatedObject(self, @selector(mvvm_blocks));
     if (blocks == nil) {
         blocks = [NSMutableDictionary dictionary];
         self.mvvm_blocks = blocks;
@@ -43,9 +47,17 @@ static void *MVVMKVOContext = &MVVMKVOContext;
 @implementation NSObject (MVVMKVOPrivate)
 
 - (void)mvvm_observe:(NSString *)keyPath with:(void (^)(id self, id value))block {
-    NSAssert(!self.mvvm_blocks[keyPath], @"You are not able to observe same keypath twice!");
-    self.mvvm_blocks[keyPath] = [block copy];
-    [self addObserver:self forKeyPath:keyPath options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:MVVMKVOContext];
+    if (!self.mvvm_blocks[keyPath]) {
+        self.mvvm_blocks[keyPath] = [NSMutableArray array];
+    }
+    [self.mvvm_blocks[keyPath] addObject:[block copy]];
+
+    if (self.mvvm_blocks[keyPath].count == 1) {
+        [self addObserver:self forKeyPath:keyPath options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:MVVMKVOContext];
+    }
+    else {
+        self.mvvm_blocks[keyPath].lastObject(self, nil);
+    }
 }
 
 - (void)mvvm_unobserve:(NSString *)keyPath {
@@ -73,7 +85,6 @@ static void *MVVMKVOContext = &MVVMKVOContext;
 
             id (*objc_superClassKVOMethod)(struct objc_super *, SEL, id, id, id, void *) = (void *)&objc_msgSendSuper;
             objc_superClassKVOMethod(&mySuper, sel, keyPath, object, change, context);
-
             // [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
         }
         return;
@@ -85,8 +96,8 @@ static void *MVVMKVOContext = &MVVMKVOContext;
         return;
     }
 
-    if (self.mvvm_blocks[keyPath]) {
-        self.mvvm_blocks[keyPath](self, (newValue != [NSNull null]) ? newValue : nil);
+    for (ObserveBlock block in self.mvvm_blocks[keyPath]) {
+        block(self, (newValue != [NSNull null]) ? newValue : nil);
     }
 }
 
