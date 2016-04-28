@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol MVVMKVO <NSObject>
 
 - (void)mvvm_observe:(NSString *)keyPath with:(void (^)(id self, id value))block;
+- (void)mvvm_observe:(NSString *)keyPath options:(NSKeyValueObservingOptions)options with:(void (^)(id self, id value))block;
 - (void)mvvm_unobserve:(NSString *)keyPath;
 - (void)mvvm_unobserveAll;
 - (void)mvvm_observeValueForKeyPath:(NSString *)keyPath

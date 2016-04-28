@@ -47,13 +47,17 @@ typedef NSMutableDictionary<NSString *, ObserveBlocksArray *> ObserveBlocksDicti
 @implementation NSObject (MVVMKVOPrivate)
 
 - (void)mvvm_observe:(NSString *)keyPath with:(void (^)(id self, id value))block {
+    return [self mvvm_observe:keyPath options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) with:block];
+}
+
+- (void)mvvm_observe:(NSString *)keyPath options:(NSKeyValueObservingOptions)options with:(void (^)(id self, id value))block {
     if (!self.mvvm_blocks[keyPath]) {
         self.mvvm_blocks[keyPath] = [NSMutableArray array];
     }
     [self.mvvm_blocks[keyPath] addObject:[block copy]];
-
+    
     if (self.mvvm_blocks[keyPath].count == 1) {
-        [self addObserver:self forKeyPath:keyPath options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:MVVMKVOContext];
+        [self addObserver:self forKeyPath:keyPath options:options context:MVVMKVOContext];
     }
     else {
         self.mvvm_blocks[keyPath].lastObject(self, nil);
