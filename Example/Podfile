@@ -1,6 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-target 'KVO-MVVM_Tests', :exclusive => true do
+target 'KVO-MVVM_Tests' do
   pod 'KVO-MVVM', :path => '../'
 
   
