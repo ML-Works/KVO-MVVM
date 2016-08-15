@@ -22,6 +22,12 @@
 #define MVVM_TEMPLATE_SUPERCLASS UIViewController
 #include "MVVMClass.h"
 
+#undef MVVM_TEMPLATE_CLASS
+#undef MVVM_TEMPLATE_SUPERCLASS
+#define MVVM_TEMPLATE_CLASS MVVMTableViewController
+#define MVVM_TEMPLATE_SUPERCLASS UITableViewController
+#include "MVVMClass.h"
+
 #pragma mark - UIView
 
 #undef MVVM_TEMPLATE_CLASS
