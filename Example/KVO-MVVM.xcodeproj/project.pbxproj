@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		538ADFCE5C543AF63E952EE1 /* libPods-KVO-MVVM_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5047A8897789856A98DFD3BF /* libPods-KVO-MVVM_Tests.a */; };
+		544BFA94E5BC2FC0717BCFC2 /* libPods-KVO-MVVM_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E89D45146B71EB979EF810CA /* libPods-KVO-MVVM_Tests.a */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -18,8 +18,7 @@
 /* Begin PBXFileReference section */
 		1037435381E89353AB4B20DE /* KVO-MVVM.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "KVO-MVVM.podspec"; path = "../KVO-MVVM.podspec"; sourceTree = "<group>"; };
 		2A3BD0661C99746D00CC5420 /* MVVMClass.m.temp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MVVMClass.m.temp; path = ../Pod/Classes/MVVMClass.m.temp; sourceTree = "<group>"; };
-		481A5389A50FACBF08C0F74B /* Pods-KVO-MVVM_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVO-MVVM_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KVO-MVVM_Tests/Pods-KVO-MVVM_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		5047A8897789856A98DFD3BF /* libPods-KVO-MVVM_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVO-MVVM_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5009C774045B69D76263AC02 /* Pods-KVO-MVVM_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVO-MVVM_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KVO-MVVM_Tests/Pods-KVO-MVVM_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -29,9 +28,10 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		C090361135B142EE650FB1F1 /* Pods-KVO-MVVM_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVO-MVVM_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KVO-MVVM_Tests/Pods-KVO-MVVM_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		89913D4A124D8469251476B0 /* Pods-KVO-MVVM_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVO-MVVM_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KVO-MVVM_Tests/Pods-KVO-MVVM_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C9B9BE6982FF8B2AE175716A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		DBF5FACFC0BBBB3D56335B62 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		E89D45146B71EB979EF810CA /* libPods-KVO-MVVM_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVO-MVVM_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,13 +42,22 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				538ADFCE5C543AF63E952EE1 /* libPods-KVO-MVVM_Tests.a in Frameworks */,
+				544BFA94E5BC2FC0717BCFC2 /* libPods-KVO-MVVM_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		252D47553C9B4C749A18FC09 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5009C774045B69D76263AC02 /* Pods-KVO-MVVM_Tests.debug.xcconfig */,
+				89913D4A124D8469251476B0 /* Pods-KVO-MVVM_Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -56,7 +65,7 @@
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
-				AD75302BAAEB748D2A89FBAF /* Pods */,
+				252D47553C9B4C749A18FC09 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,7 +84,7 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				5047A8897789856A98DFD3BF /* libPods-KVO-MVVM_Tests.a */,
+				E89D45146B71EB979EF810CA /* libPods-KVO-MVVM_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -110,15 +119,6 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		AD75302BAAEB748D2A89FBAF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C090361135B142EE650FB1F1 /* Pods-KVO-MVVM_Tests.debug.xcconfig */,
-				481A5389A50FACBF08C0F74B /* Pods-KVO-MVVM_Tests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,12 +126,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "KVO-MVVM_Tests" */;
 			buildPhases = (
-				1AABCBCECB32B6B94BA375C1 /* Check Pods Manifest.lock */,
+				32F3A0C7D709997C3F312F47 /* [CP] Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				452ABE190FD972FC2B295122 /* Embed Pods Frameworks */,
-				CEE13D8510911FF9C51E7B73 /* Copy Pods Resources */,
+				B5428734CA613543A5C5C43E /* [CP] Embed Pods Frameworks */,
+				877CC9A7158BC37E0DEC0A4A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -187,14 +187,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1AABCBCECB32B6B94BA375C1 /* Check Pods Manifest.lock */ = {
+		32F3A0C7D709997C3F312F47 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,34 +202,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		452ABE190FD972FC2B295122 /* Embed Pods Frameworks */ = {
+		877CC9A7158BC37E0DEC0A4A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KVO-MVVM_Tests/Pods-KVO-MVVM_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CEE13D8510911FF9C51E7B73 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KVO-MVVM_Tests/Pods-KVO-MVVM_Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5428734CA613543A5C5C43E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KVO-MVVM_Tests/Pods-KVO-MVVM_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -332,7 +332,7 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C090361135B142EE650FB1F1 /* Pods-KVO-MVVM_Tests.debug.xcconfig */;
+			baseConfigurationReference = 5009C774045B69D76263AC02 /* Pods-KVO-MVVM_Tests.debug.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
@@ -350,7 +350,7 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 481A5389A50FACBF08C0F74B /* Pods-KVO-MVVM_Tests.release.xcconfig */;
+			baseConfigurationReference = 89913D4A124D8469251476B0 /* Pods-KVO-MVVM_Tests.release.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";

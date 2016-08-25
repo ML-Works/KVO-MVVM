@@ -12,7 +12,10 @@
 2. Then subclass from any of classes listed:
    * MVVMObject
    * MVVMViewController
+   * MVVMTableViewController
    * MVVMView
+   * MVVMControl
+   * MVVMButton
    * MVVMTableView
    * MVVMTableViewCell
    * MVVMCollectionView
@@ -50,7 +53,7 @@ it, simply add the following line to your Podfile:
 pod 'KVO-MVVM'
 ```
 
-## Author
+## Authors
 
 Anton Bukov, k06a@mlworks.com
 Andrew Podkovyrin, podkovyrin@mlworks.com
