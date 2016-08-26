@@ -21,9 +21,13 @@ static void CheckClassKeyPathForWeaks(Class klass, NSString *keyPath) {
     }
 
     Class currentClass = klass;
-    for (NSString *keyPathToken in [keyPath componentsSeparatedByString:@"."]) {
-        objc_property_t property = class_getProperty(currentClass, keyPathToken.UTF8String);
-        NSCAssert(!property_copyAttributeValue(property, "W"), @"Class %@ should not observe @\"%@\" because @\"%@\" is weak", klass, keyPath, keyPathToken);
+    for (NSString *key in [keyPath componentsSeparatedByString:@"."]) {
+        for (NSString *affectingKeyPath in [currentClass keyPathsForValuesAffectingValueForKey:key]) {
+            CheckClassKeyPathForWeaks(currentClass, affectingKeyPath);
+        }
+        
+        objc_property_t property = class_getProperty(currentClass, key.UTF8String);
+        NSCAssert(!property_copyAttributeValue(property, "W"), @"Class %@ should not observe @\"%@\" because @\"%@\" is weak", klass, keyPath, key);
 
         char *propertyTypePtr = property_copyAttributeValue(property, "T");
         NSString *type = [[NSString alloc] initWithBytesNoCopy:propertyTypePtr length:(propertyTypePtr ? strlen(propertyTypePtr) : 0) encoding:NSUTF8StringEncoding freeWhenDone:YES];
