@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "KVO-MVVM"
-  s.version          = "0.3.0"
+  s.version          = "0.3.1"
   s.summary          = "KVO binding especially for ViewModel observing by View"
 
   s.description      = <<-DESC
