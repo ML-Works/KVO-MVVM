@@ -8,11 +8,13 @@
 
 #import <XCTest/XCTest.h>
 
+#import <KVO-MVVM/KVO-MVVM.h>
+
 //
 
 @interface WeakKVOModel : NSObject
 
-@property (strong, nonatomic) NSNumber *number;
+@property (strong, nonatomic) NSArray *array;
 
 @end
 
@@ -24,22 +26,26 @@
 
 @property (weak, nonatomic) WeakKVOModel *viewModel;
 @property (assign, nonatomic) BOOL observerWasCalled;
+@property (assign, nonatomic) BOOL observerWasCalled2;
 
 @end
 
 @implementation WeakKVO
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
-        [self addObserver:self forKeyPath:@"viewModel.number" options:(NSKeyValueObservingOptionNew) context:NULL];
+        [self mvvm_observe:@"viewModel.array" with:^(typeof(self) self, NSNumber * value) {
+            self.observerWasCalled2 = YES;
+        }];
+        [self addObserver:self forKeyPath:@"viewModel.array" options:(NSKeyValueObservingOptionNew) context:NULL];
     }
     return self;
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    if ([keyPath isEqualToString:@"viewModel.number"] && object == self) {
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *, id> *)change context:(void *)context {
+    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    if ([keyPath isEqualToString:@"viewModel.array"] && object == self) {
         self.observerWasCalled = YES;
     }
 }
@@ -54,16 +60,19 @@
 
 @implementation WeakKVOTests
 
-- (void)testSimpleKVONotBroken {
-    WeakKVO *object = [WeakKVO new];
-    
+- (void)testWeakKVO {
     @autoreleasepool {
-        WeakKVOModel *model = [WeakKVOModel new];
-        object.viewModel = model;
-        object.viewModel.number = @1;
+        WeakKVO *object = [WeakKVO new];
+
+        @autoreleasepool {
+            WeakKVOModel *model = [WeakKVOModel new];
+            object.viewModel = model;
+            object.viewModel.array = @[ @1 ];
+        }
+
+        XCTAssertTrue(object.observerWasCalled);
+        XCTAssertTrue(object.observerWasCalled2);
     }
-    
-    XCTAssertTrue(object.observerWasCalled);
 }
 
 @end

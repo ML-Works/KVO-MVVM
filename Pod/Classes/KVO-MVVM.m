@@ -17,56 +17,6 @@
 
 static void *MVVMKVOContext = &MVVMKVOContext;
 
-void Unobserve(void *object, void *observer, NSString *keyPath);
-
-#ifdef DEBUG
-static void CheckClassKeyPathForWeaks(Class klass, NSString *keyPath) {
-    static NSMutableDictionary<Class, NSMutableSet<NSString *> *> *checked;
-    if ([checked[klass] containsObject:keyPath]) {
-        return;
-    }
-
-    Class currentClass = klass;
-    for (NSString *key in [keyPath componentsSeparatedByString:@"."]) {
-        for (NSString *affectingKeyPath in [currentClass keyPathsForValuesAffectingValueForKey:key]) {
-            CheckClassKeyPathForWeaks(currentClass, affectingKeyPath);
-        }
-
-        objc_property_t property = class_getProperty(currentClass, key.UTF8String);
-        NSCAssert(!property_copyAttributeValue(property, "W"), @"Class %@ should not observe @\"%@\" because @\"%@\" is weak", klass, keyPath, key);
-
-        char *propertyTypePtr = property_copyAttributeValue(property, "T");
-        NSString *type = [[NSString alloc] initWithBytesNoCopy:propertyTypePtr length:(propertyTypePtr ? strlen(propertyTypePtr) : 0) encoding:NSUTF8StringEncoding freeWhenDone:YES];
-
-        if ([type rangeOfString:@"@\""].location == 0) {
-            type = [type substringWithRange:NSMakeRange(2, type.length - 3)];
-        }
-
-        NSUInteger location = [type rangeOfString:@"<"].location;
-        if (location != 0 && location != NSNotFound) {
-            currentClass = NSClassFromString([type substringToIndex:location]);
-        }
-        else {
-            currentClass = NSClassFromString(type);
-        }
-
-        if (currentClass == nil) {
-            break;
-        }
-    }
-
-    if (checked == nil) {
-        checked = [NSMutableDictionary dictionary];
-    }
-    if (checked[klass] == nil) {
-        checked[(id)klass] = [NSMutableSet setWithObject:keyPath];
-    }
-    else {
-        [checked[klass] addObject:keyPath];
-    }
-}
-#endif
-
 //
 
 #pragma mark - Typedefs
@@ -157,9 +107,6 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
 }
 
 - (void)mvvm_observe:(NSString *)keyPath options:(NSKeyValueObservingOptions)options with:(ObserveCollectionBlock)block {
-#ifdef DEBUG
-    CheckClassKeyPathForWeaks([self class], keyPath);
-#endif
     if (!self.mvvm_holder.blocks[keyPath]) {
         self.mvvm_holder.blocks[keyPath] = [NSMutableArray array];
     }
@@ -178,9 +125,6 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
 }
 
 - (void)mvvm_observeCollection:(NSString *)keyPath options:(NSKeyValueObservingOptions)options with:(ObserveCollectionBlock)block {
-#ifdef DEBUG
-    CheckClassKeyPathForWeaks([self class], keyPath);
-#endif
     if (!self.mvvm_holder.collectionBlocks[keyPath]) {
         self.mvvm_holder.collectionBlocks[keyPath] = [NSMutableArray array];
     }
@@ -222,9 +166,6 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
 
 - (void)mvvm_observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *, id> *)change context:(void *)context {
     if (context != MVVMKVOContext) {
-        if ([self respondsToSelector:@selector(observeValueForKeyPath:ofObject:change:context:)]) {
-            [self mvvm_observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-        }
         return;
     }
 

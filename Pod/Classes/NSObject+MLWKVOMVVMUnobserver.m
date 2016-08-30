@@ -12,47 +12,65 @@
 
 #import "NSObject+MLWKVOMVVMUnobserver.h"
 
+static void *MLWKVOMVVMUnobserverContext = &MLWKVOMVVMUnobserverContext;
+
 //
 
 @interface MLWKVOMVVMUnobserver : NSObject
 
 @property (assign, nonatomic) id object;
-@property (strong, nonatomic) NSMutableDictionary<NSString *, NSHashTable<NSObject *> *> *keyPaths;
-@property (strong, nonatomic) NSMutableDictionary<NSString *, NSHashTable<NSObject *> *> *strongKeyPaths;
+@property (strong, nonatomic) NSMutableDictionary<NSString *, NSMapTable<id, NSHashTable *> *> *keyPaths;
+@property (strong, nonatomic) NSMutableDictionary<NSString *, NSMapTable<id, NSHashTable *> *> *strongKeyPaths;
 
 @end
 
 @implementation MLWKVOMVVMUnobserver
 
-- (NSMutableDictionary<NSString *, NSHashTable<NSObject *> *> *)keyPaths {
-    if (_keyPaths == nil) {
-        _keyPaths = [NSMutableDictionary dictionary];
+- (NSHashTable *)contextsForKeyPath:(NSString *)keyPath observer:(id)observer {
+    if (!self.keyPaths) {
+        self.keyPaths = [NSMutableDictionary dictionary];
     }
-    return _keyPaths;
+    if (!self.keyPaths[keyPath]) {
+        self.keyPaths[keyPath] = [NSMapTable mapTableWithKeyOptions:NSPointerFunctionsOpaqueMemory valueOptions:NSPointerFunctionsStrongMemory];
+    }
+    if (![self.keyPaths[keyPath] objectForKey:observer]) {
+        [self.keyPaths[keyPath] setObject:[NSHashTable hashTableWithOptions:NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality] forKey:observer];
+    }
+    return [self.keyPaths[keyPath] objectForKey:observer];
 }
 
-- (NSMutableDictionary<NSString *, NSHashTable<NSObject *> *> *)strongKeyPaths {
-    if (_strongKeyPaths == nil) {
-        _strongKeyPaths = [NSMutableDictionary dictionary];
+- (NSHashTable *)contextsForStrongKeyPath:(NSString *)keyPath observer:(id)observer {
+    if (!self.strongKeyPaths) {
+        self.strongKeyPaths = [NSMutableDictionary dictionary];
     }
-    return _strongKeyPaths;
+    if (!self.strongKeyPaths[keyPath]) {
+        self.strongKeyPaths[keyPath] = [NSMapTable mapTableWithKeyOptions:NSPointerFunctionsStrongMemory valueOptions:NSPointerFunctionsStrongMemory];
+    }
+    if (![self.strongKeyPaths[keyPath] objectForKey:observer]) {
+        [self.strongKeyPaths[keyPath] setObject:[NSHashTable hashTableWithOptions:NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality] forKey:observer];
+    }
+    return [self.strongKeyPaths[keyPath] objectForKey:observer];
 }
 
 - (void)dealloc {
-    for (NSString *keyPath in self.keyPaths) {
-        NSHashTable<NSObject *> *observers = self.keyPaths[keyPath];
-        for (NSObject *observer in observers) {
-            [self.object removeObserver:observer forKeyPath:keyPath];
+    for (NSDictionary<NSString *, NSMapTable<id, NSHashTable *> *> *keyPaths in @[ self.keyPaths ?: @{}, self.strongKeyPaths ?: @{} ]) {
+        for (NSString *keyPath in keyPaths) {
+            NSMapTable<id, NSHashTable *> *observers = keyPaths[keyPath];
+            for (NSObject *observer in observers) {
+                for (id context in [observers objectForKey:observer]) {
+                    if (context != MLWKVOMVVMUnobserverContext) {
+                        //NSLog(@"[%@ removeObserver:%p forKeyPath:%@ context: %p", [self class], observer, keyPath, context);
+                        [self.object removeObserver:observer forKeyPath:keyPath context:(__bridge void *_Nullable)(context)];
+                    }
+                    else {
+                        //NSLog(@"[%@ removeObserver:%p forKeyPath:%@", [self class], observer, keyPath);
+                        [self.object removeObserver:observer forKeyPath:keyPath];
+                    }
+                }
+            }
         }
     }
     self.keyPaths = nil;
-
-    for (NSString *keyPath in self.strongKeyPaths) {
-        NSHashTable<NSObject *> *observers = self.strongKeyPaths[keyPath];
-        for (NSObject *observer in observers) {
-            [self.object removeObserver:observer forKeyPath:keyPath];
-        }
-    }
     self.strongKeyPaths = nil;
 }
 
@@ -96,30 +114,31 @@
 }
 
 - (void)mvvm_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context {
+    //NSLog(@"[%@ addObserver:%p forKeyPath:%@ context: %p", [self class], observer, keyPath, context);
     if ([observer isKindOfClass:NSClassFromString(@"NSKeyValueObservance")]) {
-        if (!self.mvvm_unobserver.strongKeyPaths[keyPath]) {
-            self.mvvm_unobserver.strongKeyPaths[keyPath] = [NSHashTable hashTableWithOptions:NSPointerFunctionsStrongMemory];
-        }
-        [self.mvvm_unobserver.strongKeyPaths[keyPath] addObject:observer];
+        NSHashTable *strongHashTable = [self.mvvm_unobserver contextsForStrongKeyPath:keyPath observer:observer];
+        [strongHashTable addObject:(__bridge id _Nullable)(context ?: MLWKVOMVVMUnobserverContext)];
     }
     else {
-        if (!self.mvvm_unobserver.keyPaths[keyPath]) {
-            self.mvvm_unobserver.keyPaths[keyPath] = [NSHashTable hashTableWithOptions:NSPointerFunctionsOpaqueMemory];
-        }
-        [self.mvvm_unobserver.keyPaths[keyPath] addObject:observer];
+        NSHashTable *hashTable = [self.mvvm_unobserver contextsForKeyPath:keyPath observer:observer];
+        [hashTable addObject:(__bridge id _Nullable)(context ?: MLWKVOMVVMUnobserverContext)];
     }
     [self mvvm_addObserver:observer forKeyPath:keyPath options:options context:context];
 }
 
 - (void)mvvm_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath context:(void *)context {
-    [self.mvvm_unobserver.keyPaths[keyPath] removeObject:observer];
-    [self.mvvm_unobserver.strongKeyPaths[keyPath] removeObject:observer];
+    NSHashTable *hashTable = [self.mvvm_unobserver.keyPaths[keyPath] objectForKey:observer];
+    NSHashTable *strongHashTable = [self.mvvm_unobserver.strongKeyPaths[keyPath] objectForKey:observer];
+    [hashTable removeObject:(__bridge id _Nullable)(context ?: MLWKVOMVVMUnobserverContext)];
+    [strongHashTable removeObject:(__bridge id _Nullable)(context ?: MLWKVOMVVMUnobserverContext)];
     [self mvvm_removeObserver:observer forKeyPath:keyPath context:context];
 }
 
 - (void)mvvm_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath {
-    [self.mvvm_unobserver.keyPaths[keyPath] removeObject:observer];
-    [self.mvvm_unobserver.strongKeyPaths[keyPath] removeObject:observer];
+    NSHashTable *hashTable = [self.mvvm_unobserver.keyPaths[keyPath] objectForKey:observer];
+    NSHashTable *strongHashTable = [self.mvvm_unobserver.strongKeyPaths[keyPath] objectForKey:observer];
+    [hashTable removeObject:(__bridge id _Nullable)(MLWKVOMVVMUnobserverContext)];
+    [strongHashTable removeObject:(__bridge id _Nullable)(MLWKVOMVVMUnobserverContext)];
     [self mvvm_removeObserver:observer forKeyPath:keyPath];
 }
 
