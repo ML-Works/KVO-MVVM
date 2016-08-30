@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "NSObject+MLWKVOMVVMUnobserver.h"
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (MLWKVOMVVM)
