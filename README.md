@@ -8,37 +8,30 @@
 ## Usage
 
 1. First `#import <KVO-MVVM/KVO-MVVM.h>`
-
-2. Then subclass from any of classes listed:
-   * MVVMObject
-   * MVVMViewController
-   * MVVMTableViewController
-   * MVVMView
-   * MVVMControl
-   * MVVMButton
-   * MVVMTableView
-   * MVVMTableViewCell
-   * MVVMCollectionView
-   * MVVMCollectionViewCell
-   * MVVMCollectionReusableView
-
-3. Finally use `mvvm_observe:with:` like this:
-```objective-c
-   - (instancetype)initWithFrame:(CGRect)frame {
-       if (self = [super initWithFrame:frame]) {
-
-           [self mvvm_observe:@keypath(self.viewModel.title) with:^(typeof(self) self, NSString *title) {
-               self.titleLabel.text = self.viewModel.title;
-           }];
-           
-           [self mvvm_observe:@keypath(self.viewModel.value) with:^(typeof(self) self, NSNumber *value) {
-               self.valueLabel.text = [NSString stringWithFormat:@"Value = %f", self.viewModel.value);
-           }];
-
-       }
-       return self;
-   }
-```
+2. Use `mvvm_observe:with:` or `mvvm_observeCollection:with:` like this:
+  ```objective-c
+     - (instancetype)initWithFrame:(CGRect)frame {
+         if (self = [super initWithFrame:frame]) {
+  
+             [self mvvm_observe:@keypath(self.viewModel.title)
+                           with:^(typeof(self) self, NSString *title) {
+                 self.titleLabel.text = self.viewModel.title;
+             }];
+             
+             [self mvvm_observeCollection:@keypath(self.viewModel.values)
+                                     with:^(typeof(self) self,
+                                            NSArray<NSNumber *> *value,
+                                            NSKeyValueChange change,
+                                            NSIndexSet *indexes) {
+                 // ...
+             }];
+  
+         }
+         return self;
+     }
+  ```
+3. Observe keypaths with `weak` properties in it without any discomfort
+4. Do not unobserve any KVO-observings any more
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
