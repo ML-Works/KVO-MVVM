@@ -12,7 +12,7 @@
 
 @interface MVVMCycleModelObject : NSObject
 
-@property (assign, nonatomic) NSInteger state;
+@property (strong, nonatomic) NSString *state;
 @property (strong, nonatomic) NSArray<NSNumber *> *properties;
 @property (readonly, strong, nonatomic) NSMutableArray<NSNumber *> *mutableProperties;
 
@@ -35,7 +35,7 @@
 
 //
 
-@interface MVVMCycleView : MVVMView
+@interface MVVMCycleView : NSObject
 
 @property (strong, nonatomic) MVVMCycleModelObject *viewModel;
 
@@ -43,11 +43,10 @@
 
 @implementation MVVMCycleView
 
-- (instancetype)initWithFrame:(CGRect)frame
-                      options:(NSKeyValueObservingOptions)options
-          viewModelStateBlock:(void (^)(MVVMCycleView *self, NSNumber *value))viewModelStateBlock
-     viewModelPropertiesBlock:(void (^)(MVVMCycleView *self, NSNumber *value, NSKeyValueChange change, NSIndexSet *indexes))viewModelPropertiesBlock {
-    if (self = [super initWithFrame:frame]) {
+- (instancetype)initWithOptions:(NSKeyValueObservingOptions)options
+            viewModelStateBlock:(void (^)(MVVMCycleView *self, NSNumber *value))viewModelStateBlock
+       viewModelPropertiesBlock:(void (^)(MVVMCycleView *self, NSNumber *value, NSKeyValueChange change, NSIndexSet *indexes))viewModelPropertiesBlock {
+    if (self = [super init]) {
         if (viewModelStateBlock) {
             [self mvvm_observe:@"viewModel.state" options:options with:^(typeof(self) self, NSNumber * value) {
                 viewModelStateBlock(self, value);
@@ -83,30 +82,13 @@
     [super tearDown];
 }
 
-- (void)testClassesExists {
-    XCTAssertNotNil([MVVMObject class]);
-
-    XCTAssertNotNil([MVVMViewController class]);
-
-    XCTAssertNotNil([MVVMView class]);
-    XCTAssertNotNil([MVVMControl class]);
-    XCTAssertNotNil([MVVMButton class]);
-
-    XCTAssertNotNil([MVVMTableView class]);
-    XCTAssertNotNil([MVVMTableViewCell class]);
-
-    XCTAssertNotNil([MVVMCollectionView class]);
-    XCTAssertNotNil([MVVMCollectionViewCell class]);
-    XCTAssertNotNil([MVVMCollectionReusableView class]);
-}
-
 - (void)testShortLivedViewModel {
     __block NSInteger observeCalledCount = 0;
     __block NSInteger observeCalledCount2 = 0;
     __weak MVVMCycleView *weakView = nil;
 
     @autoreleasepool {
-        MVVMCycleView *view = [[MVVMCycleView alloc] initWithFrame:CGRectZero options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) viewModelStateBlock:^(MVVMCycleView *self, NSNumber *value) {
+        MVVMCycleView *view = [[MVVMCycleView alloc] initWithOptions:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) viewModelStateBlock:^(MVVMCycleView *self, NSNumber *value) {
             observeCalledCount++;
         }
             viewModelPropertiesBlock:^(MVVMCycleView *self, NSNumber *value, NSKeyValueChange change, NSIndexSet *indexes) {
@@ -114,15 +96,15 @@
             }];
         XCTAssertEqual(observeCalledCount, 1);
         XCTAssertEqual(observeCalledCount2, 1);
-        
+
         view.viewModel = [[MVVMCycleModelObject alloc] init];
+        XCTAssertEqual(observeCalledCount, 1);
+        XCTAssertEqual(observeCalledCount2, 2);
+
+        view.viewModel.state = @"2";
         XCTAssertEqual(observeCalledCount, 2);
         XCTAssertEqual(observeCalledCount2, 2);
-        
-        view.viewModel.state = 2;
-        XCTAssertEqual(observeCalledCount, 3);
-        XCTAssertEqual(observeCalledCount2, 2);
-        
+
         weakView = view;
     }
 
@@ -133,7 +115,7 @@
     __block NSInteger observeCalledCount = 0;
     __block NSInteger observeCalledCount2 = 0;
 
-    MVVMCycleView *view = [[MVVMCycleView alloc] initWithFrame:CGRectZero options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) viewModelStateBlock:^(MVVMCycleView *self, NSNumber *value) {
+    MVVMCycleView *view = [[MVVMCycleView alloc] initWithOptions:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) viewModelStateBlock:^(MVVMCycleView *self, NSNumber *value) {
         observeCalledCount++;
     }
         viewModelPropertiesBlock:^(MVVMCycleView *self, NSNumber *value, NSKeyValueChange change, NSIndexSet *indexes) {
@@ -141,13 +123,13 @@
         }];
     XCTAssertEqual(observeCalledCount, 0);
     XCTAssertEqual(observeCalledCount2, 0);
-    
+
     view.viewModel = [[MVVMCycleModelObject alloc] init];
-    XCTAssertEqual(observeCalledCount, 1);
+    XCTAssertEqual(observeCalledCount, 0);
     XCTAssertEqual(observeCalledCount2, 1);
-    
-    view.viewModel.state = 2;
-    XCTAssertEqual(observeCalledCount, 2);
+
+    view.viewModel.state = @"2";
+    XCTAssertEqual(observeCalledCount, 1);
     XCTAssertEqual(observeCalledCount2, 1);
 }
 
@@ -155,7 +137,7 @@
     __block NSKeyValueChange lastChange = 0;
     __block NSIndexSet *lastIndexes = nil;
 
-    MVVMCycleView *view = [[MVVMCycleView alloc] initWithFrame:CGRectZero options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) viewModelStateBlock:nil viewModelPropertiesBlock:^(MVVMCycleView *self, NSNumber *value, NSKeyValueChange change, NSIndexSet *indexes) {
+    MVVMCycleView *view = [[MVVMCycleView alloc] initWithOptions:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) viewModelStateBlock:nil viewModelPropertiesBlock:^(MVVMCycleView *self, NSNumber *value, NSKeyValueChange change, NSIndexSet *indexes) {
         lastChange = change;
         lastIndexes = indexes;
     }];

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "KVO-MVVM"
-  s.version          = "0.3.1"
+  s.version          = "0.4.0"
   s.summary          = "KVO binding especially for ViewModel observing by View"
 
   s.description      = <<-DESC
@@ -19,6 +19,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*.{h,m}'
-  s.private_header_files = 'Pod/Classes/NSObject+MVVMKVOPrivate.h'
-  s.preserve_paths = 'Pod/Classes/MVVMClass.m.temp'
+  s.private_header_files = 'Pod/Classes/NSObject+MLWKVOMVVMPrivate.h'
+
+  s.dependency 'JRSwizzle'
 end
