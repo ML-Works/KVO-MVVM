@@ -42,7 +42,7 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
 
 #pragma mark - Private NSObject methods
 
-@class MLWKVOMVVMHolder;
+@class KVOMVVMHolder;
 
 @interface NSObject (MVVMKVO_Private)
 
@@ -51,7 +51,7 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
                              change:(NSDictionary<NSString *, id> *)change
                             context:(void *)context;
 
-- (void)mvvm_unobserveAllWithUnobserver:(MLWKVOMVVMHolder *)unobserver;
+- (void)mvvm_unobserveAllWithUnobserver:(KVOMVVMHolder *)unobserver;
 
 @end
 
@@ -59,14 +59,14 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
 
 #pragma mark - Unobserver
 
-@interface MLWKVOMVVMHolder : NSObject
+@interface KVOMVVMHolder : NSObject
 
 @property (strong, nonatomic) ObserveBlocksDictionary *blocks;
 @property (strong, nonatomic) ObserveCollectionBlocksDictionary *collectionBlocks;
 
 @end
 
-@implementation MLWKVOMVVMHolder
+@implementation KVOMVVMHolder
 
 - (ObserveBlocksDictionary *)blocks {
     if (_blocks == nil) {
@@ -88,7 +88,7 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
 
 @interface NSObject (MVVMKVOPrivate)
 
-@property (readonly, nonatomic) MLWKVOMVVMHolder *mvvm_holder;
+@property (readonly, nonatomic) KVOMVVMHolder *mvvm_holder;
 
 @end
 
@@ -97,9 +97,9 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
 @dynamic mvvm_holder;
 
 - (id)mvvm_holder {
-    MLWKVOMVVMHolder *holder = objc_getAssociatedObject(self, _cmd);
+    KVOMVVMHolder *holder = objc_getAssociatedObject(self, _cmd);
     if (holder == nil) {
-        holder = [[MLWKVOMVVMHolder alloc] init];
+        holder = [[KVOMVVMHolder alloc] init];
         objc_setAssociatedObject(self, _cmd, holder, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return holder;
@@ -163,7 +163,7 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
     [self mvvm_unobserveAllWithUnobserver:self.mvvm_holder];
 }
 
-- (void)mvvm_unobserveAllWithUnobserver:(MLWKVOMVVMHolder *)unobserver {
+- (void)mvvm_unobserveAllWithUnobserver:(KVOMVVMHolder *)unobserver {
     for (NSString *keyPath in unobserver.blocks) {
         [self removeObserver:self forKeyPath:keyPath];
     }
