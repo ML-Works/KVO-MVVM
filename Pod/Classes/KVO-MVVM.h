@@ -21,7 +21,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSObject (MLWKVOMVVM)
+@interface NSObject (KVOMVVM)
 
 - (void)mvvm_observe:(NSString *)keyPath with:(void (^)(id self, id _Nullable value))block;
 - (void)mvvm_observe:(NSString *)keyPath options:(NSKeyValueObservingOptions)options with:(void (^)(id self, id _Nullable value))block;

@@ -25,20 +25,42 @@
 
 #define KVO_MVVM_DEBUG_PRINT 0
 
-static void *MLWKVOMVVMUnobserverContext = &MLWKVOMVVMUnobserverContext;
+static void *KVOMVVMUnobserverContext = &KVOMVVMUnobserverContext;
 
 //
 
-@interface MLWKVOMVVMUnobserver : NSObject
+static NSMapTable *skipDict = nil;
+__attribute__((constructor))
+static void initialize_unobservers() {
+    skipDict = [NSMapTable mapTableWithKeyOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality) valueOptions:NSPointerFunctionsStrongMemory];
+}
 
-@property (assign, nonatomic) id object;
-@property (assign, nonatomic) BOOL skipObserverCalls;
+//
+
+@class KVOMVVMUnobserver;
+
+@interface NSObject (KVOMVVMUnobservable)
+
+@property (readonly, strong, nonatomic) KVOMVVMUnobserver *mvvm_unobserver;
+@property (assign, nonatomic) BOOL mvvm_skipObserverCalls;
+- (void)mvvm_skipObserverCallsForget;
+
+- (void)mvvm_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath;
+- (void)mvvm_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath context:(void *)context;
+
+@end
+
+//
+
+@interface KVOMVVMUnobserver : NSObject
+
+@property (assign, nonatomic) NSObject *object;
 @property (strong, nonatomic) NSMutableDictionary<NSString *, NSMapTable<id, NSHashTable *> *> *keyPaths;
 @property (strong, nonatomic) NSMutableDictionary<NSString *, NSMapTable<id, NSHashTable *> *> *strongKeyPaths;
 
 @end
 
-@implementation MLWKVOMVVMUnobserver
+@implementation KVOMVVMUnobserver
 
 - (instancetype)initWithObject:(id)object {
     self = [super init];
@@ -69,59 +91,76 @@ static void *MLWKVOMVVMUnobserverContext = &MLWKVOMVVMUnobserverContext;
 }
 
 - (NSHashTable *)contextsForKeyPath:(NSString *)keyPath observer:(id)observer {
-    return [[self class] createDictionary:&_keyPaths forKeyPath:keyPath observer:observer storeObserversStrong:NO];
+    @autoreleasepool {
+        return [[self class] createDictionary:&_keyPaths forKeyPath:keyPath observer:observer storeObserversStrong:NO];
+    }
 }
 
 - (NSHashTable *)contextsForStrongKeyPath:(NSString *)keyPath observer:(id)observer {
-    return [[self class] createDictionary:&_strongKeyPaths forKeyPath:keyPath observer:observer storeObserversStrong:YES];
+    @autoreleasepool {
+        return [[self class] createDictionary:&_strongKeyPaths forKeyPath:keyPath observer:observer storeObserversStrong:YES];
+    }
 }
 
 - (void)dealloc {
-    for (NSDictionary<NSString *, NSMapTable<id, NSHashTable *> *> *keyPaths in @[ self.keyPaths ?: @{}, self.strongKeyPaths ?: @{} ]) {
-        for (NSString *keyPath in keyPaths) {
-            NSMapTable<id, NSHashTable *> *observers = keyPaths[keyPath];
-            for (NSObject *observer in observers) {
-                for (id context in [observers objectForKey:observer] ) {
-                    if (context != MLWKVOMVVMUnobserverContext) {
+    @autoreleasepool {
+        self.object.mvvm_skipObserverCalls = YES;
+        for (NSDictionary<NSString *, NSMapTable<id, NSHashTable *> *> *keyPaths in @[ self.keyPaths ?: @{}, self.strongKeyPaths ?: @{} ]) {
+            for (NSString *keyPath in keyPaths) {
+                NSMapTable<id, NSHashTable *> *observers = keyPaths[keyPath];
+                for (NSObject *observer in observers) {
+                    for (id context in [observers objectForKey:observer] ) {
+                        if (context != KVOMVVMUnobserverContext) {
 #if KVO_MVVM_DEBUG_PRINT
-                        NSLog(@"[%@(KVO-MVVM) removeObserver:%p forKeyPath:%@ context:%p]", [self.object class], observer, keyPath, context);
+                            NSLog(@"[%@(KVO-MVVM) removeObserver:%p forKeyPath:%@ context:%p]", [self.object class], observer, keyPath, context);
 #endif
-                        [self.object removeObserver:observer forKeyPath:keyPath context:(__bridge void *_Nullable)(context)];
-                    }
-                    else {
+                            [self.object mvvm_removeObserver:observer forKeyPath:keyPath context:(__bridge void *_Nullable)(context)];
+                        }
+                        else {
 #if KVO_MVVM_DEBUG_PRINT
-                        NSLog(@"[%@(KVO-MVVM) removeObserver:%p forKeyPath:%@]", [self.object class], observer, keyPath);
+                            NSLog(@"[%@(KVO-MVVM) removeObserver:%p forKeyPath:%@]", [self.object class], observer, keyPath);
 #endif
-                        [self.object removeObserver:observer forKeyPath:keyPath];
+                            [self.object mvvm_removeObserver:observer forKeyPath:keyPath];
+                        }
                     }
                 }
             }
         }
+        [self mvvm_skipObserverCallsForget];
+        objc_removeAssociatedObjects(self.object);
     }
-    self.keyPaths = nil;
-    self.strongKeyPaths = nil;
 }
 
 @end
 
 //
 
-@interface NSObject (MLWKVOMVVMUnobservable)
+@implementation NSObject (KVOMVVMUnobservable)
 
-@property (readonly, nonatomic) MLWKVOMVVMUnobserver *mvvm_unobserver;
+- (BOOL)mvvm_skipObserverCalls {
+    @synchronized (skipDict) {
+        return [[skipDict objectForKey:self] boolValue];
+    }
+}
 
-@end
+- (void)setMvvm_skipObserverCalls:(BOOL)mvvm_skipObserverCalls {
+    @synchronized (skipDict) {
+        [skipDict setObject:@(mvvm_skipObserverCalls) forKey:self];
+    }
+}
 
-@implementation NSObject (MLWKVOMVVMUnobservable)
+- (void)mvvm_skipObserverCallsForget {
+    @synchronized (skipDict) {
+        [skipDict removeObjectForKey:self];
+    }
+}
 
-@dynamic mvvm_unobserver;
-
-- (id)mvvm_unobserver {
-    MLWKVOMVVMUnobserver *unobserver;
+- (KVOMVVMUnobserver *)mvvm_unobserver {
+    KVOMVVMUnobserver *unobserver;
     @autoreleasepool {
         unobserver = objc_getAssociatedObject(self, _cmd);
         if (unobserver == nil) {
-            unobserver = [[MLWKVOMVVMUnobserver alloc] initWithObject:self];
+            unobserver = [[KVOMVVMUnobserver alloc] initWithObject:self];
             objc_setAssociatedObject(self, _cmd, unobserver, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         }
     }
@@ -145,7 +184,7 @@ static void *MLWKVOMVVMUnobserverContext = &MLWKVOMVVMUnobserverContext;
 
 - (void)mvvm_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context {
     @autoreleasepool {
-        if (self.mvvm_unobserver.skipObserverCalls) {
+        if (self.mvvm_skipObserverCalls) {
 #if KVO_MVVM_DEBUG_PRINT
             NSLog(@"[%@(KVO-MVVM-Skipped) addObserver:%p forKeyPath:%@ context:%p]", [self class], observer, keyPath, context);
 #endif
@@ -156,24 +195,25 @@ static void *MLWKVOMVVMUnobserverContext = &MLWKVOMVVMUnobserverContext;
 #if KVO_MVVM_DEBUG_PRINT
         NSLog(@"[%@ addObserver:%p forKeyPath:%@ context:%p]", [self class], observer, keyPath, context);
 #endif
+        KVOMVVMUnobserver *unobserver = self.mvvm_unobserver;
         if ([observer isKindOfClass:NSClassFromString(@"NSKeyValueObservance")]) {
-            NSHashTable *strongHashTable = [self.mvvm_unobserver contextsForStrongKeyPath:keyPath observer:observer];
-            [strongHashTable addObject:(__bridge id _Nullable)(context ?: MLWKVOMVVMUnobserverContext)];
+            NSHashTable *strongHashTable = [unobserver contextsForStrongKeyPath:keyPath observer:observer];
+            [strongHashTable addObject:(__bridge id _Nullable)(context ?: KVOMVVMUnobserverContext)];
         }
         else {
-            NSHashTable *hashTable = [self.mvvm_unobserver contextsForKeyPath:keyPath observer:observer];
-            [hashTable addObject:(__bridge id _Nullable)(context ?: MLWKVOMVVMUnobserverContext)];
+            NSHashTable *hashTable = [unobserver contextsForKeyPath:keyPath observer:observer];
+            [hashTable addObject:(__bridge id _Nullable)(context ?: KVOMVVMUnobserverContext)];
         }
         
-        self.mvvm_unobserver.skipObserverCalls = YES;
+        self.mvvm_skipObserverCalls = YES;
         [self mvvm_addObserver:observer forKeyPath:keyPath options:options context:context];
-        self.mvvm_unobserver.skipObserverCalls = NO;
+        self.mvvm_skipObserverCalls = NO;
     }
 }
 
 - (void)mvvm_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath context:(void *)context {
     @autoreleasepool {
-        if (self.mvvm_unobserver.skipObserverCalls) {
+        if (self.mvvm_skipObserverCalls) {
 #if KVO_MVVM_DEBUG_PRINT
             NSLog(@"[%@(KVO-MVVM-Skipped) removeObserver:%p forKeyPath:%@ context:%p]", [self class], observer, keyPath, context);
 #endif
@@ -184,26 +224,27 @@ static void *MLWKVOMVVMUnobserverContext = &MLWKVOMVVMUnobserverContext;
 #if KVO_MVVM_DEBUG_PRINT
         NSLog(@"[%@ removeObserver:%p forKeyPath:%@ context:%p]", [self class], observer, keyPath, context);
 #endif
-        NSHashTable *hashTable = [self.mvvm_unobserver.keyPaths[keyPath] objectForKey:observer];
-        NSHashTable *strongHashTable = [self.mvvm_unobserver.strongKeyPaths[keyPath] objectForKey:observer];
-        [hashTable removeObject:(__bridge id _Nullable)(context ?: MLWKVOMVVMUnobserverContext)];
-        [strongHashTable removeObject:(__bridge id _Nullable)(context ?: MLWKVOMVVMUnobserverContext)];
+        KVOMVVMUnobserver *unobserver = self.mvvm_unobserver;
+        NSHashTable *hashTable = [unobserver.keyPaths[keyPath] objectForKey:observer];
+        NSHashTable *strongHashTable = [unobserver.strongKeyPaths[keyPath] objectForKey:observer];
+        [hashTable removeObject:(__bridge id _Nullable)(context ?: KVOMVVMUnobserverContext)];
+        [strongHashTable removeObject:(__bridge id _Nullable)(context ?: KVOMVVMUnobserverContext)];
         if (hashTable && hashTable.count == 0) {
-            [self.mvvm_unobserver.keyPaths[keyPath] removeObjectForKey:observer];
+            [unobserver.keyPaths[keyPath] removeObjectForKey:observer];
         }
         if (strongHashTable && strongHashTable.count == 0) {
-            [self.mvvm_unobserver.strongKeyPaths[keyPath] removeObjectForKey:observer];
+            [unobserver.strongKeyPaths[keyPath] removeObjectForKey:observer];
         }
         
-        self.mvvm_unobserver.skipObserverCalls = YES;
+        self.mvvm_skipObserverCalls = YES;
         [self mvvm_removeObserver:observer forKeyPath:keyPath context:context];
-        self.mvvm_unobserver.skipObserverCalls = NO;
+        self.mvvm_skipObserverCalls = NO;
     }
 }
 
 - (void)mvvm_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath {
     @autoreleasepool {
-        if (self.mvvm_unobserver.skipObserverCalls) {
+        if (self.mvvm_skipObserverCalls) {
 #if KVO_MVVM_DEBUG_PRINT
             NSLog(@"[%@(KVO-MVVM-Skipped) removeObserver:%p forKeyPath:%@]", [self class], observer, keyPath);
 #endif
@@ -214,24 +255,25 @@ static void *MLWKVOMVVMUnobserverContext = &MLWKVOMVVMUnobserverContext;
 #if KVO_MVVM_DEBUG_PRINT
         NSLog(@"[%@ removeObserver:%p forKeyPath:%@]", [self class], observer, keyPath);
 #endif
-        [self.mvvm_unobserver.keyPaths[keyPath] removeObjectForKey:observer];
-        [self.mvvm_unobserver.strongKeyPaths[keyPath] removeObjectForKey:observer];
-        if (self.mvvm_unobserver.keyPaths[keyPath].count == 0) {
-            [self.mvvm_unobserver.keyPaths removeObjectForKey:keyPath];
+        KVOMVVMUnobserver *unobserver = self.mvvm_unobserver;
+        [unobserver.keyPaths[keyPath] removeObjectForKey:observer];
+        [unobserver.strongKeyPaths[keyPath] removeObjectForKey:observer];
+        if (unobserver.keyPaths[keyPath].count == 0) {
+            [unobserver.keyPaths removeObjectForKey:keyPath];
         }
-        if (self.mvvm_unobserver.strongKeyPaths[keyPath].count == 0) {
-            [self.mvvm_unobserver.strongKeyPaths removeObjectForKey:keyPath];
+        if (unobserver.strongKeyPaths[keyPath].count == 0) {
+            [unobserver.strongKeyPaths removeObjectForKey:keyPath];
         }
-        if (self.mvvm_unobserver.keyPaths.count == 0) {
-            self.mvvm_unobserver.keyPaths = nil;
+        if (unobserver.keyPaths.count == 0) {
+            unobserver.keyPaths = nil;
         }
-        if (self.mvvm_unobserver.strongKeyPaths.count == 0) {
-            self.mvvm_unobserver.strongKeyPaths = nil;
+        if (unobserver.strongKeyPaths.count == 0) {
+            unobserver.strongKeyPaths = nil;
         }
         
-        self.mvvm_unobserver.skipObserverCalls = YES;
+        self.mvvm_skipObserverCalls = YES;
         [self mvvm_removeObserver:observer forKeyPath:keyPath];
-        self.mvvm_unobserver.skipObserverCalls = NO;
+        self.mvvm_skipObserverCalls = NO;
     }
 }
 
