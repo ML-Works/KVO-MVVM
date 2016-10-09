@@ -27,22 +27,138 @@
 
 static void *KVOMVVMUnobserverContext = &KVOMVVMUnobserverContext;
 
+static NSHashTable *CreateDictionary(NSMutableDictionary * __strong *dict, NSString *keyPath, id observerOrObject) {
+    if (!*dict) {
+        *dict = [NSMutableDictionary dictionary];
+    }
+    NSMapTable<id, NSHashTable *> *mapTable = (*dict)[keyPath];
+    if (!mapTable) {
+        mapTable = [NSMapTable mapTableWithKeyOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality) valueOptions:NSPointerFunctionsStrongMemory];
+        (*dict)[keyPath] = mapTable;
+    }
+    NSHashTable *hashTable = [mapTable objectForKey:observerOrObject];
+    if (!hashTable) {
+        hashTable = [NSHashTable hashTableWithOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality)];
+        [mapTable setObject:hashTable forKey:observerOrObject];
+    }
+    return hashTable;
+}
+
 //
 
 @interface NSObject (KVOMVVMLocking)
 
 @property (assign, nonatomic) BOOL mvvm_skip;
+@property (assign, nonatomic) BOOL mvvm_inDealloc;
 
 @end
 
 @implementation NSObject (KVOMVVMLocking)
 
+static NSHashTable *skipHashTable = nil;
+
 - (BOOL)mvvm_skip {
-    return [objc_getAssociatedObject(self, _cmd) boolValue];
+    return [skipHashTable containsObject:self];
 }
 
 - (void)setMvvm_skip:(BOOL)mvvm_skip {
-    objc_setAssociatedObject(self, @selector(mvvm_skip), @(mvvm_skip), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    if (!skipHashTable) {
+        skipHashTable = [NSHashTable hashTableWithOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality)];
+    }
+    if (mvvm_skip) {
+        [skipHashTable addObject:self];
+    }
+    else {
+        [skipHashTable removeObject:self];
+    }
+}
+
+static NSHashTable *inDeallocHashTable = nil;
+
+- (BOOL)mvvm_inDealloc {
+    return [inDeallocHashTable containsObject:self];
+}
+
+- (void)setMvvm_inDealloc:(BOOL)mvvm_inDealloc {
+    if (!inDeallocHashTable) {
+        inDeallocHashTable = [NSHashTable hashTableWithOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality)];
+    }
+    if (mvvm_inDealloc) {
+        [inDeallocHashTable addObject:self];
+    }
+    else {
+        [inDeallocHashTable removeObject:self];
+    }
+}
+
+@end
+
+//
+
+@interface KVOMVVMObserverFriend : NSObject
+
+@property (assign, nonatomic) NSObject *observer;
+@property (strong, nonatomic) NSMutableDictionary<NSString *, NSMapTable<id, NSHashTable *> *> *keyPaths;
+
+@end
+
+@implementation KVOMVVMObserverFriend
+
+- (instancetype)initWithObserver:(id)observer {
+    self = [super init];
+    if (self) {
+        _observer = observer;
+    }
+    return self;
+}
+
+- (NSHashTable *)contextsForKeyPath:(NSString *)keyPath object:(id)object {
+    return CreateDictionary(&_keyPaths, keyPath, object);
+}
+
+- (void)dealloc {
+    self.observer.mvvm_inDealloc = YES;
+    
+    for (NSString *keyPath in self.keyPaths) {
+        NSMapTable<id, NSHashTable *> *objects = self.keyPaths[keyPath];
+        for (NSObject *object in objects) {
+            if (self.observer == object) {
+                continue; // Avoid double unobserving
+            }
+            
+            for (id context in [objects objectForKey:object] ) {
+                if (context != KVOMVVMUnobserverContext) {
+#if KVO_MVVM_DEBUG_PRINT
+                    NSLog(@"%p [%@(KVO-MVVM-Friend) removeObserver:%p forKeyPath:%@ context:%p]", object, [object class], self.observer, keyPath, context);
+#endif
+                    [object removeObserver:self.observer forKeyPath:keyPath context:(__bridge void *_Nullable)(context)];
+                }
+                else {
+#if KVO_MVVM_DEBUG_PRINT
+                    NSLog(@"%p [%@(KVO-MVVM-Friend) removeObserver:%p forKeyPath:%@]", object, [object class], self.observer, keyPath);
+#endif
+                    [object removeObserver:self.observer forKeyPath:keyPath];
+                }
+            }
+        }
+    }
+    
+    self.observer.mvvm_inDealloc = NO;
+}
+
+@end
+
+//
+
+@implementation NSObject (KVOMVVMObserverFriend)
+
+- (KVOMVVMObserverFriend *)mvvm_friend {
+    KVOMVVMObserverFriend *friend = objc_getAssociatedObject(self, _cmd);
+    if (friend == nil && !self.mvvm_inDealloc) {
+        friend = [[KVOMVVMObserverFriend alloc] initWithObserver:self];
+        objc_setAssociatedObject(self, _cmd, friend, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return friend;
 }
 
 @end
@@ -53,7 +169,6 @@ static void *KVOMVVMUnobserverContext = &KVOMVVMUnobserverContext;
 
 @property (assign, nonatomic) NSObject *object;
 @property (strong, nonatomic) NSMutableDictionary<NSString *, NSMapTable<id, NSHashTable *> *> *keyPaths;
-@property (strong, nonatomic) NSMutableDictionary<NSString *, NSMapTable<id, NSHashTable *> *> *strongKeyPaths;
 
 @end
 
@@ -67,61 +182,34 @@ static void *KVOMVVMUnobserverContext = &KVOMVVMUnobserverContext;
     return self;
 }
 
-+ (NSHashTable *)createDictionary:(NSMutableDictionary * __strong *)dict
-                       forKeyPath:(NSString *)keyPath
-                         observer:(id)observer
-             storeObserversStrong:(BOOL)storeObserversStrong {
-    if (!*dict) {
-        *dict = [NSMutableDictionary dictionary];
-    }
-    NSMapTable<id, NSHashTable *> *mapTable = (*dict)[keyPath];
-    if (!mapTable) {
-        mapTable = [NSMapTable mapTableWithKeyOptions:storeObserversStrong ? NSPointerFunctionsStrongMemory : (NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality) valueOptions:NSPointerFunctionsStrongMemory];
-        (*dict)[keyPath] = mapTable;
-    }
-    NSHashTable *hashTable = [mapTable objectForKey:observer];
-    if (!hashTable) {
-        hashTable = [NSHashTable hashTableWithOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality)];
-        [mapTable setObject:hashTable forKey:observer];
-    }
-    return hashTable;
-}
-
 - (NSHashTable *)contextsForKeyPath:(NSString *)keyPath observer:(id)observer {
-    return [[self class] createDictionary:&_keyPaths forKeyPath:keyPath observer:observer storeObserversStrong:NO];
-}
-
-- (NSHashTable *)contextsForStrongKeyPath:(NSString *)keyPath observer:(id)observer {
-    return [[self class] createDictionary:&_strongKeyPaths forKeyPath:keyPath observer:observer storeObserversStrong:YES];
+    return CreateDictionary(&_keyPaths, keyPath, observer);
 }
 
 - (void)dealloc {
-    self.object.mvvm_skip = YES;
+    self.object.mvvm_inDealloc = YES;
     
-    for (NSDictionary<NSString *, NSMapTable<id, NSHashTable *> *> *keyPaths in @[ self.keyPaths ?: @{}, self.strongKeyPaths ?: @{} ]) {
-        for (NSString *keyPath in keyPaths) {
-            NSMapTable<id, NSHashTable *> *observers = keyPaths[keyPath];
-            for (NSObject *observer in observers) {
-                for (id context in [observers objectForKey:observer] ) {
-                    if (context != KVOMVVMUnobserverContext) {
+    for (NSString *keyPath in self.keyPaths) {
+        NSMapTable<id, NSHashTable *> *observers = self.keyPaths[keyPath];
+        for (NSObject *observer in observers) {
+            for (id context in [observers objectForKey:observer] ) {
+                if (context != KVOMVVMUnobserverContext) {
 #if KVO_MVVM_DEBUG_PRINT
-                        NSLog(@"[%@(KVO-MVVM) removeObserver:%p forKeyPath:%@ context:%p]", [self.object class], observer, keyPath, context);
+                    NSLog(@"%p [%@(KVO-MVVM) removeObserver:%p forKeyPath:%@ context:%p]", self.object, [self.object class], observer, keyPath, context);
 #endif
-                        [self.object removeObserver:observer forKeyPath:keyPath context:(__bridge void *_Nullable)(context)];
-                    }
-                    else {
+                    [self.object removeObserver:observer forKeyPath:keyPath context:(__bridge void *_Nullable)(context)];
+                }
+                else {
 #if KVO_MVVM_DEBUG_PRINT
-                        NSLog(@"[%@(KVO-MVVM) removeObserver:%p forKeyPath:%@]", [self.object class], observer, keyPath);
+                    NSLog(@"%p [%@(KVO-MVVM) removeObserver:%p forKeyPath:%@]", self.object, [self.object class], observer, keyPath);
 #endif
-                        [self.object removeObserver:observer forKeyPath:keyPath];
-                    }
+                    [self.object removeObserver:observer forKeyPath:keyPath];
                 }
             }
         }
     }
     
-    self.object.mvvm_skip = NO;
-    objc_removeAssociatedObjects(self.object);
+    self.object.mvvm_inDealloc = NO;
 }
 
 @end
@@ -132,12 +220,18 @@ static void *KVOMVVMUnobserverContext = &KVOMVVMUnobserverContext;
 
 - (KVOMVVMUnobserver *)mvvm_unobserver {
     KVOMVVMUnobserver *unobserver = objc_getAssociatedObject(self, _cmd);
-    if (unobserver == nil) {
+    if (unobserver == nil && !self.mvvm_inDealloc) {
         unobserver = [[KVOMVVMUnobserver alloc] initWithObject:self];
         objc_setAssociatedObject(self, _cmd, unobserver, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return unobserver;
 }
+
+@end
+
+//
+
+@implementation NSObject (KVOMVVMSwizzling)
 
 + (void)load {
     NSError *error;
@@ -155,92 +249,103 @@ static void *KVOMVVMUnobserverContext = &KVOMVVMUnobserverContext;
 }
 
 - (void)mvvm_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context {
-    if (self.mvvm_skip) {
-#if KVO_MVVM_DEBUG_PRINT
-        NSLog(@"[%@(KVO-MVVM-Skipped) addObserver:%p forKeyPath:%@ context:%p]", [self class], observer, keyPath, context);
-#endif
-        [self mvvm_addObserver:observer forKeyPath:keyPath options:options context:context];
-        return;
+    BOOL skip = self.mvvm_skip;
+    if (!skip) {
+        {
+            KVOMVVMUnobserver *unobserver = self.mvvm_unobserver;
+            NSHashTable *hashTable = [unobserver contextsForKeyPath:keyPath observer:observer];
+            [hashTable addObject:(__bridge id _Nullable)(context ?: KVOMVVMUnobserverContext)];
+        }
+        {
+            KVOMVVMObserverFriend *friend = observer.mvvm_friend;
+            NSHashTable *hashTable = [friend contextsForKeyPath:keyPath object:self];
+            [hashTable addObject:(__bridge id _Nullable)(context ?: KVOMVVMUnobserverContext)];
+        }
     }
     
 #if KVO_MVVM_DEBUG_PRINT
-    NSLog(@"[%@ addObserver:%p forKeyPath:%@ context:%p]", [self class], observer, keyPath, context);
+    NSLog(@"%p [%@%@ addObserver:%p forKeyPath:%@ context:%p]", self, [self class], skip ? @"(Skip)" :@"", observer, keyPath, context);
 #endif
-    KVOMVVMUnobserver *unobserver = self.mvvm_unobserver;
-    if ([observer isKindOfClass:NSClassFromString(@"NSKeyValueObservance")]) {
-        NSHashTable *strongHashTable = [unobserver contextsForStrongKeyPath:keyPath observer:observer];
-        [strongHashTable addObject:(__bridge id _Nullable)(context ?: KVOMVVMUnobserverContext)];
+
+    if (!skip) {
+        self.mvvm_skip = YES;
     }
-    else {
-        NSHashTable *hashTable = [unobserver contextsForKeyPath:keyPath observer:observer];
-        [hashTable addObject:(__bridge id _Nullable)(context ?: KVOMVVMUnobserverContext)];
-    }
-    
-    self.mvvm_skip = YES;
     [self mvvm_addObserver:observer forKeyPath:keyPath options:options context:context];
-    self.mvvm_skip = NO;
+    if (!skip) {
+        self.mvvm_skip = NO;
+    }
 }
 
 - (void)mvvm_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath context:(void *)context {
-    if (self.mvvm_skip) {
-#if KVO_MVVM_DEBUG_PRINT
-        NSLog(@"[%@(KVO-MVVM-Skipped) removeObserver:%p forKeyPath:%@ context:%p]", [self class], observer, keyPath, context);
-#endif
-        [self mvvm_removeObserver:observer forKeyPath:keyPath context:context];
-        return;
+    BOOL skip = self.mvvm_skip;
+    if (!skip) {
+        {
+            KVOMVVMUnobserver *unobserver = self.mvvm_unobserver;
+            NSHashTable *hashTable = [unobserver.keyPaths[keyPath] objectForKey:observer];
+            [hashTable removeObject:(__bridge id _Nullable)(context ?: KVOMVVMUnobserverContext)];
+            if (hashTable && hashTable.count == 0) {
+                [unobserver.keyPaths[keyPath] removeObjectForKey:observer];
+            }
+        }
+        {
+            KVOMVVMObserverFriend *friend = observer.mvvm_friend;
+            NSHashTable *hashTable = [friend.keyPaths[keyPath] objectForKey:self];
+            [hashTable removeObject:(__bridge id _Nullable)(context ?: KVOMVVMUnobserverContext)];
+            if (hashTable && hashTable.count == 0) {
+                [friend.keyPaths[keyPath] removeObjectForKey:self];
+            }
+        }
     }
     
 #if KVO_MVVM_DEBUG_PRINT
-    NSLog(@"[%@ removeObserver:%p forKeyPath:%@ context:%p]", [self class], observer, keyPath, context);
+    NSLog(@"%p [%@%@ removeObserver:%p forKeyPath:%@ context:%p]", self, [self class], skip ? @"(Skip)" : @"", observer, keyPath, context);
 #endif
-    KVOMVVMUnobserver *unobserver = self.mvvm_unobserver;
-    NSHashTable *hashTable = [unobserver.keyPaths[keyPath] objectForKey:observer];
-    NSHashTable *strongHashTable = [unobserver.strongKeyPaths[keyPath] objectForKey:observer];
-    [hashTable removeObject:(__bridge id _Nullable)(context ?: KVOMVVMUnobserverContext)];
-    [strongHashTable removeObject:(__bridge id _Nullable)(context ?: KVOMVVMUnobserverContext)];
-    if (hashTable && hashTable.count == 0) {
-        [unobserver.keyPaths[keyPath] removeObjectForKey:observer];
-    }
-    if (strongHashTable && strongHashTable.count == 0) {
-        [unobserver.strongKeyPaths[keyPath] removeObjectForKey:observer];
-    }
     
-    self.mvvm_skip = YES;
+    if (!skip) {
+        self.mvvm_skip = YES;
+    }
     [self mvvm_removeObserver:observer forKeyPath:keyPath context:context];
-    self.mvvm_skip = NO;
+    if (!skip) {
+        self.mvvm_skip = NO;
+    }
 }
 
 - (void)mvvm_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath {
-    if (self.mvvm_skip) {
-#if KVO_MVVM_DEBUG_PRINT
-        NSLog(@"[%@(KVO-MVVM-Skipped) removeObserver:%p forKeyPath:%@]", [self class], observer, keyPath);
-#endif
-        [self mvvm_removeObserver:observer forKeyPath:keyPath];
-        return;
+    BOOL skip = self.mvvm_skip;
+    if (!skip) {
+        {
+            KVOMVVMUnobserver *unobserver = self.mvvm_unobserver;
+            [unobserver.keyPaths[keyPath] removeObjectForKey:observer];
+            if (unobserver.keyPaths[keyPath].count == 0) {
+                [unobserver.keyPaths removeObjectForKey:keyPath];
+            }
+            if (unobserver.keyPaths.count == 0) {
+                unobserver.keyPaths = nil;
+            }
+        }
+        {
+            KVOMVVMObserverFriend *friend = observer.mvvm_friend;
+            [friend.keyPaths[keyPath] removeObjectForKey:self];
+            if (friend.keyPaths[keyPath].count == 0) {
+                [friend.keyPaths removeObjectForKey:keyPath];
+            }
+            if (friend.keyPaths.count == 0) {
+                friend.keyPaths = nil;
+            }
+        }
     }
     
 #if KVO_MVVM_DEBUG_PRINT
-    NSLog(@"[%@ removeObserver:%p forKeyPath:%@]", [self class], observer, keyPath);
+    NSLog(@"%p [%@%@ removeObserver:%p forKeyPath:%@]", self, [self class], skip ? @"(Skip)" : @"", observer, keyPath);
 #endif
-    KVOMVVMUnobserver *unobserver = self.mvvm_unobserver;
-    [unobserver.keyPaths[keyPath] removeObjectForKey:observer];
-    [unobserver.strongKeyPaths[keyPath] removeObjectForKey:observer];
-    if (unobserver.keyPaths[keyPath].count == 0) {
-        [unobserver.keyPaths removeObjectForKey:keyPath];
-    }
-    if (unobserver.strongKeyPaths[keyPath].count == 0) {
-        [unobserver.strongKeyPaths removeObjectForKey:keyPath];
-    }
-    if (unobserver.keyPaths.count == 0) {
-        unobserver.keyPaths = nil;
-    }
-    if (unobserver.strongKeyPaths.count == 0) {
-        unobserver.strongKeyPaths = nil;
-    }
     
-    self.mvvm_skip = YES;
+    if (!skip) {
+        self.mvvm_skip = YES;
+    }
     [self mvvm_removeObserver:observer forKeyPath:keyPath];
-    self.mvvm_skip = NO;
+    if (!skip) {
+        self.mvvm_skip = NO;
+    }
 }
 
 @end
