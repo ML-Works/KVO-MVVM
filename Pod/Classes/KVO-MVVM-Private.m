@@ -66,7 +66,7 @@ static NSHashTable *CreateDictionary(NSMutableDictionary * __strong *dict, NSStr
 //
 
 static NSMapTable *skipMapTable;
-static volatile OSSpinLock *skipMapTableLock = OS_SPINLOCK_INIT;
+static volatile OSSpinLock skipMapTableLock = OS_SPINLOCK_INIT;
 
 - (void *)mvvm_skip_context {
     OSSpinLockLock(&skipMapTableLock);
@@ -90,11 +90,11 @@ static volatile OSSpinLock *skipMapTableLock = OS_SPINLOCK_INIT;
 }
 
 static NSHashTable *inDeallocHashTable = nil;
-static volatile OSSpinLock *inDeallocHashTableLock = OS_SPINLOCK_INIT;
+static volatile OSSpinLock inDeallocHashTableLock = OS_SPINLOCK_INIT;
 
 - (BOOL)mvvm_inDealloc {
     OSSpinLockLock(&inDeallocHashTableLock);
-    void *result = MLWHashGet(inDeallocHashTable, (__bridge void *)self);
+    BOOL result = MLWHashGet(inDeallocHashTable, (__bridge void *)self);
     OSSpinLockUnlock(&inDeallocHashTableLock);
     return result;
 }
@@ -119,7 +119,7 @@ static volatile OSSpinLock *inDeallocHashTableLock = OS_SPINLOCK_INIT;
 
 @interface KVOMVVMObserverFriend : NSObject {
     @public
-    volatile OSSpinLock *_mvvm_lock;
+    volatile OSSpinLock _mvvm_lock;
 }
 
 @property (assign, nonatomic) NSObject *observer;
@@ -195,7 +195,7 @@ static volatile OSSpinLock *inDeallocHashTableLock = OS_SPINLOCK_INIT;
 
 @interface KVOMVVMUnobserver : NSObject {
     @public
-    volatile OSSpinLock *_mvvm_lock;
+    volatile OSSpinLock _mvvm_lock;
 }
 
 @property (assign, nonatomic) NSObject *object;
