@@ -21,12 +21,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-void * _Nullable NSMapGet(NSMapTable *table, const void * _Nullable key);
-void NSMapInsert(NSMapTable *table, const void * _Nullable key, const void * _Nullable value);
-void NSMapRemove(NSMapTable *table, const void * _Nullable key);
+void * _Nullable MLWMapGet(NSMapTable *table, const void * _Nullable key);
+void MLWMapInsert(NSMapTable *table, const void * _Nullable key, const void * _Nullable value);
+void MLWMapRemove(NSMapTable *table, const void * _Nullable key);
 
-BOOL NSHashGet(NSHashTable *table, const void * _Nullable pointer);
-void NSHashInsert(NSHashTable *table, const void * _Nullable pointer);
-void NSHashRemove(NSHashTable *table, const void * _Nullable pointer);
+BOOL MLWHashGet(NSHashTable *table, const void * _Nullable pointer);
+void MLWHashInsert(NSHashTable *table, const void * _Nullable pointer);
+void MLWHashRemove(NSHashTable *table, const void * _Nullable pointer);
 
 NS_ASSUME_NONNULL_END

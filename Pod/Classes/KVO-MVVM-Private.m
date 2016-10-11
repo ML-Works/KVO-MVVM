@@ -25,7 +25,7 @@
 
 //
 
-#define KVO_MVVM_DEBUG_PRINT 1
+#define KVO_MVVM_DEBUG_PRINT 0
 
 static void *KVOMVVMUnobserverContext = &KVOMVVMUnobserverContext;
 
@@ -60,7 +60,7 @@ static NSHashTable *CreateDictionary(NSMutableDictionary * __strong *dict, NSStr
 static NSMapTable *skipMapTable;
 
 - (void *)mvvm_skip_context {
-    return NSMapGet(skipMapTable, (__bridge void *)self);
+    return MLWMapGet(skipMapTable, (__bridge void *)self);
 }
 
 - (void)setMvvm_skip_context:(void *)mvvm_skip_context {
@@ -68,17 +68,17 @@ static NSMapTable *skipMapTable;
         skipMapTable = [[NSMapTable alloc] initWithKeyOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality) valueOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality) capacity:1000];
     }
     if (mvvm_skip_context) {
-        NSMapInsert(skipMapTable, (__bridge void *)self, mvvm_skip_context);
+        MLWMapInsert(skipMapTable, (__bridge void *)self, mvvm_skip_context);
     }
     else {
-        NSMapRemove(skipMapTable, (__bridge void *)self);
+        MLWMapRemove(skipMapTable, (__bridge void *)self);
     }
 }
 
 static NSHashTable *inDeallocHashTable = nil;
 
 - (BOOL)mvvm_inDealloc {
-    return NSHashGet(inDeallocHashTable, (__bridge void *)self);
+    return MLWHashGet(inDeallocHashTable, (__bridge void *)self);
 }
 
 - (void)setMvvm_inDealloc:(BOOL)mvvm_inDealloc {
@@ -86,10 +86,10 @@ static NSHashTable *inDeallocHashTable = nil;
         inDeallocHashTable = [NSHashTable hashTableWithOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality)];
     }
     if (mvvm_inDealloc) {
-        NSHashInsert(inDeallocHashTable, (__bridge void *)self);
+        MLWHashInsert(inDeallocHashTable, (__bridge void *)self);
     }
     else {
-        NSHashRemove(inDeallocHashTable, (__bridge void *)self);
+        MLWHashRemove(inDeallocHashTable, (__bridge void *)self);
     }
 }
 

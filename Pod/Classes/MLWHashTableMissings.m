@@ -19,26 +19,33 @@
 
 #import "MLWHashTableMissings.h"
 
-void * _Nullable NSMapGet(NSMapTable *table, const void * _Nullable key) {
+//
+// NOTICE:
+//
+// This file should be compiled with -fno-objc-arc
+// to bring Hash Table C API to iOS platform
+//
+
+void * _Nullable MLWMapGet(NSMapTable *table, const void * _Nullable key) {
     return [table objectForKey:key];
 }
 
-void NSMapInsert(NSMapTable *table, const void * _Nullable key, const void * _Nullable value) {
+void MLWMapInsert(NSMapTable *table, const void * _Nullable key, const void * _Nullable value) {
     [table setObject:value forKey:key];
 }
 
-void NSMapRemove(NSMapTable *table, const void * _Nullable key) {
+void MLWMapRemove(NSMapTable *table, const void * _Nullable key) {
     [table removeObjectForKey:key];
 }
 
-BOOL NSHashGet(NSHashTable *table, const void * _Nullable pointer) {
+BOOL MLWHashGet(NSHashTable *table, const void * _Nullable pointer) {
     return [table containsObject:pointer];
 }
 
-void NSHashInsert(NSHashTable *table, const void * _Nullable pointer) {
+void MLWHashInsert(NSHashTable *table, const void * _Nullable pointer) {
     [table addObject:pointer];
 }
 
-void NSHashRemove(NSHashTable *table, const void * _Nullable pointer) {
+void MLWHashRemove(NSHashTable *table, const void * _Nullable pointer) {
     [table removeObject:pointer];
 }
