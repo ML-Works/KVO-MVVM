@@ -19,8 +19,6 @@
 
 #import <objc/runtime.h>
 
-#include <libkern/OSAtomic.h>
-
 #import <JRSwizzle/JRSwizzle.h>
 
 #import "MLWHashTableMissings.h"
@@ -60,23 +58,27 @@ static NSHashTable *CreateDictionary(NSMutableDictionary * __strong *dict, NSStr
 @implementation NSObject (KVOMVVMLocking)
 
 //
-// NOTICE:
-// Used OSSpinLock due its high performance and iOS 9 support:
-// https://gist.github.com/steipete/36350a8a60693d440954b95ea6cbbafc
+// TODO:
+// Conditional use unfair_lock instead of dispatch_semaphore_t on iOS 10+
 //
 
 static NSMapTable *skipMapTable;
-static volatile OSSpinLock skipMapTableLock = OS_SPINLOCK_INIT;
+static volatile dispatch_semaphore_t skipMapTableLock;
+
+__attribute__((constructor))
+static void initialize_skipMapTableLock() {
+    skipMapTableLock = dispatch_semaphore_create(1);
+}
 
 - (void *)mvvm_skip_context {
-    OSSpinLockLock(&skipMapTableLock);
+    dispatch_semaphore_wait(skipMapTableLock, DISPATCH_TIME_FOREVER);
     void *result = MLWMapGet(skipMapTable, (__bridge void *)self);
-    OSSpinLockUnlock(&skipMapTableLock);
+    dispatch_semaphore_signal(skipMapTableLock);
     return result;
 }
 
 - (void)setMvvm_skip_context:(void *)mvvm_skip_context {
-    OSSpinLockLock(&skipMapTableLock);
+    dispatch_semaphore_wait(skipMapTableLock, DISPATCH_TIME_FOREVER);
     if (skipMapTable == NULL) {
         skipMapTable = [[NSMapTable alloc] initWithKeyOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality) valueOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality) capacity:1000];
     }
@@ -86,21 +88,26 @@ static volatile OSSpinLock skipMapTableLock = OS_SPINLOCK_INIT;
     else {
         MLWMapRemove(skipMapTable, (__bridge void *)self);
     }
-    OSSpinLockUnlock(&skipMapTableLock);
+    dispatch_semaphore_signal(skipMapTableLock);
 }
 
 static NSHashTable *inDeallocHashTable = nil;
-static volatile OSSpinLock inDeallocHashTableLock = OS_SPINLOCK_INIT;
+static volatile dispatch_semaphore_t inDeallocHashTableLock;
+
+__attribute__((constructor))
+static void initialize_inDeallocHashTableLock() {
+    inDeallocHashTableLock = dispatch_semaphore_create(1);
+}
 
 - (BOOL)mvvm_inDealloc {
-    OSSpinLockLock(&inDeallocHashTableLock);
+    dispatch_semaphore_wait(inDeallocHashTableLock, DISPATCH_TIME_FOREVER);
     BOOL result = MLWHashGet(inDeallocHashTable, (__bridge void *)self);
-    OSSpinLockUnlock(&inDeallocHashTableLock);
+    dispatch_semaphore_signal(inDeallocHashTableLock);
     return result;
 }
 
 - (void)setMvvm_inDealloc:(BOOL)mvvm_inDealloc {
-    OSSpinLockLock(&inDeallocHashTableLock);
+    dispatch_semaphore_wait(inDeallocHashTableLock, DISPATCH_TIME_FOREVER);
     if (!inDeallocHashTable) {
         inDeallocHashTable = [NSHashTable hashTableWithOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality)];
     }
@@ -110,7 +117,7 @@ static volatile OSSpinLock inDeallocHashTableLock = OS_SPINLOCK_INIT;
     else {
         MLWHashRemove(inDeallocHashTable, (__bridge void *)self);
     }
-    OSSpinLockUnlock(&inDeallocHashTableLock);
+    dispatch_semaphore_signal(inDeallocHashTableLock);
 }
 
 @end
@@ -119,7 +126,7 @@ static volatile OSSpinLock inDeallocHashTableLock = OS_SPINLOCK_INIT;
 
 @interface KVOMVVMObserverFriend : NSObject {
     @public
-    volatile OSSpinLock _mvvm_lock;
+    volatile dispatch_semaphore_t _mvvm_lock;
 }
 
 @property (assign, nonatomic) NSObject *observer;
@@ -132,7 +139,7 @@ static volatile OSSpinLock inDeallocHashTableLock = OS_SPINLOCK_INIT;
 - (instancetype)initWithObserver:(id)observer {
     self = [super init];
     if (self) {
-        _mvvm_lock = OS_SPINLOCK_INIT;
+        _mvvm_lock = dispatch_semaphore_create(1);
         _observer = observer;
     }
     return self;
@@ -195,7 +202,7 @@ static volatile OSSpinLock inDeallocHashTableLock = OS_SPINLOCK_INIT;
 
 @interface KVOMVVMUnobserver : NSObject {
     @public
-    volatile OSSpinLock _mvvm_lock;
+    volatile dispatch_semaphore_t _mvvm_lock;
 }
 
 @property (assign, nonatomic) NSObject *object;
@@ -208,7 +215,7 @@ static volatile OSSpinLock inDeallocHashTableLock = OS_SPINLOCK_INIT;
 - (instancetype)initWithObject:(id)object {
     self = [super init];
     if (self) {
-        _mvvm_lock = OS_SPINLOCK_INIT;
+        _mvvm_lock = dispatch_semaphore_create(1);
         _object = object;
     }
     return self;
@@ -285,17 +292,17 @@ static volatile OSSpinLock inDeallocHashTableLock = OS_SPINLOCK_INIT;
 - (void)mvvm_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context {
     KVOMVVMUnobserver *unobserver = self.mvvm_unobserver;
     if (unobserver) {
-        OSSpinLockLock(&unobserver->_mvvm_lock);
+        dispatch_semaphore_wait(unobserver->_mvvm_lock, DISPATCH_TIME_FOREVER);
         NSHashTable *hashTable = [unobserver contextsForKeyPath:keyPath observer:observer];
         [hashTable addObject:(__bridge id _Nullable)(context ?: KVOMVVMUnobserverContext)];
-        OSSpinLockUnlock(&unobserver->_mvvm_lock);
+        dispatch_semaphore_signal(unobserver->_mvvm_lock);
     }
     KVOMVVMObserverFriend *observerFriend = observer.mvvm_friend;
     if (observerFriend) {
-        OSSpinLockLock(&observerFriend->_mvvm_lock);
+        dispatch_semaphore_wait(observerFriend->_mvvm_lock, DISPATCH_TIME_FOREVER);
         NSHashTable *hashTable = [observerFriend contextsForKeyPath:keyPath object:self];
         [hashTable addObject:(__bridge id _Nullable)(context ?: KVOMVVMUnobserverContext)];
-        OSSpinLockUnlock(&observerFriend->_mvvm_lock);
+        dispatch_semaphore_signal(observerFriend->_mvvm_lock);
     }
     
 #if KVO_MVVM_DEBUG_PRINT
@@ -308,7 +315,7 @@ static volatile OSSpinLock inDeallocHashTableLock = OS_SPINLOCK_INIT;
 - (void)mvvm_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath context:(void *)context {
     KVOMVVMUnobserver *unobserver = self.mvvm_unobserver;
     if (unobserver) {
-        OSSpinLockLock(&unobserver->_mvvm_lock);
+        dispatch_semaphore_wait(unobserver->_mvvm_lock, DISPATCH_TIME_FOREVER);
         NSHashTable *hashTable = [unobserver.keyPaths[keyPath] objectForKey:observer];
         [hashTable removeObject:(__bridge id _Nullable)(context ?: KVOMVVMUnobserverContext)];
         if (hashTable && hashTable.count == 0) {
@@ -317,11 +324,11 @@ static volatile OSSpinLock inDeallocHashTableLock = OS_SPINLOCK_INIT;
         if (unobserver.keyPaths.count == 0) {
             unobserver.keyPaths = nil;
         }
-        OSSpinLockUnlock(&unobserver->_mvvm_lock);
+        dispatch_semaphore_signal(unobserver->_mvvm_lock);
     }
     KVOMVVMObserverFriend *observerFriend = observer.mvvm_friend;
     if (observerFriend) {
-        OSSpinLockLock(&observerFriend->_mvvm_lock);
+        dispatch_semaphore_wait(observerFriend->_mvvm_lock, DISPATCH_TIME_FOREVER);
         NSHashTable *hashTable = [observerFriend.keyPaths[keyPath] objectForKey:self];
         [hashTable removeObject:(__bridge id _Nullable)(context ?: KVOMVVMUnobserverContext)];
         if (hashTable && hashTable.count == 0) {
@@ -330,7 +337,7 @@ static volatile OSSpinLock inDeallocHashTableLock = OS_SPINLOCK_INIT;
         if (observerFriend.keyPaths.count == 0) {
             observerFriend.keyPaths = nil;
         }
-        OSSpinLockUnlock(&observerFriend->_mvvm_lock);
+        dispatch_semaphore_signal(observerFriend->_mvvm_lock);
     }
     
 #if KVO_MVVM_DEBUG_PRINT
@@ -347,25 +354,25 @@ static volatile OSSpinLock inDeallocHashTableLock = OS_SPINLOCK_INIT;
     void *context = self.mvvm_skip_context;
     KVOMVVMUnobserver *unobserver = self.mvvm_unobserver;
     if (unobserver) {
-        OSSpinLockLock(&unobserver->_mvvm_lock);
+        dispatch_semaphore_wait(unobserver->_mvvm_lock, DISPATCH_TIME_FOREVER);
         NSHashTable *hashTable = [unobserver.keyPaths[keyPath] objectForKey:observer];
         [hashTable removeObject:(__bridge id _Nullable)(context ?: KVOMVVMUnobserverContext)];
         [unobserver.keyPaths[keyPath] removeObjectForKey:observer];
         if (unobserver.keyPaths.count == 0) {
             unobserver.keyPaths = nil;
         }
-        OSSpinLockUnlock(&unobserver->_mvvm_lock);
+        dispatch_semaphore_signal(unobserver->_mvvm_lock);
     }
     KVOMVVMObserverFriend *observerFriend = observer.mvvm_friend;
     if (observerFriend) {
-        OSSpinLockLock(&observerFriend->_mvvm_lock);
+        dispatch_semaphore_wait(observerFriend->_mvvm_lock, DISPATCH_TIME_FOREVER);
         NSHashTable *hashTable = [observerFriend.keyPaths[keyPath] objectForKey:self];
         [hashTable removeObject:(__bridge id _Nullable)(context ?: KVOMVVMUnobserverContext)];
         [observerFriend.keyPaths[keyPath] removeObjectForKey:self];
         if (observerFriend.keyPaths.count == 0) {
             observerFriend.keyPaths = nil;
         }
-        OSSpinLockUnlock(&observerFriend->_mvvm_lock);
+        dispatch_semaphore_signal(observerFriend->_mvvm_lock);
     }
     
 #if KVO_MVVM_DEBUG_PRINT
