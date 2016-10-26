@@ -139,7 +139,7 @@ static void setInDealloc(void *self, BOOL inDealloc) {
 }
 
 - (void)dealloc {
-    setInDealloc((__bridge void *)self.observer, YES);
+    setInDealloc((__bridge void *)_observer, YES);
     
     for (NSString *keyPath in self.keyPaths) {
         NSMapTable<id, NSHashTable *> *objects = self.keyPaths[keyPath];
@@ -165,7 +165,7 @@ static void setInDealloc(void *self, BOOL inDealloc) {
         }
     }
     
-    setInDealloc((__bridge void *)self.observer, NO);
+    setInDealloc((__bridge void *)_observer, NO);
 }
 
 @end
@@ -215,7 +215,7 @@ static void setInDealloc(void *self, BOOL inDealloc) {
 }
 
 - (void)dealloc {
-    setInDealloc((__bridge void *)self.object, YES);
+    setInDealloc((__bridge void *)_object, YES);
     
     for (NSString *keyPath in self.keyPaths) {
         NSMapTable<id, NSHashTable *> *observers = self.keyPaths[keyPath];
@@ -237,7 +237,7 @@ static void setInDealloc(void *self, BOOL inDealloc) {
         }
     }
     
-    setInDealloc((__bridge void *)self.object, NO);
+    setInDealloc((__bridge void *)_object, NO);
 }
 
 @end
