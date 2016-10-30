@@ -48,15 +48,6 @@ static NSHashTable *CreateDictionary(NSMutableDictionary * __strong *dict, NSStr
 
 //
 
-@interface NSObject (KVOMVVMLocking)
-
-@property (assign, nonatomic) void *mvvm_skip_context;
-@property (assign, nonatomic) BOOL mvvm_inDealloc;
-
-@end
-
-@implementation NSObject (KVOMVVMLocking)
-
 //
 // TODO:
 // Conditional use unfair_lock instead of dispatch_semaphore_t on iOS 10+
@@ -70,23 +61,23 @@ static void initialize_skipMapTableLock() {
     skipMapTableLock = dispatch_semaphore_create(1);
 }
 
-- (void *)mvvm_skip_context {
+static void *skipContext(void *self) {
     dispatch_semaphore_wait(skipMapTableLock, DISPATCH_TIME_FOREVER);
-    void *result = MLWMapGet(skipMapTable, (__bridge void *)self);
+    void *result = MLWMapGet(skipMapTable, self);
     dispatch_semaphore_signal(skipMapTableLock);
     return result;
 }
 
-- (void)setMvvm_skip_context:(void *)mvvm_skip_context {
+static void setSkipContext(void *self, void *skipContext) {
     dispatch_semaphore_wait(skipMapTableLock, DISPATCH_TIME_FOREVER);
     if (skipMapTable == NULL) {
         skipMapTable = [[NSMapTable alloc] initWithKeyOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality) valueOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality) capacity:1000];
     }
-    if (mvvm_skip_context) {
-        MLWMapInsert(skipMapTable, (__bridge void *)self, mvvm_skip_context);
+    if (skipContext) {
+        MLWMapInsert(skipMapTable, self, skipContext);
     }
     else {
-        MLWMapRemove(skipMapTable, (__bridge void *)self);
+        MLWMapRemove(skipMapTable, self);
     }
     dispatch_semaphore_signal(skipMapTableLock);
 }
@@ -99,28 +90,26 @@ static void initialize_inDeallocHashTableLock() {
     inDeallocHashTableLock = dispatch_semaphore_create(1);
 }
 
-- (BOOL)mvvm_inDealloc {
+static BOOL inDealloc(void *self) {
     dispatch_semaphore_wait(inDeallocHashTableLock, DISPATCH_TIME_FOREVER);
-    BOOL result = MLWHashGet(inDeallocHashTable, (__bridge void *)self);
+    BOOL result = MLWHashGet(inDeallocHashTable, self);
     dispatch_semaphore_signal(inDeallocHashTableLock);
     return result;
 }
 
-- (void)setMvvm_inDealloc:(BOOL)mvvm_inDealloc {
+static void setInDealloc(void *self, BOOL inDealloc) {
     dispatch_semaphore_wait(inDeallocHashTableLock, DISPATCH_TIME_FOREVER);
     if (!inDeallocHashTable) {
         inDeallocHashTable = [NSHashTable hashTableWithOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality)];
     }
-    if (mvvm_inDealloc) {
-        MLWHashInsert(inDeallocHashTable, (__bridge void *)self);
+    if (inDealloc) {
+        MLWHashInsert(inDeallocHashTable, self);
     }
     else {
-        MLWHashRemove(inDeallocHashTable, (__bridge void *)self);
+        MLWHashRemove(inDeallocHashTable, self);
     }
     dispatch_semaphore_signal(inDeallocHashTableLock);
 }
-
-@end
 
 //
 
@@ -150,7 +139,7 @@ static void initialize_inDeallocHashTableLock() {
 }
 
 - (void)dealloc {
-    self.observer.mvvm_inDealloc = YES;
+    setInDealloc((__bridge void *)_observer, YES);
     
     for (NSString *keyPath in self.keyPaths) {
         NSMapTable<id, NSHashTable *> *objects = self.keyPaths[keyPath];
@@ -176,7 +165,7 @@ static void initialize_inDeallocHashTableLock() {
         }
     }
     
-    self.observer.mvvm_inDealloc = NO;
+    setInDealloc((__bridge void *)_observer, NO);
 }
 
 @end
@@ -188,7 +177,7 @@ static void initialize_inDeallocHashTableLock() {
 - (KVOMVVMObserverFriend *)mvvm_friend {
     @synchronized (self) {
         KVOMVVMObserverFriend *observerFriend = objc_getAssociatedObject(self, _cmd);
-        if (observerFriend == nil && !self.mvvm_inDealloc) {
+        if (observerFriend == nil && !inDealloc((__bridge void *)self)) {
             observerFriend = [[KVOMVVMObserverFriend alloc] initWithObserver:self];
             objc_setAssociatedObject(self, _cmd, observerFriend, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         }
@@ -226,7 +215,7 @@ static void initialize_inDeallocHashTableLock() {
 }
 
 - (void)dealloc {
-    self.object.mvvm_inDealloc = YES;
+    setInDealloc((__bridge void *)_object, YES);
     
     for (NSString *keyPath in self.keyPaths) {
         NSMapTable<id, NSHashTable *> *observers = self.keyPaths[keyPath];
@@ -248,7 +237,7 @@ static void initialize_inDeallocHashTableLock() {
         }
     }
     
-    self.object.mvvm_inDealloc = NO;
+    setInDealloc((__bridge void *)_object, NO);
 }
 
 @end
@@ -260,7 +249,7 @@ static void initialize_inDeallocHashTableLock() {
 - (KVOMVVMUnobserver *)mvvm_unobserver {
     @synchronized (self) {
         KVOMVVMUnobserver *unobserver = objc_getAssociatedObject(self, _cmd);
-        if (unobserver == nil && !self.mvvm_inDealloc) {
+        if (unobserver == nil && !inDealloc((__bridge void *)self)) {
             unobserver = [[KVOMVVMUnobserver alloc] initWithObject:self];
             objc_setAssociatedObject(self, _cmd, unobserver, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         }
@@ -344,14 +333,14 @@ static void initialize_inDeallocHashTableLock() {
     NSLog(@"%p [%@%@ removeObserver:%p forKeyPath:%@ context:%p]", self, [self class], self.mvvm_skip_context ? @"(Inner)" : @"", observer, keyPath, context);
 #endif
     
-    void *prev_context = self.mvvm_skip_context;
-    self.mvvm_skip_context = context;
+    void *prev_context = skipContext((__bridge void *)self);
+    setSkipContext((__bridge void *)self, context);
     [self mvvm_removeObserver:observer forKeyPath:keyPath context:context];
-    self.mvvm_skip_context = prev_context;
+    setSkipContext((__bridge void *)self, prev_context);
 }
 
 - (void)mvvm_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath {
-    void *context = self.mvvm_skip_context;
+    void *context = skipContext((__bridge void *)self);
     KVOMVVMUnobserver *unobserver = self.mvvm_unobserver;
     if (unobserver) {
         dispatch_semaphore_wait(unobserver->_mvvm_lock, DISPATCH_TIME_FOREVER);
