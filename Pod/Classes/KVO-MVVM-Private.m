@@ -56,11 +56,6 @@ static NSHashTable *CreateDictionary(NSMutableDictionary * __strong *dict, NSStr
 static NSMapTable *skipMapTable;
 static volatile dispatch_semaphore_t skipMapTableLock;
 
-__attribute__((constructor))
-static void initialize_skipMapTableLock() {
-    skipMapTableLock = dispatch_semaphore_create(1);
-}
-
 static void *skipContext(void *self) {
     dispatch_semaphore_wait(skipMapTableLock, DISPATCH_TIME_FOREVER);
     void *result = MLWMapGet(skipMapTable, self);
@@ -70,9 +65,6 @@ static void *skipContext(void *self) {
 
 static void setSkipContext(void *self, void *skipContext) {
     dispatch_semaphore_wait(skipMapTableLock, DISPATCH_TIME_FOREVER);
-    if (skipMapTable == NULL) {
-        skipMapTable = [[NSMapTable alloc] initWithKeyOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality) valueOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality) capacity:1000];
-    }
     if (skipContext) {
         MLWMapInsert(skipMapTable, self, skipContext);
     }
@@ -85,11 +77,6 @@ static void setSkipContext(void *self, void *skipContext) {
 static NSHashTable *inDeallocHashTable = nil;
 static volatile dispatch_semaphore_t inDeallocHashTableLock;
 
-__attribute__((constructor))
-static void initialize_inDeallocHashTableLock() {
-    inDeallocHashTableLock = dispatch_semaphore_create(1);
-}
-
 static BOOL inDealloc(void *self) {
     dispatch_semaphore_wait(inDeallocHashTableLock, DISPATCH_TIME_FOREVER);
     BOOL result = MLWHashGet(inDeallocHashTable, self);
@@ -99,9 +86,6 @@ static BOOL inDealloc(void *self) {
 
 static void setInDealloc(void *self, BOOL inDealloc) {
     dispatch_semaphore_wait(inDeallocHashTableLock, DISPATCH_TIME_FOREVER);
-    if (!inDeallocHashTable) {
-        inDeallocHashTable = [NSHashTable hashTableWithOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality)];
-    }
     if (inDealloc) {
         MLWHashInsert(inDeallocHashTable, self);
     }
@@ -264,6 +248,12 @@ static void setInDealloc(void *self, BOOL inDealloc) {
 @implementation NSObject (KVOMVVMSwizzling)
 
 + (void)load {
+    skipMapTableLock = dispatch_semaphore_create(1);
+    inDeallocHashTableLock = dispatch_semaphore_create(1);
+    
+    skipMapTable = [[NSMapTable alloc] initWithKeyOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality) valueOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality) capacity:100];
+    inDeallocHashTable = [[NSHashTable alloc] initWithOptions:(NSPointerFunctionsOpaqueMemory | NSPointerFunctionsOpaquePersonality) capacity:100];
+    
     NSError *error;
     if (![self jr_swizzleMethod:@selector(addObserver:forKeyPath:options:context:) withMethod:@selector(mvvm_addObserver:forKeyPath:options:context:) error:&error]) {
         NSLog(@"Swizzling [%@ %@] error: %@", self, NSStringFromSelector(@selector(addObserver:forKeyPath:options:context:)), error);
