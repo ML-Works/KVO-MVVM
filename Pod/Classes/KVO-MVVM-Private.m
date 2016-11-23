@@ -285,7 +285,7 @@ static void setInDealloc(void *self, BOOL inDealloc) {
     }
     
 #if KVO_MVVM_DEBUG_PRINT
-    NSLog(@"%p [%@%@ addObserver:%p forKeyPath:%@ context:%p]", self, [self class], self.mvvm_skip_context ? @"(Inner)" : @"", observer, keyPath, context);
+    NSLog(@"%p [%@%@ addObserver:%p forKeyPath:%@ context:%p]", self, [self class], skipContext((__bridge void *)(self)) ? @"(Inner)" : @"", observer, keyPath, context);
 #endif
 
     [self mvvm_addObserver:observer forKeyPath:keyPath options:options context:context];
@@ -320,7 +320,7 @@ static void setInDealloc(void *self, BOOL inDealloc) {
     }
     
 #if KVO_MVVM_DEBUG_PRINT
-    NSLog(@"%p [%@%@ removeObserver:%p forKeyPath:%@ context:%p]", self, [self class], self.mvvm_skip_context ? @"(Inner)" : @"", observer, keyPath, context);
+    NSLog(@"%p [%@%@ removeObserver:%p forKeyPath:%@ context:%p]", self, [self class], skipContext((__bridge void *)(self)) ? @"(Inner)" : @"", observer, keyPath, context);
 #endif
     
     void *prev_context = skipContext((__bridge void *)self);
@@ -355,7 +355,7 @@ static void setInDealloc(void *self, BOOL inDealloc) {
     }
     
 #if KVO_MVVM_DEBUG_PRINT
-    NSLog(@"%p [%@%@ removeObserver:%p forKeyPath:%@]", self, [self class], self.mvvm_skip_context ? @"(Inner)" : @"", observer, keyPath);
+    NSLog(@"%p [%@%@ removeObserver:%p forKeyPath:%@]", self, [self class], skipContext((__bridge void *)(self)) ? @"(Inner)" : @"", observer, keyPath);
 #endif
     
     [self mvvm_removeObserver:observer forKeyPath:keyPath];
