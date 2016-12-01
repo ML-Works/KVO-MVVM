@@ -1,9 +1,9 @@
 PODS:
   - JRSwizzle (1.0)
-  - KVO-MVVM (0.4.15):
+  - KVO-MVVM (0.4.16):
     - JRSwizzle
-    - KVO-MVVM/HashTableMissings (= 0.4.15)
-  - KVO-MVVM/HashTableMissings (0.4.15):
+    - KVO-MVVM/HashTableMissings (= 0.4.16)
+  - KVO-MVVM/HashTableMissings (0.4.16):
     - JRSwizzle
 
 DEPENDENCIES:
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
-  KVO-MVVM: f2c33b6e30b2d81fafb2a290dcf3ca8ae52c728c
+  KVO-MVVM: 16b73e6d1e14c06395669ae007953b2a0a2a68bd
 
 PODFILE CHECKSUM: c93da7a712cafb37210b433015ffcce845cdc840
 

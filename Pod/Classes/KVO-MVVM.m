@@ -151,11 +151,11 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
 - (void)mvvm_unobserve:(NSString *)keyPath {
     if (self.mvvm_holder.blocks[keyPath]) {
         [self.mvvm_holder.blocks removeObjectForKey:keyPath];
-        [self removeObserver:self forKeyPath:keyPath];
+        [self removeObserver:self forKeyPath:keyPath context:MVVMKVOContext];
     }
     if (self.mvvm_holder.collectionBlocks[keyPath]) {
         [self.mvvm_holder.collectionBlocks removeObjectForKey:keyPath];
-        [self removeObserver:self forKeyPath:keyPath];
+        [self removeObserver:self forKeyPath:keyPath context:MVVMKVOContext];
     }
 }
 
@@ -165,10 +165,10 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
 
 - (void)mvvm_unobserveAllWithUnobserver:(KVOMVVMHolder *)unobserver {
     for (NSString *keyPath in unobserver.blocks) {
-        [self removeObserver:self forKeyPath:keyPath];
+        [self removeObserver:self forKeyPath:keyPath context:MVVMKVOContext];
     }
     for (NSString *keyPath in unobserver.collectionBlocks) {
-        [self removeObserver:self forKeyPath:keyPath];
+        [self removeObserver:self forKeyPath:keyPath context:MVVMKVOContext];
     }
     unobserver.blocks = nil;
     unobserver.collectionBlocks = nil;
