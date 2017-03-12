@@ -160,7 +160,9 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
 }
 
 - (void)mvvm_unobserveAll {
-    [self mvvm_unobserveAllWithUnobserver:self.mvvm_holder];
+    if (objc_getAssociatedObject(self, @selector(mvvm_holder))) {
+        [self mvvm_unobserveAllWithUnobserver:self.mvvm_holder];
+    }
 }
 
 - (void)mvvm_unobserveAllWithUnobserver:(KVOMVVMHolder *)unobserver {
