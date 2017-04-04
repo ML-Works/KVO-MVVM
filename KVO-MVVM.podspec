@@ -26,4 +26,5 @@ Pod::Spec.new do |s|
   end
 
   s.dependency 'JRSwizzle'
+  s.dependency 'RuntimeRoutines'
 end

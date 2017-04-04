@@ -20,12 +20,70 @@
 #import <objc/message.h>
 
 #import <JRSwizzle/JRSwizzle.h>
+#import <RuntimeRoutines/RuntimeRoutines.h>
 
 #import "KVO-MVVM.h"
 
 //
 
 static void *MVVMKVOContext = &MVVMKVOContext;
+
+#ifdef DEBUG
+static void CheckClassKeyPathForPropertiesNotGetters(Class klass, NSString *keyPath) {
+    static NSMutableDictionary<Class, NSMutableSet<NSString *> *> *checked;
+    if ([checked[klass] containsObject:keyPath]) {
+        return;
+    }
+    
+    Class currentClass = klass;
+    for (NSString *key in [keyPath componentsSeparatedByString:@"."]) {
+        for (NSString *affectingKeyPath in [currentClass keyPathsForValuesAffectingValueForKey:key]) {
+            CheckClassKeyPathForPropertiesNotGetters(currentClass, affectingKeyPath);
+        }
+        
+        objc_property_t property = class_getProperty(currentClass, key.UTF8String);
+        if (!property) {
+            RRClassEnumerateProperties(currentClass, ^(objc_property_t  _Nonnull property) {
+                NSString *propertyName = @(property_getName(property));
+                SEL getter = RRPropertyGetGetter(property);
+                NSString *getterStr = NSStringFromSelector(getter);
+                if (![getterStr isEqualToString:propertyName] && [key isEqualToString:getterStr] ) {
+                    NSCAssert(NO, @"Class %@ can't not observe keypath \"%@\" use property name \"%@\" instead of getter name \"%@\"", klass, keyPath, key, getterStr);
+                }
+            });
+        }
+        
+        char *propertyTypePtr = property_copyAttributeValue(property, "T");
+        NSString *type = [[NSString alloc] initWithBytesNoCopy:propertyTypePtr length:(propertyTypePtr ? strlen(propertyTypePtr) : 0) encoding:NSUTF8StringEncoding freeWhenDone:YES];
+        
+        if ([type rangeOfString:@"@\""].location == 0) {
+            type = [type substringWithRange:NSMakeRange(2, type.length - 3)];
+        }
+        
+        NSUInteger location = [type rangeOfString:@"<"].location;
+        if (location != 0 && location != NSNotFound) {
+            currentClass = NSClassFromString([type substringToIndex:location]);
+        }
+        else {
+            currentClass = NSClassFromString(type);
+        }
+        
+        if (currentClass == nil) {
+            break;
+        }
+    }
+    
+    if (checked == nil) {
+        checked = [NSMutableDictionary dictionary];
+    }
+    if (checked[klass] == nil) {
+        checked[(id)klass] = [NSMutableSet setWithObject:keyPath];
+    }
+    else {
+        [checked[klass] addObject:keyPath];
+    }
+}
+#endif
 
 //
 
@@ -117,6 +175,10 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
 }
 
 - (void)mvvm_observe:(NSString *)keyPath options:(NSKeyValueObservingOptions)options with:(ObserveCollectionBlock)block {
+#ifdef DEBUG
+    CheckClassKeyPathForPropertiesNotGetters([self class], keyPath);
+#endif
+    
     if (!self.mvvm_holder.blocks[keyPath]) {
         self.mvvm_holder.blocks[keyPath] = [NSMutableArray array];
     }
@@ -135,6 +197,10 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
 }
 
 - (void)mvvm_observeCollection:(NSString *)keyPath options:(NSKeyValueObservingOptions)options with:(ObserveCollectionBlock)block {
+#ifdef DEBUG
+    CheckClassKeyPathForPropertiesNotGetters([self class], keyPath);
+#endif
+
     if (!self.mvvm_holder.collectionBlocks[keyPath]) {
         self.mvvm_holder.collectionBlocks[keyPath] = [NSMutableArray array];
     }
