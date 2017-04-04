@@ -48,7 +48,7 @@ static void CheckClassKeyPathForPropertiesNotGetters(Class klass, NSString *keyP
                 SEL getter = RRPropertyGetGetter(property);
                 NSString *getterStr = NSStringFromSelector(getter);
                 if (![getterStr isEqualToString:propertyName] && [key isEqualToString:getterStr] ) {
-                    NSCAssert(NO, @"Class %@ can't not observe keypath \"%@\" use property name \"%@\" instead of getter name \"%@\"", klass, keyPath, key, getterStr);
+                    NSCAssert(NO, @"Class %@ can't not observe keypath \"%@\" use property name \"%@\" instead of getter name \"%@\"", klass, keyPath, propertyName, getterStr);
                 }
             });
         }
