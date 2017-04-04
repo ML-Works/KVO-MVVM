@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "KVO-MVVM"
-  s.version          = "0.4.18"
+  s.version          = "0.4.20"
   s.summary          = "KVO binding especially for ViewModel observing by View"
 
   s.description      = <<-DESC
@@ -26,4 +26,5 @@ Pod::Spec.new do |s|
   end
 
   s.dependency 'JRSwizzle'
+  s.dependency 'RuntimeRoutines'
 end
