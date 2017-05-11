@@ -7,268 +7,227 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		028F095BA6111E8B56B7D521C994502E /* RuntimeRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D443A005ACD1309A539152E89E482B /* RuntimeRoutines.m */; };
-		0FBBE1559A02420D933CFCDABBC541F6 /* MLWHashTableMissings.h in Headers */ = {isa = PBXBuildFile; fileRef = CA8425306C79ADE6CF25F4A4892BC3AA /* MLWHashTableMissings.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2498BBE61F68861DD639E3C0602A956B /* RuntimeRoutines-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E52FF651FE206F2725B3199248D29F6 /* RuntimeRoutines-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		326B87B28F6E17F874DC6EC4DA1D5CC2 /* Pods-KVO-MVVM_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B109B855F45E3850BC1BE32BDD4BD2A2 /* Pods-KVO-MVVM_Tests-dummy.m */; };
-		3DF0FBD3E59D87323827D9DC7B5A656C /* JRSwizzle-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1FD15241A1C93C4D97FDE6272AA0D9 /* JRSwizzle-dummy.m */; };
-		4477D48BE61B814A818C67FD6F1EC0A5 /* KVO-MVVM-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 954CEEA2830FA68097CF0C068F4AD759 /* KVO-MVVM-dummy.m */; };
-		47EAE352C06F0DB527AD94CF1D93F5AD /* Pods-KVO-MVVM_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C906A4BA28D7A06AB89F81D7AB023520 /* Pods-KVO-MVVM_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4E962449F2DC5BF696EF871F5F9653B5 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = CED9B852A44B35B7BFD73966A4A01927 /* JRSwizzle.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		576B10F869644CBEF2C4CAF3E1BD1585 /* KVO-MVVM.m in Sources */ = {isa = PBXBuildFile; fileRef = A8444B8C6AE06669386E75EC77D0A441 /* KVO-MVVM.m */; };
-		74B0A3B794C34CCB8FB28B4EC9162620 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41137048D5CEE5357A4E6E81E1A62D0B /* Foundation.framework */; };
-		77F2DE7B66BC4B90F005600A62F375A0 /* MLWHashTableMissings.m in Sources */ = {isa = PBXBuildFile; fileRef = 89878A8EC794206E58F4E5119DD46E7B /* MLWHashTableMissings.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		8563B7D0278B639BD3D163F087B4990C /* RuntimeRoutines.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1312D951A0635667985ADAF06A87416 /* RuntimeRoutines.framework */; };
-		9E03A3D632AD17D8A301ED6F004C282E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41137048D5CEE5357A4E6E81E1A62D0B /* Foundation.framework */; };
-		A4C564F89D363B3681F09F61E2436F22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41137048D5CEE5357A4E6E81E1A62D0B /* Foundation.framework */; };
-		A8C98D483D800B96E37AA5069EF04E68 /* JRSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = A47C1312E82EA9F06E4DA97E7C60452B /* JRSwizzle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ADA19C42DBDD72BE721A24D7A14FFE07 /* KVO-MVVM.h in Headers */ = {isa = PBXBuildFile; fileRef = 2210068B916A704098F1FDF29D349D9A /* KVO-MVVM.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B0D4359A0D233E6584F3A276A81E48BE /* RuntimeRoutines-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AB319D9793AB8CC811577BF7102E6610 /* RuntimeRoutines-dummy.m */; };
-		B503FE04A9C2074EE478C4B76E89DAEA /* JRSwizzle-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BB2680F4FB0C75E7A27AF9F0F98AB76 /* JRSwizzle-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D8940616F5E31893C97087BEDACE6700 /* KVO-MVVM-Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E55BEBD03C2FA674AA8EE6FB26A873B /* KVO-MVVM-Private.m */; };
-		E89601F80EB18F33972E24B558D5A151 /* RuntimeRoutines.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D408B5533F68D4741B7650D44B0C057 /* RuntimeRoutines.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EAD97E2D9216CC44F5C342558EB890DF /* KVO-MVVM-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A3FC586AEFE4C50EE7BC801FD734D23 /* KVO-MVVM-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EE9AED00B8BE9DA2BDF8BB1955FA1691 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41137048D5CEE5357A4E6E81E1A62D0B /* Foundation.framework */; };
-		F49700A9C09C534EF8E3737737D4D541 /* JRSwizzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E4EACCCFE0A6F785CF8D4EA5E03463 /* JRSwizzle.framework */; };
+		022D2EC03FF377D3BA2A665BB4299FBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		034DC10F5E754A45028AD6CDE43F2095 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = B27BB384C8F6F654B296B797285E8BF5 /* JRSwizzle.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		045B044957B845BDA1BE2D1C58B25405 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		0B1F7CD7E08B55400F73235C4FD9AFC5 /* JRSwizzle-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6F217B1D7D31B9009A863D2CCC9FC0 /* JRSwizzle-dummy.m */; };
+		1678C537B7EAF94A15605B8087CDE3BA /* RuntimeRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = E3235D191C5AC338BE0A89072170DA36 /* RuntimeRoutines.m */; };
+		3FDDC36327E490473D658AF234821FBC /* KVO-MVVM-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D36E3A08D2B724E0B59B8C9360B66C17 /* KVO-MVVM-dummy.m */; };
+		49A710A4F6FF3E325B4B35C387DAAE4E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		5DF78C9A61723DB4536D85714880482A /* MLWHashTableMissings.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EA6FB3978052E23FC1A30F2783467C /* MLWHashTableMissings.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		672EE6E9762805AE28F4A0C533728CF1 /* Pods-KVO-MVVM_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB182BEFF73EF6D9335667B626B12FE /* Pods-KVO-MVVM_Tests-dummy.m */; };
+		6D3A0D55E49588DF9B9DC76B6C673CAF /* JRSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DB400D5344CE4DF8FD52A3FB19E4BF6 /* JRSwizzle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		74C43B02B04410B116867AF31535CBE9 /* KVO-MVVM.h in Headers */ = {isa = PBXBuildFile; fileRef = 58F5FEB86CD9B8233E24F9648E47ED10 /* KVO-MVVM.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8AC9526BA81D3C8567D52260D01592CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		A9E9F54889B5BEA650D8DCAA7951789A /* MLWHashTableMissings.h in Headers */ = {isa = PBXBuildFile; fileRef = D6DA51DC2406FDA41F02DFB705D3D64C /* MLWHashTableMissings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5AA4D1CF36DD926A307D415B60D8351 /* RuntimeRoutines.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC245E76B10EDF3270541BDDE4DB4A8 /* RuntimeRoutines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D80DBF61B57B5BEE4B0B97D95C4D613D /* RuntimeRoutines-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0DD62E8331D35D29398DE6AB2B9680 /* RuntimeRoutines-dummy.m */; };
+		D8BB7FF4B66142C2D7A681377CF94893 /* KVO-MVVM-Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B63246807D9D40AB516F111624F77B /* KVO-MVVM-Private.m */; };
+		E30CC1C9AC05E72ABB9E309EED7637C3 /* KVO-MVVM.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB0E8A5305958760D7E86DC51AA0105 /* KVO-MVVM.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7FA2B60AD38397F486D85B9211A90CA8 /* PBXContainerItemProxy */ = {
+		3C7474BA59CDDBF7A9F21C889437BE2A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BDF64B389C1036D9A13E1C7D7A97D899;
-			remoteInfo = RuntimeRoutines;
-		};
-		8B20A4572E14806C349675AB241D5E3E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 15357E1909A4DB847125CA532B38ED15;
-			remoteInfo = "KVO-MVVM";
-		};
-		B3FF48F675E05CA1AD4D796675DDBAB7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BDF64B389C1036D9A13E1C7D7A97D899;
-			remoteInfo = RuntimeRoutines;
-		};
-		C700CB5ADE3BD1A673095A11451ECAC2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F5E7B86C60FCB91858074F7C2F733BE5;
+			remoteGlobalIDString = 0606AE1E7696CCFE3E1400A92489A474;
 			remoteInfo = JRSwizzle;
 		};
-		FDEC25B2232A4C1230C6774F76FB894D /* PBXContainerItemProxy */ = {
+		4CF83F889D3079D417293D5AFC1C7596 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F5E7B86C60FCB91858074F7C2F733BE5;
+			remoteGlobalIDString = CDE58D7438B9B1CC25DFE5410AC1A723;
+			remoteInfo = RuntimeRoutines;
+		};
+		5563FBEC71542140B148013FAE421DE3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CDE58D7438B9B1CC25DFE5410AC1A723;
+			remoteInfo = RuntimeRoutines;
+		};
+		81482A915BDF9E14B150500B98A2C7F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EEC5DB65842AD6DD54DE0E8ECF12379D;
+			remoteInfo = "KVO-MVVM";
+		};
+		AC0262417DFED09AF3BD2A3786A167A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0606AE1E7696CCFE3E1400A92489A474;
 			remoteInfo = JRSwizzle;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		070CFD02A1CE4A8DB3BF61FE5116FAF4 /* Pods-KVO-MVVM_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KVO-MVVM_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		18D443A005ACD1309A539152E89E482B /* RuntimeRoutines.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RuntimeRoutines.m; path = Pod/Classes/RuntimeRoutines.m; sourceTree = "<group>"; };
-		1DDB320AB1A531BF9C2EB99F9F9BE60F /* JRSwizzle.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = JRSwizzle.modulemap; sourceTree = "<group>"; };
-		2210068B916A704098F1FDF29D349D9A /* KVO-MVVM.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KVO-MVVM.h"; sourceTree = "<group>"; };
-		2B2529F07F87D937CFF0DB50CDA78503 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2B8046E4E726DD375270B59E3373B413 /* RuntimeRoutines-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RuntimeRoutines-prefix.pch"; sourceTree = "<group>"; };
-		2E55BEBD03C2FA674AA8EE6FB26A873B /* KVO-MVVM-Private.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KVO-MVVM-Private.m"; sourceTree = "<group>"; };
-		3A1FD15241A1C93C4D97FDE6272AA0D9 /* JRSwizzle-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JRSwizzle-dummy.m"; sourceTree = "<group>"; };
-		41137048D5CEE5357A4E6E81E1A62D0B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		4EAE0D7BB0DADC080B97E7C56DB3C046 /* Pods-KVO-MVVM_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KVO-MVVM_Tests-resources.sh"; sourceTree = "<group>"; };
-		57B3015582A9EA27FC3BB281BB9B677A /* Pods-KVO-MVVM_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KVO-MVVM_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		5BEAEA7D7F53C54C165C7BF3EC4FA3F9 /* KVO_MVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KVO_MVVM.framework; path = "KVO-MVVM.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CADF0B1FB9E8F3F94E1EDE6187C4237 /* KVO-MVVM.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "KVO-MVVM.xcconfig"; sourceTree = "<group>"; };
-		5E52FF651FE206F2725B3199248D29F6 /* RuntimeRoutines-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RuntimeRoutines-umbrella.h"; sourceTree = "<group>"; };
-		61A618B44200975A82F9B5950964C433 /* JRSwizzle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JRSwizzle.framework; path = JRSwizzle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6BB2680F4FB0C75E7A27AF9F0F98AB76 /* JRSwizzle-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JRSwizzle-umbrella.h"; sourceTree = "<group>"; };
-		70B94C5FF4AAB82A1AB62AB9039DB305 /* JRSwizzle-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JRSwizzle-prefix.pch"; sourceTree = "<group>"; };
-		75E21EB85BB1C4DC6DF3A176D1E9E8F4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		89878A8EC794206E58F4E5119DD46E7B /* MLWHashTableMissings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MLWHashTableMissings.m; sourceTree = "<group>"; };
-		8A3FC586AEFE4C50EE7BC801FD734D23 /* KVO-MVVM-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KVO-MVVM-umbrella.h"; sourceTree = "<group>"; };
-		8D408B5533F68D4741B7650D44B0C057 /* RuntimeRoutines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RuntimeRoutines.h; path = Pod/Classes/RuntimeRoutines.h; sourceTree = "<group>"; };
+		023D346BF02A55E383F536DB6720EEBE /* JRSwizzle.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JRSwizzle.xcconfig; sourceTree = "<group>"; };
+		024BD6688DD1883C04FB86186073FCC6 /* RuntimeRoutines.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RuntimeRoutines.xcconfig; sourceTree = "<group>"; };
+		2CFC1C691F1F8F0EF6AE29AC64896A7C /* Pods-KVO-MVVM_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KVO-MVVM_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		321A7A6C9BEEAB963739058BB03B2CCB /* Pods-KVO-MVVM_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KVO-MVVM_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		3DE6F97FBF1E5772A0B199F54BB23736 /* Pods-KVO-MVVM_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KVO-MVVM_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		427C6B9688A47E24134328B55765FE0C /* KVO-MVVM.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "KVO-MVVM.xcconfig"; sourceTree = "<group>"; };
+		545298C5021DFB03D83884128CFE38BF /* libPods-KVO-MVVM_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-KVO-MVVM_Tests.a"; path = "libPods-KVO-MVVM_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		58F5FEB86CD9B8233E24F9648E47ED10 /* KVO-MVVM.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KVO-MVVM.h"; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6BC245E76B10EDF3270541BDDE4DB4A8 /* RuntimeRoutines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RuntimeRoutines.h; path = Pod/Classes/RuntimeRoutines.h; sourceTree = "<group>"; };
+		79EA6FB3978052E23FC1A30F2783467C /* MLWHashTableMissings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MLWHashTableMissings.m; sourceTree = "<group>"; };
+		7AB182BEFF73EF6D9335667B626B12FE /* Pods-KVO-MVVM_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KVO-MVVM_Tests-dummy.m"; sourceTree = "<group>"; };
+		7DB400D5344CE4DF8FD52A3FB19E4BF6 /* JRSwizzle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
+		83B63246807D9D40AB516F111624F77B /* KVO-MVVM-Private.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KVO-MVVM-Private.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		954CEEA2830FA68097CF0C068F4AD759 /* KVO-MVVM-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KVO-MVVM-dummy.m"; sourceTree = "<group>"; };
-		954E725DEAA90FC810CB0CA1C08C927B /* Pods-KVO-MVVM_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-KVO-MVVM_Tests.modulemap"; sourceTree = "<group>"; };
-		A1312D951A0635667985ADAF06A87416 /* RuntimeRoutines.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RuntimeRoutines.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2FC288EB1BF296A8A0E3D3BEB6EB46A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A47C1312E82EA9F06E4DA97E7C60452B /* JRSwizzle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
-		A8444B8C6AE06669386E75EC77D0A441 /* KVO-MVVM.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KVO-MVVM.m"; sourceTree = "<group>"; };
-		AB319D9793AB8CC811577BF7102E6610 /* RuntimeRoutines-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RuntimeRoutines-dummy.m"; sourceTree = "<group>"; };
-		AC404CFDAF4F5E9B415AA2F0CEC93227 /* JRSwizzle.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JRSwizzle.xcconfig; sourceTree = "<group>"; };
-		B0A1234B74BDC54DC4B2D3577F421E25 /* Pods-KVO-MVVM_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KVO-MVVM_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		B109B855F45E3850BC1BE32BDD4BD2A2 /* Pods-KVO-MVVM_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KVO-MVVM_Tests-dummy.m"; sourceTree = "<group>"; };
-		B52C1971839CD884589D4D09762FE06A /* Pods-KVO-MVVM_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KVO-MVVM_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		BBBBD9634BE45580DB2C06F363834864 /* RuntimeRoutines.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RuntimeRoutines.framework; path = RuntimeRoutines.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE739338474763336AD41574C97C53AE /* RuntimeRoutines.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = RuntimeRoutines.modulemap; sourceTree = "<group>"; };
-		C4BE9AD731919A55A698DB3982FC644F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C844CAE28DCCC492B02768222F9B31BC /* KVO-MVVM-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KVO-MVVM-prefix.pch"; sourceTree = "<group>"; };
-		C906A4BA28D7A06AB89F81D7AB023520 /* Pods-KVO-MVVM_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KVO-MVVM_Tests-umbrella.h"; sourceTree = "<group>"; };
-		CA8425306C79ADE6CF25F4A4892BC3AA /* MLWHashTableMissings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MLWHashTableMissings.h; sourceTree = "<group>"; };
-		CED9B852A44B35B7BFD73966A4A01927 /* JRSwizzle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
-		D668F94D8EB9E652C140C25DDEC09A56 /* KVO-MVVM.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "KVO-MVVM.modulemap"; sourceTree = "<group>"; };
-		D833242F5E8EF263196999B4D150A931 /* Pods-KVO-MVVM_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KVO-MVVM_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		E70EEA7F535BA8610568FAF43BC17E38 /* Pods_KVO_MVVM_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_KVO_MVVM_Tests.framework; path = "Pods-KVO-MVVM_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9E4EACCCFE0A6F785CF8D4EA5E03463 /* JRSwizzle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JRSwizzle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F0F10E74EE9BB3125D0DD82A70A82740 /* RuntimeRoutines.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RuntimeRoutines.xcconfig; sourceTree = "<group>"; };
+		95AD67226CF6B3C50F03C37011017F2F /* libKVO-MVVM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libKVO-MVVM.a"; path = "libKVO-MVVM.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E6F217B1D7D31B9009A863D2CCC9FC0 /* JRSwizzle-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JRSwizzle-dummy.m"; sourceTree = "<group>"; };
+		9EC517BA998B06118BD5D9CE1DEB063A /* libJRSwizzle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libJRSwizzle.a; path = libJRSwizzle.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A19A44EB885F24EAA64F2A26350A151B /* JRSwizzle-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JRSwizzle-prefix.pch"; sourceTree = "<group>"; };
+		A4E1F27766FADB5D19BDB9BD661F9AB7 /* RuntimeRoutines-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RuntimeRoutines-prefix.pch"; sourceTree = "<group>"; };
+		A66CDF51A0DC2EF1C59654185E17CBA1 /* Pods-KVO-MVVM_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KVO-MVVM_Tests-resources.sh"; sourceTree = "<group>"; };
+		AD770D5A1AA461132FED8CB6B5240380 /* KVO-MVVM-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KVO-MVVM-prefix.pch"; sourceTree = "<group>"; };
+		B27BB384C8F6F654B296B797285E8BF5 /* JRSwizzle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
+		BB44D2C8A6E543BCB9F69BE388ACF331 /* Pods-KVO-MVVM_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KVO-MVVM_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		BCD2E27AC786C947C5BC3E029077F5A0 /* Pods-KVO-MVVM_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KVO-MVVM_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		BDB0E8A5305958760D7E86DC51AA0105 /* KVO-MVVM.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KVO-MVVM.m"; sourceTree = "<group>"; };
+		D36E3A08D2B724E0B59B8C9360B66C17 /* KVO-MVVM-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KVO-MVVM-dummy.m"; sourceTree = "<group>"; };
+		D6DA51DC2406FDA41F02DFB705D3D64C /* MLWHashTableMissings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MLWHashTableMissings.h; sourceTree = "<group>"; };
+		DB0DD62E8331D35D29398DE6AB2B9680 /* RuntimeRoutines-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RuntimeRoutines-dummy.m"; sourceTree = "<group>"; };
+		E3235D191C5AC338BE0A89072170DA36 /* RuntimeRoutines.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RuntimeRoutines.m; path = Pod/Classes/RuntimeRoutines.m; sourceTree = "<group>"; };
+		FD8FD9CE43C2442683BA882B9AAF946C /* libRuntimeRoutines.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libRuntimeRoutines.a; path = libRuntimeRoutines.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		03A52B89DB6F0154312503C35543B4EC /* Frameworks */ = {
+		2C54749AB207830702AC55605E685E53 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4C564F89D363B3681F09F61E2436F22 /* Foundation.framework in Frameworks */,
+				045B044957B845BDA1BE2D1C58B25405 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		77300EB68AA35E1183C91A56D9D22F96 /* Frameworks */ = {
+		761F96ED6D2911378483F6FBD9CC408E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE9AED00B8BE9DA2BDF8BB1955FA1691 /* Foundation.framework in Frameworks */,
-				F49700A9C09C534EF8E3737737D4D541 /* JRSwizzle.framework in Frameworks */,
-				8563B7D0278B639BD3D163F087B4990C /* RuntimeRoutines.framework in Frameworks */,
+				022D2EC03FF377D3BA2A665BB4299FBE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		89C39E45A842BA8CCF541F844210B090 /* Frameworks */ = {
+		BD24158E262E83470B442EA30370CE21 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74B0A3B794C34CCB8FB28B4EC9162620 /* Foundation.framework in Frameworks */,
+				49A710A4F6FF3E325B4B35C387DAAE4E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F7CFBFFD332686DDE52B0367D8E17B07 /* Frameworks */ = {
+		F28CCD1BC7FCE7CCFE8364B897F33BD8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E03A3D632AD17D8A301ED6F004C282E /* Foundation.framework in Frameworks */,
+				8AC9526BA81D3C8567D52260D01592CD /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01C54FA9D22BA1DC776B4D4BAB1A3982 /* Classes */ = {
+		019990B6EBB8DEAFEC59D088C72B6AED /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				2210068B916A704098F1FDF29D349D9A /* KVO-MVVM.h */,
-				A8444B8C6AE06669386E75EC77D0A441 /* KVO-MVVM.m */,
-				2E55BEBD03C2FA674AA8EE6FB26A873B /* KVO-MVVM-Private.m */,
-			);
-			name = Classes;
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		09B18309759B4E4D7BD89CC8D9D57DD4 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				CA8425306C79ADE6CF25F4A4892BC3AA /* MLWHashTableMissings.h */,
-				89878A8EC794206E58F4E5119DD46E7B /* MLWHashTableMissings.m */,
-			);
-			name = Classes;
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		0B13DB667F84D85E702AAC2B76590632 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				C4BE9AD731919A55A698DB3982FC644F /* Info.plist */,
-				1DDB320AB1A531BF9C2EB99F9F9BE60F /* JRSwizzle.modulemap */,
-				AC404CFDAF4F5E9B415AA2F0CEC93227 /* JRSwizzle.xcconfig */,
-				3A1FD15241A1C93C4D97FDE6272AA0D9 /* JRSwizzle-dummy.m */,
-				70B94C5FF4AAB82A1AB62AB9039DB305 /* JRSwizzle-prefix.pch */,
-				6BB2680F4FB0C75E7A27AF9F0F98AB76 /* JRSwizzle-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/JRSwizzle";
-			sourceTree = "<group>";
-		};
-		0CAA8E7FE09C41A9679394BD70BCBDB5 /* RuntimeRoutines */ = {
-			isa = PBXGroup;
-			children = (
-				8D408B5533F68D4741B7650D44B0C057 /* RuntimeRoutines.h */,
-				18D443A005ACD1309A539152E89E482B /* RuntimeRoutines.m */,
-				6CD63C4E59376747344A0C5386C7B0F6 /* Support Files */,
-			);
-			name = RuntimeRoutines;
-			path = RuntimeRoutines;
-			sourceTree = "<group>";
-		};
-		1194D1987F54510FF3CE8BEC097050FB /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				01C54FA9D22BA1DC776B4D4BAB1A3982 /* Classes */,
-			);
-			name = Pod;
-			path = Pod;
-			sourceTree = "<group>";
-		};
-		2DA298FF842C1EBCF9D882909F3DDA36 /* KVO-MVVM */ = {
-			isa = PBXGroup;
-			children = (
-				792AFB75848F46347D7D89FF7C15B647 /* HashTableMissings */,
-				1194D1987F54510FF3CE8BEC097050FB /* Pod */,
-				C51F5E25A6CB3F2D9BA4D3CB4408D86A /* Support Files */,
-			);
-			name = "KVO-MVVM";
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		6945ADF56A1F49F8BF7013C0F04D2CF0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				61A618B44200975A82F9B5950964C433 /* JRSwizzle.framework */,
-				5BEAEA7D7F53C54C165C7BF3EC4FA3F9 /* KVO_MVVM.framework */,
-				E70EEA7F535BA8610568FAF43BC17E38 /* Pods_KVO_MVVM_Tests.framework */,
-				BBBBD9634BE45580DB2C06F363834864 /* RuntimeRoutines.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		6CD63C4E59376747344A0C5386C7B0F6 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				75E21EB85BB1C4DC6DF3A176D1E9E8F4 /* Info.plist */,
-				BE739338474763336AD41574C97C53AE /* RuntimeRoutines.modulemap */,
-				F0F10E74EE9BB3125D0DD82A70A82740 /* RuntimeRoutines.xcconfig */,
-				AB319D9793AB8CC811577BF7102E6610 /* RuntimeRoutines-dummy.m */,
-				2B8046E4E726DD375270B59E3373B413 /* RuntimeRoutines-prefix.pch */,
-				5E52FF651FE206F2725B3199248D29F6 /* RuntimeRoutines-umbrella.h */,
+				024BD6688DD1883C04FB86186073FCC6 /* RuntimeRoutines.xcconfig */,
+				DB0DD62E8331D35D29398DE6AB2B9680 /* RuntimeRoutines-dummy.m */,
+				A4E1F27766FADB5D19BDB9BD661F9AB7 /* RuntimeRoutines-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/RuntimeRoutines";
 			sourceTree = "<group>";
 		};
+		11B434C8740EFF16A4270483F6924B48 /* Pods-KVO-MVVM_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				BB44D2C8A6E543BCB9F69BE388ACF331 /* Pods-KVO-MVVM_Tests-acknowledgements.markdown */,
+				BCD2E27AC786C947C5BC3E029077F5A0 /* Pods-KVO-MVVM_Tests-acknowledgements.plist */,
+				7AB182BEFF73EF6D9335667B626B12FE /* Pods-KVO-MVVM_Tests-dummy.m */,
+				321A7A6C9BEEAB963739058BB03B2CCB /* Pods-KVO-MVVM_Tests-frameworks.sh */,
+				A66CDF51A0DC2EF1C59654185E17CBA1 /* Pods-KVO-MVVM_Tests-resources.sh */,
+				3DE6F97FBF1E5772A0B199F54BB23736 /* Pods-KVO-MVVM_Tests.debug.xcconfig */,
+				2CFC1C691F1F8F0EF6AE29AC64896A7C /* Pods-KVO-MVVM_Tests.release.xcconfig */,
+			);
+			name = "Pods-KVO-MVVM_Tests";
+			path = "Target Support Files/Pods-KVO-MVVM_Tests";
+			sourceTree = "<group>";
+		};
+		3376E70BC458E4EE228D151E5B40CDAE /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				342407E6F6AA0C592980794C55A9D207 /* Classes */,
+			);
+			name = Pod;
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		342407E6F6AA0C592980794C55A9D207 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				58F5FEB86CD9B8233E24F9648E47ED10 /* KVO-MVVM.h */,
+				BDB0E8A5305958760D7E86DC51AA0105 /* KVO-MVVM.m */,
+				83B63246807D9D40AB516F111624F77B /* KVO-MVVM-Private.m */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		357248C8570605A66332F1C8E35E2FE8 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				9134DA14EE59FFF942DC8746E3AE1776 /* Classes */,
+			);
+			name = Pod;
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		58D7A5303FEA5B314732A6C51D9E37A2 /* JRSwizzle */ = {
+			isa = PBXGroup;
+			children = (
+				7DB400D5344CE4DF8FD52A3FB19E4BF6 /* JRSwizzle.h */,
+				B27BB384C8F6F654B296B797285E8BF5 /* JRSwizzle.m */,
+				CAFD01967DF90AF48EF259E6A35995C9 /* Support Files */,
+			);
+			name = JRSwizzle;
+			path = JRSwizzle;
+			sourceTree = "<group>";
+		};
+		648D2DB9D171CE6F830F13EE894FFD08 /* KVO-MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				9477F40D8D51070F7865A5F259FB1B82 /* HashTableMissings */,
+				3376E70BC458E4EE228D151E5B40CDAE /* Pod */,
+				6A33C54F7E69D91B64F25718BD1A5859 /* Support Files */,
+			);
+			name = "KVO-MVVM";
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		6A33C54F7E69D91B64F25718BD1A5859 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				427C6B9688A47E24134328B55765FE0C /* KVO-MVVM.xcconfig */,
+				D36E3A08D2B724E0B59B8C9360B66C17 /* KVO-MVVM-dummy.m */,
+				AD770D5A1AA461132FED8CB6B5240380 /* KVO-MVVM-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/KVO-MVVM";
+			sourceTree = "<group>";
+		};
 		6D9311FC87E9B1CCAE373F0FCA5B08F9 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2DA298FF842C1EBCF9D882909F3DDA36 /* KVO-MVVM */,
+				648D2DB9D171CE6F830F13EE894FFD08 /* KVO-MVVM */,
 			);
 			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		72CDF11A9CEEFEAB4F43CBA5F38F120A /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				BCCF1747013030EBE1A93C380BFBCEA6 /* Pods-KVO-MVVM_Tests */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		792AFB75848F46347D7D89FF7C15B647 /* HashTableMissings */ = {
-			isa = PBXGroup;
-			children = (
-				C531E892BB06336DFF750EB7EC5CDA24 /* Pod */,
-			);
-			name = HashTableMissings;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -276,197 +235,135 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				6D9311FC87E9B1CCAE373F0FCA5B08F9 /* Development Pods */,
-				AD2B264888F3F51A92FBF4D1A88CB901 /* Frameworks */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				E02003F64F2433D064D412A0530A0AF5 /* Pods */,
-				6945ADF56A1F49F8BF7013C0F04D2CF0 /* Products */,
-				72CDF11A9CEEFEAB4F43CBA5F38F120A /* Targets Support Files */,
+				BBCEA494C77DBC7F06499C3B4AB2598B /* Products */,
+				D04254BC979B0C9E4963155AEF65B3FC /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		AD2B264888F3F51A92FBF4D1A88CB901 /* Frameworks */ = {
+		9134DA14EE59FFF942DC8746E3AE1776 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				E9E4EACCCFE0A6F785CF8D4EA5E03463 /* JRSwizzle.framework */,
-				A1312D951A0635667985ADAF06A87416 /* RuntimeRoutines.framework */,
-				B37B77EB94D72758D5BE13218984CA8B /* iOS */,
+				D6DA51DC2406FDA41F02DFB705D3D64C /* MLWHashTableMissings.h */,
+				79EA6FB3978052E23FC1A30F2783467C /* MLWHashTableMissings.m */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		9477F40D8D51070F7865A5F259FB1B82 /* HashTableMissings */ = {
+			isa = PBXGroup;
+			children = (
+				357248C8570605A66332F1C8E35E2FE8 /* Pod */,
+			);
+			name = HashTableMissings;
+			sourceTree = "<group>";
+		};
+		BBCEA494C77DBC7F06499C3B4AB2598B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9EC517BA998B06118BD5D9CE1DEB063A /* libJRSwizzle.a */,
+				95AD67226CF6B3C50F03C37011017F2F /* libKVO-MVVM.a */,
+				545298C5021DFB03D83884128CFE38BF /* libPods-KVO-MVVM_Tests.a */,
+				FD8FD9CE43C2442683BA882B9AAF946C /* libRuntimeRoutines.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B37B77EB94D72758D5BE13218984CA8B /* iOS */ = {
+		CAFD01967DF90AF48EF259E6A35995C9 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				41137048D5CEE5357A4E6E81E1A62D0B /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		BCCF1747013030EBE1A93C380BFBCEA6 /* Pods-KVO-MVVM_Tests */ = {
-			isa = PBXGroup;
-			children = (
-				A2FC288EB1BF296A8A0E3D3BEB6EB46A /* Info.plist */,
-				954E725DEAA90FC810CB0CA1C08C927B /* Pods-KVO-MVVM_Tests.modulemap */,
-				B52C1971839CD884589D4D09762FE06A /* Pods-KVO-MVVM_Tests-acknowledgements.markdown */,
-				070CFD02A1CE4A8DB3BF61FE5116FAF4 /* Pods-KVO-MVVM_Tests-acknowledgements.plist */,
-				B109B855F45E3850BC1BE32BDD4BD2A2 /* Pods-KVO-MVVM_Tests-dummy.m */,
-				D833242F5E8EF263196999B4D150A931 /* Pods-KVO-MVVM_Tests-frameworks.sh */,
-				4EAE0D7BB0DADC080B97E7C56DB3C046 /* Pods-KVO-MVVM_Tests-resources.sh */,
-				C906A4BA28D7A06AB89F81D7AB023520 /* Pods-KVO-MVVM_Tests-umbrella.h */,
-				B0A1234B74BDC54DC4B2D3577F421E25 /* Pods-KVO-MVVM_Tests.debug.xcconfig */,
-				57B3015582A9EA27FC3BB281BB9B677A /* Pods-KVO-MVVM_Tests.release.xcconfig */,
-			);
-			name = "Pods-KVO-MVVM_Tests";
-			path = "Target Support Files/Pods-KVO-MVVM_Tests";
-			sourceTree = "<group>";
-		};
-		C51F5E25A6CB3F2D9BA4D3CB4408D86A /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				2B2529F07F87D937CFF0DB50CDA78503 /* Info.plist */,
-				D668F94D8EB9E652C140C25DDEC09A56 /* KVO-MVVM.modulemap */,
-				5CADF0B1FB9E8F3F94E1EDE6187C4237 /* KVO-MVVM.xcconfig */,
-				954CEEA2830FA68097CF0C068F4AD759 /* KVO-MVVM-dummy.m */,
-				C844CAE28DCCC492B02768222F9B31BC /* KVO-MVVM-prefix.pch */,
-				8A3FC586AEFE4C50EE7BC801FD734D23 /* KVO-MVVM-umbrella.h */,
+				023D346BF02A55E383F536DB6720EEBE /* JRSwizzle.xcconfig */,
+				9E6F217B1D7D31B9009A863D2CCC9FC0 /* JRSwizzle-dummy.m */,
+				A19A44EB885F24EAA64F2A26350A151B /* JRSwizzle-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "Example/Pods/Target Support Files/KVO-MVVM";
+			path = "../Target Support Files/JRSwizzle";
 			sourceTree = "<group>";
 		};
-		C531E892BB06336DFF750EB7EC5CDA24 /* Pod */ = {
+		CE2DDE84958E3E321EE5B676315EA30E /* RuntimeRoutines */ = {
 			isa = PBXGroup;
 			children = (
-				09B18309759B4E4D7BD89CC8D9D57DD4 /* Classes */,
+				6BC245E76B10EDF3270541BDDE4DB4A8 /* RuntimeRoutines.h */,
+				E3235D191C5AC338BE0A89072170DA36 /* RuntimeRoutines.m */,
+				019990B6EBB8DEAFEC59D088C72B6AED /* Support Files */,
 			);
-			name = Pod;
-			path = Pod;
+			name = RuntimeRoutines;
+			path = RuntimeRoutines;
+			sourceTree = "<group>";
+		};
+		D04254BC979B0C9E4963155AEF65B3FC /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				11B434C8740EFF16A4270483F6924B48 /* Pods-KVO-MVVM_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		E02003F64F2433D064D412A0530A0AF5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EAB76FA1FC564F9E7548CA6D4C6C0C0A /* JRSwizzle */,
-				0CAA8E7FE09C41A9679394BD70BCBDB5 /* RuntimeRoutines */,
+				58D7A5303FEA5B314732A6C51D9E37A2 /* JRSwizzle */,
+				CE2DDE84958E3E321EE5B676315EA30E /* RuntimeRoutines */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		EAB76FA1FC564F9E7548CA6D4C6C0C0A /* JRSwizzle */ = {
-			isa = PBXGroup;
-			children = (
-				A47C1312E82EA9F06E4DA97E7C60452B /* JRSwizzle.h */,
-				CED9B852A44B35B7BFD73966A4A01927 /* JRSwizzle.m */,
-				0B13DB667F84D85E702AAC2B76590632 /* Support Files */,
-			);
-			name = JRSwizzle;
-			path = JRSwizzle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		103EA6C3391E5BAE5AC20D841E9F335E /* Headers */ = {
+		729D65FD381A6E5E26E27AD1B3171981 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAD97E2D9216CC44F5C342558EB890DF /* KVO-MVVM-umbrella.h in Headers */,
-				ADA19C42DBDD72BE721A24D7A14FFE07 /* KVO-MVVM.h in Headers */,
-				0FBBE1559A02420D933CFCDABBC541F6 /* MLWHashTableMissings.h in Headers */,
+				6D3A0D55E49588DF9B9DC76B6C673CAF /* JRSwizzle.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F39875707A60FF0FBFEE847D4A2E1DA /* Headers */ = {
+		C1DA65AA513E8CA62220443465F1DDA9 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B503FE04A9C2074EE478C4B76E89DAEA /* JRSwizzle-umbrella.h in Headers */,
-				A8C98D483D800B96E37AA5069EF04E68 /* JRSwizzle.h in Headers */,
+				D5AA4D1CF36DD926A307D415B60D8351 /* RuntimeRoutines.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		330ED4388FB62B9C2A1A396B1A368559 /* Headers */ = {
+		CB46496A932956B9DD9A50DEE488F23E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47EAE352C06F0DB527AD94CF1D93F5AD /* Pods-KVO-MVVM_Tests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E744D183F7D76C0555E3B5CF96F9E46D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2498BBE61F68861DD639E3C0602A956B /* RuntimeRoutines-umbrella.h in Headers */,
-				E89601F80EB18F33972E24B558D5A151 /* RuntimeRoutines.h in Headers */,
+				74C43B02B04410B116867AF31535CBE9 /* KVO-MVVM.h in Headers */,
+				A9E9F54889B5BEA650D8DCAA7951789A /* MLWHashTableMissings.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		15357E1909A4DB847125CA532B38ED15 /* KVO-MVVM */ = {
+		0606AE1E7696CCFE3E1400A92489A474 /* JRSwizzle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AD1F465A1F8324252956AB7D839A217F /* Build configuration list for PBXNativeTarget "KVO-MVVM" */;
+			buildConfigurationList = E5E494C65978844DD4D9DE999CAEDDDA /* Build configuration list for PBXNativeTarget "JRSwizzle" */;
 			buildPhases = (
-				F795BD152607E3A7FDF1FA07EC5284B2 /* Sources */,
-				77300EB68AA35E1183C91A56D9D22F96 /* Frameworks */,
-				103EA6C3391E5BAE5AC20D841E9F335E /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B3A899FA44B9781A37DDD674DCCCE5D4 /* PBXTargetDependency */,
-				F59CDF48D79F56E91E018A20A4CFB2F9 /* PBXTargetDependency */,
-			);
-			name = "KVO-MVVM";
-			productName = "KVO-MVVM";
-			productReference = 5BEAEA7D7F53C54C165C7BF3EC4FA3F9 /* KVO_MVVM.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		94604A38A9156A86735C9D2B96B906A3 /* Pods-KVO-MVVM_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4EC5A7AA616499ED6B06706DFF05CFC9 /* Build configuration list for PBXNativeTarget "Pods-KVO-MVVM_Tests" */;
-			buildPhases = (
-				91CD159B8F8F72647D2940B518646EE0 /* Sources */,
-				89C39E45A842BA8CCF541F844210B090 /* Frameworks */,
-				330ED4388FB62B9C2A1A396B1A368559 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DA7E6BE7048CE2BAC57F145277EE3374 /* PBXTargetDependency */,
-				4DEF196FEC907CD920E0D74CBAD99F4D /* PBXTargetDependency */,
-				A3536112543F78C2D7B6A6B8241AD1EC /* PBXTargetDependency */,
-			);
-			name = "Pods-KVO-MVVM_Tests";
-			productName = "Pods-KVO-MVVM_Tests";
-			productReference = E70EEA7F535BA8610568FAF43BC17E38 /* Pods_KVO_MVVM_Tests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		BDF64B389C1036D9A13E1C7D7A97D899 /* RuntimeRoutines */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 976B4318649198F61A556A92AA5ACDE2 /* Build configuration list for PBXNativeTarget "RuntimeRoutines" */;
-			buildPhases = (
-				F99006467F734EA0CAAA852D98844A3B /* Sources */,
-				F7CFBFFD332686DDE52B0367D8E17B07 /* Frameworks */,
-				E744D183F7D76C0555E3B5CF96F9E46D /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = RuntimeRoutines;
-			productName = RuntimeRoutines;
-			productReference = BBBBD9634BE45580DB2C06F363834864 /* RuntimeRoutines.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		F5E7B86C60FCB91858074F7C2F733BE5 /* JRSwizzle */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FFB7E4A191A2188BE7C8E30FE682DB2E /* Build configuration list for PBXNativeTarget "JRSwizzle" */;
-			buildPhases = (
-				6C192372F9220548B74119C3A7966FA5 /* Sources */,
-				03A52B89DB6F0154312503C35543B4EC /* Frameworks */,
-				1F39875707A60FF0FBFEE847D4A2E1DA /* Headers */,
+				F3038BEAABF97EE2BDA42558B2C20588 /* Sources */,
+				F28CCD1BC7FCE7CCFE8364B897F33BD8 /* Frameworks */,
+				729D65FD381A6E5E26E27AD1B3171981 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -474,8 +371,63 @@
 			);
 			name = JRSwizzle;
 			productName = JRSwizzle;
-			productReference = 61A618B44200975A82F9B5950964C433 /* JRSwizzle.framework */;
-			productType = "com.apple.product-type.framework";
+			productReference = 9EC517BA998B06118BD5D9CE1DEB063A /* libJRSwizzle.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		53D2C2864056FBD23153B7BE0D7223C1 /* Pods-KVO-MVVM_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA65F0E35F45F8A9F6A351744EF4FAEF /* Build configuration list for PBXNativeTarget "Pods-KVO-MVVM_Tests" */;
+			buildPhases = (
+				D7B5DB9EF007AFAFDD9ACF430F4CBEE5 /* Sources */,
+				BD24158E262E83470B442EA30370CE21 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				55CEBC0C147A180DFFEEDFC82CB08E10 /* PBXTargetDependency */,
+				A2E8524F17EAF0FFB385A181F363A5CC /* PBXTargetDependency */,
+				B41B4BDFD12C059EEB6797DA755613C4 /* PBXTargetDependency */,
+			);
+			name = "Pods-KVO-MVVM_Tests";
+			productName = "Pods-KVO-MVVM_Tests";
+			productReference = 545298C5021DFB03D83884128CFE38BF /* libPods-KVO-MVVM_Tests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CDE58D7438B9B1CC25DFE5410AC1A723 /* RuntimeRoutines */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D23748A8AD7A6FC121DEF233AF92D02 /* Build configuration list for PBXNativeTarget "RuntimeRoutines" */;
+			buildPhases = (
+				A74AF3F0CD74C2C25FB36DFD2222ECB7 /* Sources */,
+				761F96ED6D2911378483F6FBD9CC408E /* Frameworks */,
+				C1DA65AA513E8CA62220443465F1DDA9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RuntimeRoutines;
+			productName = RuntimeRoutines;
+			productReference = FD8FD9CE43C2442683BA882B9AAF946C /* libRuntimeRoutines.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EEC5DB65842AD6DD54DE0E8ECF12379D /* KVO-MVVM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7505B8F11C496C838CB99A4CFCDFBC23 /* Build configuration list for PBXNativeTarget "KVO-MVVM" */;
+			buildPhases = (
+				980BC28C755ABE95065465333CA6C19D /* Sources */,
+				2C54749AB207830702AC55605E685E53 /* Frameworks */,
+				CB46496A932956B9DD9A50DEE488F23E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8B597315B31C03DA8C40CCE0BB2ED51 /* PBXTargetDependency */,
+				86D1B91D6D66388A8DD4F4BDADBAE442 /* PBXTargetDependency */,
+			);
+			name = "KVO-MVVM";
+			productName = "KVO-MVVM";
+			productReference = 95AD67226CF6B3C50F03C37011017F2F /* libKVO-MVVM.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -494,92 +446,138 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 6945ADF56A1F49F8BF7013C0F04D2CF0 /* Products */;
+			productRefGroup = BBCEA494C77DBC7F06499C3B4AB2598B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F5E7B86C60FCB91858074F7C2F733BE5 /* JRSwizzle */,
-				15357E1909A4DB847125CA532B38ED15 /* KVO-MVVM */,
-				94604A38A9156A86735C9D2B96B906A3 /* Pods-KVO-MVVM_Tests */,
-				BDF64B389C1036D9A13E1C7D7A97D899 /* RuntimeRoutines */,
+				0606AE1E7696CCFE3E1400A92489A474 /* JRSwizzle */,
+				EEC5DB65842AD6DD54DE0E8ECF12379D /* KVO-MVVM */,
+				53D2C2864056FBD23153B7BE0D7223C1 /* Pods-KVO-MVVM_Tests */,
+				CDE58D7438B9B1CC25DFE5410AC1A723 /* RuntimeRoutines */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6C192372F9220548B74119C3A7966FA5 /* Sources */ = {
+		980BC28C755ABE95065465333CA6C19D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DF0FBD3E59D87323827D9DC7B5A656C /* JRSwizzle-dummy.m in Sources */,
-				4E962449F2DC5BF696EF871F5F9653B5 /* JRSwizzle.m in Sources */,
+				3FDDC36327E490473D658AF234821FBC /* KVO-MVVM-dummy.m in Sources */,
+				D8BB7FF4B66142C2D7A681377CF94893 /* KVO-MVVM-Private.m in Sources */,
+				E30CC1C9AC05E72ABB9E309EED7637C3 /* KVO-MVVM.m in Sources */,
+				5DF78C9A61723DB4536D85714880482A /* MLWHashTableMissings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		91CD159B8F8F72647D2940B518646EE0 /* Sources */ = {
+		A74AF3F0CD74C2C25FB36DFD2222ECB7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				326B87B28F6E17F874DC6EC4DA1D5CC2 /* Pods-KVO-MVVM_Tests-dummy.m in Sources */,
+				D80DBF61B57B5BEE4B0B97D95C4D613D /* RuntimeRoutines-dummy.m in Sources */,
+				1678C537B7EAF94A15605B8087CDE3BA /* RuntimeRoutines.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F795BD152607E3A7FDF1FA07EC5284B2 /* Sources */ = {
+		D7B5DB9EF007AFAFDD9ACF430F4CBEE5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4477D48BE61B814A818C67FD6F1EC0A5 /* KVO-MVVM-dummy.m in Sources */,
-				D8940616F5E31893C97087BEDACE6700 /* KVO-MVVM-Private.m in Sources */,
-				576B10F869644CBEF2C4CAF3E1BD1585 /* KVO-MVVM.m in Sources */,
-				77F2DE7B66BC4B90F005600A62F375A0 /* MLWHashTableMissings.m in Sources */,
+				672EE6E9762805AE28F4A0C533728CF1 /* Pods-KVO-MVVM_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F99006467F734EA0CAAA852D98844A3B /* Sources */ = {
+		F3038BEAABF97EE2BDA42558B2C20588 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0D4359A0D233E6584F3A276A81E48BE /* RuntimeRoutines-dummy.m in Sources */,
-				028F095BA6111E8B56B7D521C994502E /* RuntimeRoutines.m in Sources */,
+				0B1F7CD7E08B55400F73235C4FD9AFC5 /* JRSwizzle-dummy.m in Sources */,
+				034DC10F5E754A45028AD6CDE43F2095 /* JRSwizzle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4DEF196FEC907CD920E0D74CBAD99F4D /* PBXTargetDependency */ = {
+		55CEBC0C147A180DFFEEDFC82CB08E10 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JRSwizzle;
+			target = 0606AE1E7696CCFE3E1400A92489A474 /* JRSwizzle */;
+			targetProxy = AC0262417DFED09AF3BD2A3786A167A7 /* PBXContainerItemProxy */;
+		};
+		86D1B91D6D66388A8DD4F4BDADBAE442 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RuntimeRoutines;
+			target = CDE58D7438B9B1CC25DFE5410AC1A723 /* RuntimeRoutines */;
+			targetProxy = 4CF83F889D3079D417293D5AFC1C7596 /* PBXContainerItemProxy */;
+		};
+		A2E8524F17EAF0FFB385A181F363A5CC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "KVO-MVVM";
-			target = 15357E1909A4DB847125CA532B38ED15 /* KVO-MVVM */;
-			targetProxy = 8B20A4572E14806C349675AB241D5E3E /* PBXContainerItemProxy */;
+			target = EEC5DB65842AD6DD54DE0E8ECF12379D /* KVO-MVVM */;
+			targetProxy = 81482A915BDF9E14B150500B98A2C7F8 /* PBXContainerItemProxy */;
 		};
-		A3536112543F78C2D7B6A6B8241AD1EC /* PBXTargetDependency */ = {
+		B41B4BDFD12C059EEB6797DA755613C4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RuntimeRoutines;
-			target = BDF64B389C1036D9A13E1C7D7A97D899 /* RuntimeRoutines */;
-			targetProxy = 7FA2B60AD38397F486D85B9211A90CA8 /* PBXContainerItemProxy */;
+			target = CDE58D7438B9B1CC25DFE5410AC1A723 /* RuntimeRoutines */;
+			targetProxy = 5563FBEC71542140B148013FAE421DE3 /* PBXContainerItemProxy */;
 		};
-		B3A899FA44B9781A37DDD674DCCCE5D4 /* PBXTargetDependency */ = {
+		C8B597315B31C03DA8C40CCE0BB2ED51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = JRSwizzle;
-			target = F5E7B86C60FCB91858074F7C2F733BE5 /* JRSwizzle */;
-			targetProxy = FDEC25B2232A4C1230C6774F76FB894D /* PBXContainerItemProxy */;
-		};
-		DA7E6BE7048CE2BAC57F145277EE3374 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = JRSwizzle;
-			target = F5E7B86C60FCB91858074F7C2F733BE5 /* JRSwizzle */;
-			targetProxy = C700CB5ADE3BD1A673095A11451ECAC2 /* PBXContainerItemProxy */;
-		};
-		F59CDF48D79F56E91E018A20A4CFB2F9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = RuntimeRoutines;
-			target = BDF64B389C1036D9A13E1C7D7A97D899 /* RuntimeRoutines */;
-			targetProxy = B3FF48F675E05CA1AD4D796675DDBAB7 /* PBXContainerItemProxy */;
+			target = 0606AE1E7696CCFE3E1400A92489A474 /* JRSwizzle */;
+			targetProxy = 3C7474BA59CDDBF7A9F21C889437BE2A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1A7014977EAF2A0404A8E1F9BA03DBDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 024BD6688DD1883C04FB86186073FCC6 /* RuntimeRoutines.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RuntimeRoutines/RuntimeRoutines-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		231DB874E2395CC26D894ABB25CC439D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CFC1C691F1F8F0EF6AE29AC64896A7C /* Pods-KVO-MVVM_Tests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		34FE9531DA9AF2820790339988D5FF41 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -624,237 +622,120 @@
 			};
 			name = Release;
 		};
-		445F5767C52955259D78E49FF080F177 /* Release */ = {
+		3B617A0CCC1B7F52EF1E56CF434DE4D4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57B3015582A9EA27FC3BB281BB9B677A /* Pods-KVO-MVVM_Tests.release.xcconfig */;
+			baseConfigurationReference = 023D346BF02A55E383F536DB6720EEBE /* JRSwizzle.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-KVO-MVVM_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-KVO-MVVM_Tests/Pods-KVO-MVVM_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_KVO_MVVM_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		68D956506E9C8D4D7204A298C8CCFD64 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC404CFDAF4F5E9B415AA2F0CEC93227 /* JRSwizzle.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/JRSwizzle/JRSwizzle-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/JRSwizzle/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/JRSwizzle/JRSwizzle.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = JRSwizzle;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		9204FF4474C9CD8D02CFD591F0C8491C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F0F10E74EE9BB3125D0DD82A70A82740 /* RuntimeRoutines.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/RuntimeRoutines/RuntimeRoutines-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/RuntimeRoutines/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/RuntimeRoutines/RuntimeRoutines.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = RuntimeRoutines;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		9276EB6ADFC673A4D6535022766BE7A9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5CADF0B1FB9E8F3F94E1EDE6187C4237 /* KVO-MVVM.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/KVO-MVVM/KVO-MVVM-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KVO-MVVM/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/KVO-MVVM/KVO-MVVM.modulemap";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = KVO_MVVM;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		94453F6E6B1C3543B9EF01749748E4A2 /* Debug */ = {
+		4DCC7CA2389EA5D270BFC4B6C6EC23E0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5CADF0B1FB9E8F3F94E1EDE6187C4237 /* KVO-MVVM.xcconfig */;
+			baseConfigurationReference = 427C6B9688A47E24134328B55765FE0C /* KVO-MVVM.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/KVO-MVVM/KVO-MVVM-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KVO-MVVM/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/KVO-MVVM/KVO-MVVM.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = KVO_MVVM;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
-		A2A363C345604EEDB1C66049A101CF3F /* Debug */ = {
+		8C016490CE1B57A5D7E1DA34D75F602A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0A1234B74BDC54DC4B2D3577F421E25 /* Pods-KVO-MVVM_Tests.debug.xcconfig */;
+			baseConfigurationReference = 3DE6F97FBF1E5772A0B199F54BB23736 /* Pods-KVO-MVVM_Tests.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-KVO-MVVM_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-KVO-MVVM_Tests/Pods-KVO-MVVM_Tests.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_KVO_MVVM_Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		AFBE0EE169D5ECB2FC6D81B1A2D7A71B /* Release */ = {
+		8EDBEF0E37A702F306BFC2E22D9F4B29 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC404CFDAF4F5E9B415AA2F0CEC93227 /* JRSwizzle.xcconfig */;
+			baseConfigurationReference = 427C6B9688A47E24134328B55765FE0C /* KVO-MVVM.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/KVO-MVVM/KVO-MVVM-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9F684CCA77A0F9100FB1C222EA51CC7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 023D346BF02A55E383F536DB6720EEBE /* JRSwizzle.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/JRSwizzle/JRSwizzle-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/JRSwizzle/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/JRSwizzle/JRSwizzle.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = JRSwizzle;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		C104F7F091290C3D1E248192F07FE689 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -904,37 +785,28 @@
 			};
 			name = Debug;
 		};
-		DDBCCC06A118898754FD042256DF38BD /* Release */ = {
+		EEE314C33F2857E59357E43E5DDF7F0D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F0F10E74EE9BB3125D0DD82A70A82740 /* RuntimeRoutines.xcconfig */;
+			baseConfigurationReference = 024BD6688DD1883C04FB86186073FCC6 /* RuntimeRoutines.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/RuntimeRoutines/RuntimeRoutines-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/RuntimeRoutines/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/RuntimeRoutines/RuntimeRoutines.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = RuntimeRoutines;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -948,38 +820,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4EC5A7AA616499ED6B06706DFF05CFC9 /* Build configuration list for PBXNativeTarget "Pods-KVO-MVVM_Tests" */ = {
+		7505B8F11C496C838CB99A4CFCDFBC23 /* Build configuration list for PBXNativeTarget "KVO-MVVM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A2A363C345604EEDB1C66049A101CF3F /* Debug */,
-				445F5767C52955259D78E49FF080F177 /* Release */,
+				8EDBEF0E37A702F306BFC2E22D9F4B29 /* Debug */,
+				4DCC7CA2389EA5D270BFC4B6C6EC23E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		976B4318649198F61A556A92AA5ACDE2 /* Build configuration list for PBXNativeTarget "RuntimeRoutines" */ = {
+		9D23748A8AD7A6FC121DEF233AF92D02 /* Build configuration list for PBXNativeTarget "RuntimeRoutines" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9204FF4474C9CD8D02CFD591F0C8491C /* Debug */,
-				DDBCCC06A118898754FD042256DF38BD /* Release */,
+				EEE314C33F2857E59357E43E5DDF7F0D /* Debug */,
+				1A7014977EAF2A0404A8E1F9BA03DBDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AD1F465A1F8324252956AB7D839A217F /* Build configuration list for PBXNativeTarget "KVO-MVVM" */ = {
+		AA65F0E35F45F8A9F6A351744EF4FAEF /* Build configuration list for PBXNativeTarget "Pods-KVO-MVVM_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				94453F6E6B1C3543B9EF01749748E4A2 /* Debug */,
-				9276EB6ADFC673A4D6535022766BE7A9 /* Release */,
+				8C016490CE1B57A5D7E1DA34D75F602A /* Debug */,
+				231DB874E2395CC26D894ABB25CC439D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FFB7E4A191A2188BE7C8E30FE682DB2E /* Build configuration list for PBXNativeTarget "JRSwizzle" */ = {
+		E5E494C65978844DD4D9DE999CAEDDDA /* Build configuration list for PBXNativeTarget "JRSwizzle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				68D956506E9C8D4D7204A298C8CCFD64 /* Debug */,
-				AFBE0EE169D5ECB2FC6D81B1A2D7A71B /* Release */,
+				9F684CCA77A0F9100FB1C222EA51CC7E /* Debug */,
+				3B617A0CCC1B7F52EF1E56CF434DE4D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,8 +1,8 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/JRSwizzle" "$PODS_CONFIGURATION_BUILD_DIR/KVO-MVVM" "$PODS_CONFIGURATION_BUILD_DIR/RuntimeRoutines"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/JRSwizzle/JRSwizzle.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/KVO-MVVM/KVO_MVVM.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/RuntimeRoutines/RuntimeRoutines.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "JRSwizzle" -framework "KVO_MVVM" -framework "RuntimeRoutines"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/JRSwizzle" "${PODS_ROOT}/Headers/Public/KVO-MVVM" "${PODS_ROOT}/Headers/Public/RuntimeRoutines"
+LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/JRSwizzle" "$PODS_CONFIGURATION_BUILD_DIR/KVO-MVVM" "$PODS_CONFIGURATION_BUILD_DIR/RuntimeRoutines"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/JRSwizzle" -isystem "${PODS_ROOT}/Headers/Public/KVO-MVVM" -isystem "${PODS_ROOT}/Headers/Public/RuntimeRoutines"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"JRSwizzle" -l"KVO-MVVM" -l"RuntimeRoutines" -framework "Foundation"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.

@@ -1,6 +1,0 @@
-framework module KVO_MVVM {
-  umbrella header "KVO-MVVM-umbrella.h"
-
-  export *
-  module * { export * }
-}

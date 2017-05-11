@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "15357E1909A4DB847125CA532B38ED15"
-               BuildableName = "KVO_MVVM.framework"
+               BlueprintIdentifier = "EEC5DB65842AD6DD54DE0E8ECF12379D"
+               BuildableName = "libKVO-MVVM.a"
                BlueprintName = "KVO-MVVM"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -45,8 +45,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "15357E1909A4DB847125CA532B38ED15"
-            BuildableName = "KVO_MVVM.framework"
+            BlueprintIdentifier = "EEC5DB65842AD6DD54DE0E8ECF12379D"
+            BuildableName = "libKVO-MVVM.a"
             BlueprintName = "KVO-MVVM"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
