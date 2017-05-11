@@ -174,7 +174,7 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
     return [self mvvm_observe:keyPath options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) with:block];
 }
 
-- (void)mvvm_observe:(NSString *)keyPath options:(NSKeyValueObservingOptions)options with:(ObserveCollectionBlock)block {
+- (void)mvvm_observe:(NSString *)keyPath options:(NSKeyValueObservingOptions)options with:(ObserveBlock)block {
 #ifdef DEBUG
     CheckClassKeyPathForPropertiesNotGetters([self class], keyPath);
 #endif
@@ -185,10 +185,17 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
     [self.mvvm_holder.blocks[keyPath] addObject:[block copy]];
 
     if (self.mvvm_holder.blocks[keyPath].count == 1) {
+        BOOL needInitialCall = (options & NSKeyValueObservingOptionInitial);
+        if (needInitialCall) {
+            options ^= NSKeyValueObservingOptionInitial;
+        }
         [self addObserver:self forKeyPath:keyPath options:options context:MVVMKVOContext];
+        if (needInitialCall) {
+            block(self, [self valueForKeyPath:keyPath]);
+        }
     }
     else if (options | NSKeyValueObservingOptionInitial) {
-        self.mvvm_holder.blocks[keyPath].lastObject(self, [self valueForKeyPath:keyPath]);
+        block(self, [self valueForKeyPath:keyPath]);
     }
 }
 
@@ -207,10 +214,17 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
     [self.mvvm_holder.collectionBlocks[keyPath] addObject:[block copy]];
 
     if (self.mvvm_holder.collectionBlocks[keyPath].count == 1) {
+        BOOL needInitialCall = (options & NSKeyValueObservingOptionInitial);
+        if (needInitialCall) {
+            options ^= NSKeyValueObservingOptionInitial;
+        }
         [self addObserver:self forKeyPath:keyPath options:options context:MVVMKVOContext];
+        if (needInitialCall) {
+            block(self, [self valueForKeyPath:keyPath], NSKeyValueChangeSetting, [NSIndexSet indexSet]);
+        }
     }
     else if (options | NSKeyValueObservingOptionInitial) {
-        self.mvvm_holder.collectionBlocks[keyPath].lastObject(self, [self valueForKeyPath:keyPath], 0, [NSIndexSet indexSet]);
+        block(self, [self valueForKeyPath:keyPath], NSKeyValueChangeSetting, [NSIndexSet indexSet]);
     }
 }
 
