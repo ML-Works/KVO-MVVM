@@ -170,11 +170,11 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
     }
 }
 
-- (void)mvvm_observe:(NSString *)keyPath with:(ObserveBlock)block {
+- (id)mvvm_observe:(NSString *)keyPath with:(ObserveBlock)block {
     return [self mvvm_observe:keyPath options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) with:block];
 }
 
-- (void)mvvm_observe:(NSString *)keyPath options:(NSKeyValueObservingOptions)options with:(ObserveBlock)block {
+- (id)mvvm_observe:(NSString *)keyPath options:(NSKeyValueObservingOptions)options with:(ObserveBlock)block {
 #ifdef DEBUG
     CheckClassKeyPathForPropertiesNotGetters([self class], keyPath);
 #endif
@@ -197,13 +197,15 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
     else if (options | NSKeyValueObservingOptionInitial) {
         block(self, [self valueForKeyPath:keyPath]);
     }
+    
+    return block;
 }
 
-- (void)mvvm_observeCollection:(NSString *)keyPath with:(ObserveCollectionBlock)block {
+- (id)mvvm_observeCollection:(NSString *)keyPath with:(ObserveCollectionBlock)block {
     return [self mvvm_observeCollection:keyPath options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) with:block];
 }
 
-- (void)mvvm_observeCollection:(NSString *)keyPath options:(NSKeyValueObservingOptions)options with:(ObserveCollectionBlock)block {
+- (id)mvvm_observeCollection:(NSString *)keyPath options:(NSKeyValueObservingOptions)options with:(ObserveCollectionBlock)block {
 #ifdef DEBUG
     CheckClassKeyPathForPropertiesNotGetters([self class], keyPath);
 #endif
@@ -226,6 +228,8 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
     else if (options | NSKeyValueObservingOptionInitial) {
         block(self, [self valueForKeyPath:keyPath], NSKeyValueChangeSetting, [NSIndexSet indexSet]);
     }
+    
+    return block;
 }
 
 - (void)mvvm_unobserve:(NSString *)keyPath {
@@ -233,9 +237,48 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
         [self.mvvm_holder.blocks removeObjectForKey:keyPath];
         [self removeObserver:self forKeyPath:keyPath context:MVVMKVOContext];
     }
+    
     if (self.mvvm_holder.collectionBlocks[keyPath]) {
         [self.mvvm_holder.collectionBlocks removeObjectForKey:keyPath];
         [self removeObserver:self forKeyPath:keyPath context:MVVMKVOContext];
+    }
+}
+
+- (void)mvvm_unobserveLast:(NSString *)keyPath {
+    if (self.mvvm_holder.blocks[keyPath]) {
+        [self.mvvm_holder.blocks[keyPath] removeLastObject];
+        if (self.mvvm_holder.blocks[keyPath].count == 0) {
+            [self.mvvm_holder.blocks removeObjectForKey:keyPath];
+            [self removeObserver:self forKeyPath:keyPath context:MVVMKVOContext];
+        }
+    }
+    
+    if (self.mvvm_holder.collectionBlocks[keyPath]) {
+        [self.mvvm_holder.collectionBlocks[keyPath] removeLastObject];
+        if (self.mvvm_holder.collectionBlocks[keyPath].count == 0) {
+            [self.mvvm_holder.collectionBlocks removeObjectForKey:keyPath];
+            [self removeObserver:self forKeyPath:keyPath context:MVVMKVOContext];
+        }
+    }
+}
+
+- (void)mvvm_unobserveBlock:(id)block {
+    NSString *keyPath = [self.mvvm_holder.blocks allKeysForObject:block].firstObject;
+    if (keyPath) {
+        [self.mvvm_holder.blocks[keyPath] removeObject:block];
+        if (self.mvvm_holder.blocks[keyPath].count == 0) {
+            [self.mvvm_holder.blocks removeObjectForKey:keyPath];
+            [self removeObserver:self forKeyPath:keyPath context:MVVMKVOContext];
+        }
+    }
+    
+    keyPath = [self.mvvm_holder.collectionBlocks allKeysForObject:block].firstObject;
+    if (keyPath) {
+        [self.mvvm_holder.collectionBlocks[keyPath] removeObject:block];
+        if (self.mvvm_holder.collectionBlocks[keyPath].count == 0) {
+            [self.mvvm_holder.collectionBlocks removeObjectForKey:keyPath];
+            [self removeObserver:self forKeyPath:keyPath context:MVVMKVOContext];
+        }
     }
 }
 

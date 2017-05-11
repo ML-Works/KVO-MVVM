@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10055AAF1A519A2430451320 /* libPods-KVO-MVVM_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E08EE4DF5C6FD32010F4E60 /* libPods-KVO-MVVM_Tests.a */; };
 		25B595AC1D75A26200C516E2 /* SimpleKVOTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B595AB1D75A26200C516E2 /* SimpleKVOTests.m */; };
 		25B595AE1D75A29D00C516E2 /* WeakKVOTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B595AD1D75A29D00C516E2 /* WeakKVOTests.m */; };
 		25C2D8EB1DABE4F300E07CF7 /* DifferentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C2D8EA1DABE4F300E07CF7 /* DifferentTests.m */; };
-		544BFA94E5BC2FC0717BCFC2 /* libPods-KVO-MVVM_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E89D45146B71EB979EF810CA /* libPods-KVO-MVVM_Tests.a */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -20,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		1037435381E89353AB4B20DE /* KVO-MVVM.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "KVO-MVVM.podspec"; path = "../KVO-MVVM.podspec"; sourceTree = "<group>"; };
+		1E08EE4DF5C6FD32010F4E60 /* libPods-KVO-MVVM_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVO-MVVM_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B595AB1D75A26200C516E2 /* SimpleKVOTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleKVOTests.m; sourceTree = "<group>"; };
 		25B595AD1D75A29D00C516E2 /* WeakKVOTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakKVOTests.m; sourceTree = "<group>"; };
 		25C2D8EA1DABE4F300E07CF7 /* DifferentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DifferentTests.m; sourceTree = "<group>"; };
@@ -36,7 +37,6 @@
 		89913D4A124D8469251476B0 /* Pods-KVO-MVVM_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVO-MVVM_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KVO-MVVM_Tests/Pods-KVO-MVVM_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C9B9BE6982FF8B2AE175716A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		DBF5FACFC0BBBB3D56335B62 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		E89D45146B71EB979EF810CA /* libPods-KVO-MVVM_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVO-MVVM_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +47,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				544BFA94E5BC2FC0717BCFC2 /* libPods-KVO-MVVM_Tests.a in Frameworks */,
+				10055AAF1A519A2430451320 /* libPods-KVO-MVVM_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +89,7 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				E89D45146B71EB979EF810CA /* libPods-KVO-MVVM_Tests.a */,
+				1E08EE4DF5C6FD32010F4E60 /* libPods-KVO-MVVM_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
