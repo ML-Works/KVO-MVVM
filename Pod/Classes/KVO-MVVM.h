@@ -23,12 +23,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (KVOMVVM)
 
-- (void)mvvm_observe:(NSString *)keyPath with:(void (^)(id self, id _Nullable value))block;
-- (void)mvvm_observe:(NSString *)keyPath options:(NSKeyValueObservingOptions)options with:(void (^)(id self, id _Nullable value))block;
-- (void)mvvm_observeCollection:(NSString *)keyPath with:(void (^)(id self, id _Nullable value, NSKeyValueChange change, NSIndexSet *indexes))block;
-- (void)mvvm_observeCollection:(NSString *)keyPath options:(NSKeyValueObservingOptions)options with:(void (^)(id self, id _Nullable value, NSKeyValueChange change, NSIndexSet *indexes))block;
+- (id)mvvm_observe:(NSString *)keyPath with:(void (^)(id self, id _Nullable value))block;
+- (id)mvvm_observe:(NSString *)keyPath options:(NSKeyValueObservingOptions)options with:(void (^)(id self, id _Nullable value))block;
+- (id)mvvm_observeCollection:(NSString *)keyPath with:(void (^)(id self, id _Nullable value, NSKeyValueChange change, NSIndexSet *indexes))block;
+- (id)mvvm_observeCollection:(NSString *)keyPath options:(NSKeyValueObservingOptions)options with:(void (^)(id self, id _Nullable value, NSKeyValueChange change, NSIndexSet *indexes))block;
 
 - (void)mvvm_unobserve:(NSString *)keyPath;
+- (void)mvvm_unobserveLast:(NSString *)keyPath;
+- (void)mvvm_unobserveBlock:(id)block;
 - (void)mvvm_unobserveAll;
 
 @end
