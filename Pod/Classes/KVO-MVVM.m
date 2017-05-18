@@ -323,10 +323,10 @@ typedef NSMutableDictionary<NSString *, ObserveCollectionBlocksArray *> ObserveC
         }
     }
 
-    for (ObserveBlock block in self.mvvm_holder.blocks[keyPath]) {
+    for (ObserveBlock block in [self.mvvm_holder.blocks[keyPath] copy]) {
         block(self, (newValue != [NSNull null]) ? newValue : nil);
     }
-    for (ObserveCollectionBlock block in self.mvvm_holder.collectionBlocks[keyPath]) {
+    for (ObserveCollectionBlock block in [self.mvvm_holder.collectionBlocks[keyPath] copy]) {
         block(self, (newValue != [NSNull null]) ? newValue : nil, changeType, indexes);
     }
 }
