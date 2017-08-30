@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		10055AAF1A519A2430451320 /* libPods-KVO-MVVM_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E08EE4DF5C6FD32010F4E60 /* libPods-KVO-MVVM_Tests.a */; };
 		25B595AC1D75A26200C516E2 /* SimpleKVOTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B595AB1D75A26200C516E2 /* SimpleKVOTests.m */; };
-		25B595AE1D75A29D00C516E2 /* WeakKVOTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B595AD1D75A29D00C516E2 /* WeakKVOTests.m */; };
-		25C2D8EB1DABE4F300E07CF7 /* DifferentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C2D8EA1DABE4F300E07CF7 /* DifferentTests.m */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -22,8 +20,6 @@
 		1037435381E89353AB4B20DE /* KVO-MVVM.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "KVO-MVVM.podspec"; path = "../KVO-MVVM.podspec"; sourceTree = "<group>"; };
 		1E08EE4DF5C6FD32010F4E60 /* libPods-KVO-MVVM_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVO-MVVM_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B595AB1D75A26200C516E2 /* SimpleKVOTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleKVOTests.m; sourceTree = "<group>"; };
-		25B595AD1D75A29D00C516E2 /* WeakKVOTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakKVOTests.m; sourceTree = "<group>"; };
-		25C2D8EA1DABE4F300E07CF7 /* DifferentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DifferentTests.m; sourceTree = "<group>"; };
 		5009C774045B69D76263AC02 /* Pods-KVO-MVVM_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVO-MVVM_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KVO-MVVM_Tests/Pods-KVO-MVVM_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -99,8 +95,6 @@
 			children = (
 				6003F5BB195388D20070C39A /* Tests.m */,
 				25B595AB1D75A26200C516E2 /* SimpleKVOTests.m */,
-				25B595AD1D75A29D00C516E2 /* WeakKVOTests.m */,
-				25C2D8EA1DABE4F300E07CF7 /* DifferentTests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
@@ -200,13 +194,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KVO-MVVM_Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		877CC9A7158BC37E0DEC0A4A /* [CP] Copy Pods Resources */ = {
@@ -247,8 +244,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				25B595AC1D75A26200C516E2 /* SimpleKVOTests.m in Sources */,
-				25C2D8EB1DABE4F300E07CF7 /* DifferentTests.m in Sources */,
-				25B595AE1D75A29D00C516E2 /* WeakKVOTests.m in Sources */,
 				6003F5BC195388D20070C39A /* Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

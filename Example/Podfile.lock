@@ -1,26 +1,16 @@
 PODS:
-  - JRSwizzle (1.0)
-  - KVO-MVVM (0.4.24):
-    - JRSwizzle
-    - KVO-MVVM/HashTableMissings (= 0.4.24)
-    - RuntimeRoutines
-  - KVO-MVVM/HashTableMissings (0.4.24):
-    - JRSwizzle
-    - RuntimeRoutines
-  - RuntimeRoutines (0.3.2)
+  - KVO-MVVM (0.5.0)
 
 DEPENDENCIES:
   - KVO-MVVM (from `../`)
 
 EXTERNAL SOURCES:
   KVO-MVVM:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
-  JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
-  KVO-MVVM: 1e255c8343813b60d7788bf6c23aed340954de0d
-  RuntimeRoutines: 9253ad1e61a0e2af32cf2ce37393e9185003b94f
+  KVO-MVVM: ebb0d30b4e0e798d2eec7af3d41167b8441efd95
 
-PODFILE CHECKSUM: 66dbd2969c40203585f35ac19012da640e9f5ae3
+PODFILE CHECKSUM: 36ec240e5f1376b7ae05cca5762825cdc6998ef9
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1

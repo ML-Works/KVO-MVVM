@@ -8,7 +8,8 @@
 
 #import <XCTest/XCTest.h>
 
-#import <KVO-MVVM/KVO-MVVM.h>
+#import <KVO-MVVM/KVOUIView.h>
+#import <KVO-MVVM/KVONSObject.h>
 
 //
 
@@ -37,7 +38,7 @@
 
 //
 
-@interface TestView : NSObject
+@interface TestView : KVONSObject
 
 @property (strong, nonatomic) TestViewModel *viewModel;
 

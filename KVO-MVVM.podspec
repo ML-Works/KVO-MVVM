@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "KVO-MVVM"
-  s.version          = "0.4.24"
+  s.version          = "0.5.0"
   s.summary          = "KVO binding especially for ViewModel observing by View"
 
   s.description      = <<-DESC
@@ -18,13 +18,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/KVO-*.{h,m,mm}'
-
-  s.subspec 'HashTableMissings' do |sub|
-    sub.source_files = 'Pod/Classes/MLWHashTableMissings.{h,m}'
-    sub.requires_arc = false
-  end
-
-  s.dependency 'JRSwizzle'
-  s.dependency 'RuntimeRoutines'
+  s.source_files = 'Pod/Classes/*.{h,m,mm}'
+  s.private_header_files = 'Pod/Classes/SuperKVOPrivateImplementation.h'
 end
