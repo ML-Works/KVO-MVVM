@@ -3,6 +3,5 @@ platform :ios, '8.0'
 
 target 'KVO-MVVM_Tests' do
   pod 'KVO-MVVM', :path => '../'
-
   
 end

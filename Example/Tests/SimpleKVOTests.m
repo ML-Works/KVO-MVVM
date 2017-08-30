@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 
-#import <KVO-MVVM/KVO-MVVM.h>
+#import <KVO-MVVM/KVONSObject.h>
 
 //
 
@@ -22,7 +22,7 @@
 
 @end
 
-@interface SimpleKVO : NSObject
+@interface SimpleKVO : KVONSObject
 
 @property (strong, nonatomic) SimpleKVOModel *viewModel;
 @property (assign, nonatomic) BOOL observerWasCalled;
@@ -41,6 +41,10 @@
         [self addObserver:self forKeyPath:@"viewModel.array" options:(NSKeyValueObservingOptionNew) context:NULL];
     }
     return self;
+}
+
+- (void)dealloc {
+    [self removeObserver:self forKeyPath:@"viewModel.array" context:NULL];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *, id> *)change context:(void *)context {
