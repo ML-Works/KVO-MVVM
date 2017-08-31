@@ -7,8 +7,9 @@
 
 ## Usage
 
-1. First `#import <KVO-MVVM/KVO-MVVM.h>`
-2. Use `mvvm_observe:with:` or `mvvm_observeCollection:with:` like this:
+1. First `#import <KVO-MVVM/KVOUIView.h>` or any other available header
+2. Subclass your custom view from `KVOUIView`
+3. Use `mvvm_observe:with:` or `mvvm_observeCollection:with:` like this:
   ```objective-c
      - (instancetype)initWithFrame:(CGRect)frame {
          if (self = [super initWithFrame:frame]) {
@@ -30,8 +31,9 @@
          return self;
      }
   ```
-3. Observe keypaths with `weak` properties in it without any discomfort
 4. Do not unobserve any KVO-observings any more
+
+Observing keypaths with `weak` properties in it is not supported.
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
