@@ -7,44 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		079F370E91407FAEAF79A66E3A81F67A /* KVOUICollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF15C95F2B0DE389DB2327C9AB6A4E4 /* KVOUICollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		082C186DBE7CE035D0611AC9069B711B /* KVOUITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F659418FD73A449CCDE3B2D566676E /* KVOUITableView.m */; };
-		0D649185B43C589B1CCC186DA18846B8 /* KVONSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 60241259079C85094D2DB71E27C34848 /* KVONSObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		113428ED34B621E2819DFCE0294DF9C4 /* KVOUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7403B0777DA68902E1DAF95F286CEC1 /* KVOUIView.m */; };
-		1414D9AD21095636DDF2B355BAD52DE6 /* KVOUILabel.h in Headers */ = {isa = PBXBuildFile; fileRef = D2343A441E439AA54272F4E66F52C352 /* KVOUILabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1A17E611E9B9E76C163F58705B01EA9C /* SuperKVOProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = FD28E2C96010702D0E3C8013AE985D8A /* SuperKVOProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		204F8FE292C5C5D29C63A8298C792992 /* KVOUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 338B19DFA594209D94E786A818E33B36 /* KVOUITextView.m */; };
-		24B044F317D008116389B7B00120BEF9 /* KVOUIButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 98018FBC63273133FBA5D2B11BFCF212 /* KVOUIButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24E5249FA88E8D1BF5F57DD653C17957 /* KVOUIImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A75A6ED82FEEC0346CB77A9D744C05B7 /* KVOUIImageView.m */; };
-		271C5631466E5E01868371FD1C7B5785 /* KVOUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C417DDEEA3BB4F61BAB616FE31193E /* KVOUILabel.m */; };
-		28EFF36F1B4C3CD6043AD62CC4ABDCCF /* KVOUINavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A50B2C609C7727195C3264317392F323 /* KVOUINavigationItem.m */; };
-		295683BBE1EB0C6FD5D40B4AE4621A4B /* KVOUITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F851B5AB7E19980DC6B10FAC07D4C93D /* KVOUITableViewCell.m */; };
-		38F4EC04AED6B61E348659F08420E97D /* KVOUIScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE40255A16120064EBD36091E62BFCA8 /* KVOUIScrollView.m */; };
-		3AA2355CCDF5F1B728A8234E76444657 /* KVO-MVVM-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E001C978FEE0CCB40C5EAAC1E3070A9A /* KVO-MVVM-dummy.m */; };
-		3CD49D762FAF5D9504B4C91FB341E216 /* KVOUIResponder.h in Headers */ = {isa = PBXBuildFile; fileRef = ED0E8A7922B356F52047830F14F27CCE /* KVOUIResponder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F102EAAD36594E95666CED53F6C0A94 /* KVOUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6920F6AD5CD6D7BEEBE363EEE1CE8F /* KVOUIViewController.m */; };
-		4481A479E921D7D66EDC8EA2F20876CF /* KVOUIScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 787220DEC9C460A5EC31FC5DAA3E6615 /* KVOUIScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		607E6A131A4CE902B42802BB70E0C378 /* KVOUIResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = A75344B5644A2DF3CFFEC5B30B6DD027 /* KVOUIResponder.m */; };
-		65CD0A8DBFE74088A5C8D8E25AF744A6 /* KVOUICollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B55D8C4BA03021402F5B96A6E579851E /* KVOUICollectionReusableView.m */; };
-		6F52F146FA6DAC0F57551FE64931692C /* KVOUIControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7E6682DA588EDE8B8B18F620C25D2A /* KVOUIControl.m */; };
-		774024058E8F9A9E45D2D7B6400248A6 /* KVOUICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C68DE234ACA17D5E1366C5BA9B908B /* KVOUICollectionView.m */; };
-		81FE111B969B25B44FCF7758CFF6F820 /* KVOUIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 82ADB0918319931EF9B176DA59D43946 /* KVOUIView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A583D40148AFC84BDDC5F1C9F0F72246 /* SuperKVOPrivateImplementation.h in Headers */ = {isa = PBXBuildFile; fileRef = BA2BE95EC1CC9F555517ED5B0CF23EBA /* SuperKVOPrivateImplementation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B033ACE41BA7E8792BE73A3C4730015F /* KVOUINavigationItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A2B67452EB2B75583B7FBC21E2502A39 /* KVOUINavigationItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01DFF6ECABBFFDDCC9E5FAD5AA64E097 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 567CC9627FCF9E142805D264D34518CC /* Foundation.framework */; };
+		07E5463ADFD9F1BF6BC98121194E495D /* SuperKVOPrivateImplementation.h in Headers */ = {isa = PBXBuildFile; fileRef = BFF8F3B9945C2B44A0C8E908CEF2F205 /* SuperKVOPrivateImplementation.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0D344C8A94EDCA1CFB03D45F7A2B4083 /* KVOUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AA805F04BA90F4679F5F80E4E55AE5 /* KVOUILabel.m */; };
+		1C9BA0BCB06CA618CECFF73DE72172EF /* KVOUINavigationItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DDDAC688E1E89A3060551EB9306B53F /* KVOUINavigationItem.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1EFBB1AF07EB34D9A2A105EFBD7D7C2C /* KVOUIControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 01088994529738805321FA4FA4EDE566 /* KVOUIControl.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		26A7EE0E1B7EA9E187BCF3855902514D /* KVOUICollectionReusableView.h in Headers */ = {isa = PBXBuildFile; fileRef = B0B56BB1825C66D7D4595D9639A11DAF /* KVOUICollectionReusableView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		342F6910FA1A13F818F9C2CB3C0ABC00 /* KVOUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A56416D095C2301C1B7ABE2E00B89B8 /* KVOUITextView.m */; };
+		34EFC4A509C6CEE01E9965D8E4D6D1FB /* KVOUIScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = A48B6B44334FD5337F08B89B99E4892A /* KVOUIScrollView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		37DADD178F6B06E82DD1488D17B4EC6B /* KVOUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FE2ECF1AF9C809143DC6AD97DB527E /* KVOUIView.m */; };
+		42084B3A4D1E48DA7F7141559D697E11 /* KVOUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFC20BFE76D8839C6AD8481D47F332D /* KVOUIButton.m */; };
+		54C44CAFDBFCFC5FA19B507EBBB3958C /* KVOUITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D72FD7AB4B20FF2484C6B88624242017 /* KVOUITableView.m */; };
+		5BE1D21D1BC42A8A1AB7692DB456B903 /* KVOUIViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FDA5A410AF5E7B677EAF8C2293D0F68 /* KVOUIViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		612F606D4266F366D5F1E6A267A02203 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65FD025D71C79552EB4B3C43A32AA6ED /* UIKit.framework */; };
+		636EF7E1A1F3C14090EF1A014B7842E8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6788C15B51D04030F9334A66BAF4776E /* CoreData.framework */; };
+		68761B471307228F96248139C1F33F0B /* KVONSManagedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AED573542008BBA0373FFA2767F2118 /* KVONSManagedObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		69A6FA49AEA68F0ABE6F8528C6C9A6CE /* KVOUICollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 331755C6D8C3BC5F9F1D3D92DAA57120 /* KVOUICollectionView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6B9478F1F1642BBD0CCA6674C958202F /* KVOUITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8219CCDBB9F1ACF1381297481E712679 /* KVOUITableViewCell.m */; };
+		6C9BA726C33A266A051F6EA26CDA1CBB /* KVOUIControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 808B58CB05C0046DDDED7ACDB715BEC7 /* KVOUIControl.m */; };
+		6D7AF7829DAF93BD46B3B3BD85AAEE3F /* KVOUIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E75A5991776DDA211FD12C68337B463 /* KVOUIView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6D8FB24C9F96588FEE2488D067F3BC28 /* KVOUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9F998C18474AE11180B5FFAB3A3691 /* KVOUIViewController.m */; };
+		70BDCDF89DF471372B8B102A75F2A51A /* KVOUICollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F9C4C8835E3CA9553140801021BD32 /* KVOUICollectionReusableView.m */; };
+		7F72E6344E1BD80AE6D3A1AB65CD1015 /* KVOUIImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 690828B6B4A3CC7E5EB3BD04023D9FF0 /* KVOUIImageView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		86C18FA1FE7BE085413A9FF3902A4708 /* KVOUICollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEEF973D13AFA2F096AC12ED44873438 /* KVOUICollectionViewController.m */; };
+		8DA12DECE78C888B32DCBFA327877DBC /* KVOUICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 196DDD6749DD8FAB63CC2116AD27BC7E /* KVOUICollectionView.m */; };
+		9211935A91DCDC16FFF8F911D22ECE67 /* KVOUICollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF5B0CAE6A6504DA207DB24E9D19BF4 /* KVOUICollectionViewCell.m */; };
+		92FD573FA5D4E87451C28477829A9FBB /* KVONSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = BD1F366E7AC0B77297369CF91A11310C /* KVONSObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		96B1D10FEE383A5E1C19E103CA767DE6 /* KVOUIResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8A1AB804D232675CAC3964C937848E /* KVOUIResponder.m */; };
+		A9DDBE3A038A3FF39A943E2CAACD0ADE /* KVOUITableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B96A7C6D9A8A7FA9C33DB90CD4CA35D /* KVOUITableViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B764090B860C7BFEA479C61FDFE172B6 /* Pods-KVO-MVVM_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB182BEFF73EF6D9335667B626B12FE /* Pods-KVO-MVVM_Tests-dummy.m */; };
-		B971ECC11A0A99660BAFEA809E7F3DB0 /* KVOUIControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 304650E073924561FCF57567F27D6FAB /* KVOUIControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BBBCDB5DC34A432B46CA1090835FEA9F /* KVOUIImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = A00FE35858263EE451E4CC8A7D090B67 /* KVOUIImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BDB10DAB747A546E8EF2577021A44A9F /* KVOUITableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = BA1E17AA8AE9A6333AAA9F238850F982 /* KVOUITableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BDF2F3B0F23EA7E5DF150D570286B4DF /* KVOUIViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = CA273C8885DE26589258E6ACAD3DD630 /* KVOUIViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C788699A3D77F1FD80532493E8206424 /* KVOUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B576D0E6C1423F66F557E9FF411D1CEF /* KVOUIButton.m */; };
-		D3A2A57EE6AF4E03F5C53945173E39B4 /* KVOUICollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = A6AF9E17D6CB6BB788CC01089DCD3CB4 /* KVOUICollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DA97C2F3A9ECF53F4F3EEFA4C3A9EF74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		DF8B1C5A18B9E88BAC5C712CF8ADA11A /* KVOUICollectionReusableView.h in Headers */ = {isa = PBXBuildFile; fileRef = F532FFD3C393146BA11B3C9639CB611B /* KVOUICollectionReusableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EA2577A5F5B78A2BCD53D2A900E998A1 /* KVOUITextView.h in Headers */ = {isa = PBXBuildFile; fileRef = AE752A1643181930763A6D61A3F9C5CC /* KVOUITextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EBCE869A21DD3421EE0310214884E9ED /* KVOUICollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 17681AD361B485472102BB5B1E227608 /* KVOUICollectionViewCell.m */; };
-		ED95B67CDB34A5CE8C0415B6F7E9BEEC /* KVONSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8C5A9B4D9E6D967EC50A205624866D /* KVONSObject.m */; };
-		EF6A9CB0D6082EB0407782E3EC3D9BC2 /* KVOUITableView.h in Headers */ = {isa = PBXBuildFile; fileRef = AE54035E75E5A820658F1334C3E68F1B /* KVOUITableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F4425657C6C8E924BB1D0AF39EF4ABA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		B8233F321F64EE59B7115972DBB3740A /* KVOUIImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D657E607DC487BA45CC97A88D42DE03D /* KVOUIImageView.m */; };
+		BB5FDE49F58A2A147FF9372491412CCA /* KVOUICollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6526564E9301AF23BF604B61D0A3D834 /* KVOUICollectionViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C0C82B106C46AC14636819C38ECF639D /* KVO-MVVM-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C657279E708127FD639CE7244A5A43 /* KVO-MVVM-dummy.m */; };
+		C2FF9DFA6BDDFE92199595BD0AF99844 /* SuperKVOProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = E6B5065A4D4D0DC25D6CBA5E82EF25A8 /* SuperKVOProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C57F79E5E6F3EC37B96A436526D55421 /* KVOUINavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6DB39E1B9287D08655BD6E42FE6155 /* KVOUINavigationItem.m */; };
+		C774D46E74E29AF1C5C44BC329817141 /* KVOUITableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E4A257EF4A1DD6C3BDD91A7D87538AD6 /* KVOUITableViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CAA16C1460D5947EEAFDBEB47ACC6F44 /* KVOUICollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4754E4D9EF130E44D723C26FC7E3F463 /* KVOUICollectionViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D7DB652B7F6B764E27975A8E94F198DC /* KVOUIButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 995E28BA5A2B31FC8B98DB65A094D246 /* KVOUIButton.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D96E463912E6A8EDE3A945380702E53E /* KVONSManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 455BCE2C91025B947B3A022559E5539F /* KVONSManagedObject.m */; };
+		D97DDBAFB3468E2419B8569F3E5788C9 /* KVOUILabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B0C2E41435121E77BB1BA4965C9C25B /* KVOUILabel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E7B541116F564BD151A5C0624D955410 /* KVOUIScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D7C163374A265BA02893A3D37F4905 /* KVOUIScrollView.m */; };
+		EBFB6EB0752553A695A98EC6C0D11420 /* KVONSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E25511E85DE14EE5C7287D4925AAC53 /* KVONSObject.m */; };
+		EE811DA6DB4A28C8EE6FB01C248373E7 /* KVOUIResponder.h in Headers */ = {isa = PBXBuildFile; fileRef = 29B026073818AC75A2E7DD85C4471265 /* KVOUIResponder.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F268CC64BFA0D94640B5CD8D716EAC79 /* KVOUITableView.h in Headers */ = {isa = PBXBuildFile; fileRef = FF7B57816F0811397A9D85DBC0D89DFE /* KVOUITableView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F4425657C6C8E924BB1D0AF39EF4ABA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 567CC9627FCF9E142805D264D34518CC /* Foundation.framework */; };
+		F4844B299C206FC992F67EBE91D9FE27 /* KVOUITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40ED720B23FA684D86F478E79F92865B /* KVOUITableViewController.m */; };
+		F98D96B010AECE7BD3D22B16E8CCC995 /* KVOUITextView.h in Headers */ = {isa = PBXBuildFile; fileRef = EF01244192AAD386C911B8EB580197E6 /* KVOUITextView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,60 +60,71 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D4232E7B8748F8812D0ED55EB264C559;
+			remoteGlobalIDString = 1A6881E98B41D0896877ED9C4E4A0730;
 			remoteInfo = "KVO-MVVM";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B7E6682DA588EDE8B8B18F620C25D2A /* KVOUIControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUIControl.m; path = Pod/Classes/KVOUIControl.m; sourceTree = "<group>"; };
-		17681AD361B485472102BB5B1E227608 /* KVOUICollectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUICollectionViewCell.m; path = Pod/Classes/KVOUICollectionViewCell.m; sourceTree = "<group>"; };
-		181D5BF0789F7AFA46E5BFCB2C85164B /* KVO-MVVM-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KVO-MVVM-prefix.pch"; sourceTree = "<group>"; };
+		01088994529738805321FA4FA4EDE566 /* KVOUIControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUIControl.h; path = Pod/Classes/KVOUIControl.h; sourceTree = "<group>"; };
+		196DDD6749DD8FAB63CC2116AD27BC7E /* KVOUICollectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUICollectionView.m; path = Pod/Classes/KVOUICollectionView.m; sourceTree = "<group>"; };
+		1A56416D095C2301C1B7ABE2E00B89B8 /* KVOUITextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUITextView.m; path = Pod/Classes/KVOUITextView.m; sourceTree = "<group>"; };
+		1FDA5A410AF5E7B677EAF8C2293D0F68 /* KVOUIViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUIViewController.h; path = Pod/Classes/KVOUIViewController.h; sourceTree = "<group>"; };
+		29B026073818AC75A2E7DD85C4471265 /* KVOUIResponder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUIResponder.h; path = Pod/Classes/KVOUIResponder.h; sourceTree = "<group>"; };
+		2C8A1AB804D232675CAC3964C937848E /* KVOUIResponder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUIResponder.m; path = Pod/Classes/KVOUIResponder.m; sourceTree = "<group>"; };
 		2CFC1C691F1F8F0EF6AE29AC64896A7C /* Pods-KVO-MVVM_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KVO-MVVM_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		2FF15C95F2B0DE389DB2327C9AB6A4E4 /* KVOUICollectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUICollectionViewCell.h; path = Pod/Classes/KVOUICollectionViewCell.h; sourceTree = "<group>"; };
-		304650E073924561FCF57567F27D6FAB /* KVOUIControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUIControl.h; path = Pod/Classes/KVOUIControl.h; sourceTree = "<group>"; };
+		2DDDAC688E1E89A3060551EB9306B53F /* KVOUINavigationItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUINavigationItem.h; path = Pod/Classes/KVOUINavigationItem.h; sourceTree = "<group>"; };
+		2DF538EF653837278E66684BD6C21747 /* KVO-MVVM-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KVO-MVVM-prefix.pch"; sourceTree = "<group>"; };
 		321A7A6C9BEEAB963739058BB03B2CCB /* Pods-KVO-MVVM_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KVO-MVVM_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		338B19DFA594209D94E786A818E33B36 /* KVOUITextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUITextView.m; path = Pod/Classes/KVOUITextView.m; sourceTree = "<group>"; };
+		331755C6D8C3BC5F9F1D3D92DAA57120 /* KVOUICollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUICollectionView.h; path = Pod/Classes/KVOUICollectionView.h; sourceTree = "<group>"; };
+		3524ECC1E28DD86FB18A588AB4085E77 /* KVO-MVVM.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "KVO-MVVM.xcconfig"; sourceTree = "<group>"; };
 		3DE6F97FBF1E5772A0B199F54BB23736 /* Pods-KVO-MVVM_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KVO-MVVM_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		40C68DE234ACA17D5E1366C5BA9B908B /* KVOUICollectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUICollectionView.m; path = Pod/Classes/KVOUICollectionView.m; sourceTree = "<group>"; };
-		60241259079C85094D2DB71E27C34848 /* KVONSObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVONSObject.h; path = Pod/Classes/KVONSObject.h; sourceTree = "<group>"; };
-		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		787220DEC9C460A5EC31FC5DAA3E6615 /* KVOUIScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUIScrollView.h; path = Pod/Classes/KVOUIScrollView.h; sourceTree = "<group>"; };
+		40C657279E708127FD639CE7244A5A43 /* KVO-MVVM-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KVO-MVVM-dummy.m"; sourceTree = "<group>"; };
+		40ED720B23FA684D86F478E79F92865B /* KVOUITableViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUITableViewController.m; path = Pod/Classes/KVOUITableViewController.m; sourceTree = "<group>"; };
+		455BCE2C91025B947B3A022559E5539F /* KVONSManagedObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVONSManagedObject.m; path = Pod/Classes/KVONSManagedObject.m; sourceTree = "<group>"; };
+		45FE2ECF1AF9C809143DC6AD97DB527E /* KVOUIView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUIView.m; path = Pod/Classes/KVOUIView.m; sourceTree = "<group>"; };
+		4754E4D9EF130E44D723C26FC7E3F463 /* KVOUICollectionViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUICollectionViewController.h; path = Pod/Classes/KVOUICollectionViewController.h; sourceTree = "<group>"; };
+		4AED573542008BBA0373FFA2767F2118 /* KVONSManagedObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVONSManagedObject.h; path = Pod/Classes/KVONSManagedObject.h; sourceTree = "<group>"; };
+		4D9F998C18474AE11180B5FFAB3A3691 /* KVOUIViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUIViewController.m; path = Pod/Classes/KVOUIViewController.m; sourceTree = "<group>"; };
+		4E25511E85DE14EE5C7287D4925AAC53 /* KVONSObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVONSObject.m; path = Pod/Classes/KVONSObject.m; sourceTree = "<group>"; };
+		567CC9627FCF9E142805D264D34518CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5E75A5991776DDA211FD12C68337B463 /* KVOUIView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUIView.h; path = Pod/Classes/KVOUIView.h; sourceTree = "<group>"; };
+		6526564E9301AF23BF604B61D0A3D834 /* KVOUICollectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUICollectionViewCell.h; path = Pod/Classes/KVOUICollectionViewCell.h; sourceTree = "<group>"; };
+		65FD025D71C79552EB4B3C43A32AA6ED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		6788C15B51D04030F9334A66BAF4776E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		690828B6B4A3CC7E5EB3BD04023D9FF0 /* KVOUIImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUIImageView.h; path = Pod/Classes/KVOUIImageView.h; sourceTree = "<group>"; };
+		6F243A5187040FEF249EE9FAC6A3CEDD /* KVO-MVVM.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = "KVO-MVVM.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7AB182BEFF73EF6D9335667B626B12FE /* Pods-KVO-MVVM_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KVO-MVVM_Tests-dummy.m"; sourceTree = "<group>"; };
-		82ADB0918319931EF9B176DA59D43946 /* KVOUIView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUIView.h; path = Pod/Classes/KVOUIView.h; sourceTree = "<group>"; };
+		7FBE1FB97FEE72C5A69DAA9836D6D459 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		808B58CB05C0046DDDED7ACDB715BEC7 /* KVOUIControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUIControl.m; path = Pod/Classes/KVOUIControl.m; sourceTree = "<group>"; };
+		8219CCDBB9F1ACF1381297481E712679 /* KVOUITableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUITableViewCell.m; path = Pod/Classes/KVOUITableViewCell.m; sourceTree = "<group>"; };
 		84EDDB6AF7E869751523A54FDCFA1D4A /* libPods-KVO-MVVM_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-KVO-MVVM_Tests.a"; path = "libPods-KVO-MVVM_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		88F659418FD73A449CCDE3B2D566676E /* KVOUITableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUITableView.m; path = Pod/Classes/KVOUITableView.m; sourceTree = "<group>"; };
-		8F6920F6AD5CD6D7BEEBE363EEE1CE8F /* KVOUIViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUIViewController.m; path = Pod/Classes/KVOUIViewController.m; sourceTree = "<group>"; };
+		85F9C4C8835E3CA9553140801021BD32 /* KVOUICollectionReusableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUICollectionReusableView.m; path = Pod/Classes/KVOUICollectionReusableView.m; sourceTree = "<group>"; };
+		8B0C2E41435121E77BB1BA4965C9C25B /* KVOUILabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUILabel.h; path = Pod/Classes/KVOUILabel.h; sourceTree = "<group>"; };
+		8B96A7C6D9A8A7FA9C33DB90CD4CA35D /* KVOUITableViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUITableViewController.h; path = Pod/Classes/KVOUITableViewController.h; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		98018FBC63273133FBA5D2B11BFCF212 /* KVOUIButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUIButton.h; path = Pod/Classes/KVOUIButton.h; sourceTree = "<group>"; };
+		995E28BA5A2B31FC8B98DB65A094D246 /* KVOUIButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUIButton.h; path = Pod/Classes/KVOUIButton.h; sourceTree = "<group>"; };
+		99AA805F04BA90F4679F5F80E4E55AE5 /* KVOUILabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUILabel.m; path = Pod/Classes/KVOUILabel.m; sourceTree = "<group>"; };
 		9BAA6F706C8C65C8A8D44268EC06A3E8 /* libKVO-MVVM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libKVO-MVVM.a"; path = "libKVO-MVVM.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A00FE35858263EE451E4CC8A7D090B67 /* KVOUIImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUIImageView.h; path = Pod/Classes/KVOUIImageView.h; sourceTree = "<group>"; };
-		A2B67452EB2B75583B7FBC21E2502A39 /* KVOUINavigationItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUINavigationItem.h; path = Pod/Classes/KVOUINavigationItem.h; sourceTree = "<group>"; };
-		A50B2C609C7727195C3264317392F323 /* KVOUINavigationItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUINavigationItem.m; path = Pod/Classes/KVOUINavigationItem.m; sourceTree = "<group>"; };
+		A48B6B44334FD5337F08B89B99E4892A /* KVOUIScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUIScrollView.h; path = Pod/Classes/KVOUIScrollView.h; sourceTree = "<group>"; };
 		A66CDF51A0DC2EF1C59654185E17CBA1 /* Pods-KVO-MVVM_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KVO-MVVM_Tests-resources.sh"; sourceTree = "<group>"; };
-		A6AF9E17D6CB6BB788CC01089DCD3CB4 /* KVOUICollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUICollectionView.h; path = Pod/Classes/KVOUICollectionView.h; sourceTree = "<group>"; };
-		A75344B5644A2DF3CFFEC5B30B6DD027 /* KVOUIResponder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUIResponder.m; path = Pod/Classes/KVOUIResponder.m; sourceTree = "<group>"; };
-		A75A6ED82FEEC0346CB77A9D744C05B7 /* KVOUIImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUIImageView.m; path = Pod/Classes/KVOUIImageView.m; sourceTree = "<group>"; };
-		AE54035E75E5A820658F1334C3E68F1B /* KVOUITableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUITableView.h; path = Pod/Classes/KVOUITableView.h; sourceTree = "<group>"; };
-		AE752A1643181930763A6D61A3F9C5CC /* KVOUITextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUITextView.h; path = Pod/Classes/KVOUITextView.h; sourceTree = "<group>"; };
-		B55D8C4BA03021402F5B96A6E579851E /* KVOUICollectionReusableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUICollectionReusableView.m; path = Pod/Classes/KVOUICollectionReusableView.m; sourceTree = "<group>"; };
-		B576D0E6C1423F66F557E9FF411D1CEF /* KVOUIButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUIButton.m; path = Pod/Classes/KVOUIButton.m; sourceTree = "<group>"; };
-		BA1E17AA8AE9A6333AAA9F238850F982 /* KVOUITableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUITableViewCell.h; path = Pod/Classes/KVOUITableViewCell.h; sourceTree = "<group>"; };
-		BA2BE95EC1CC9F555517ED5B0CF23EBA /* SuperKVOPrivateImplementation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SuperKVOPrivateImplementation.h; path = Pod/Classes/SuperKVOPrivateImplementation.h; sourceTree = "<group>"; };
+		B0B56BB1825C66D7D4595D9639A11DAF /* KVOUICollectionReusableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUICollectionReusableView.h; path = Pod/Classes/KVOUICollectionReusableView.h; sourceTree = "<group>"; };
 		BB44D2C8A6E543BCB9F69BE388ACF331 /* Pods-KVO-MVVM_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KVO-MVVM_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		BB8C5A9B4D9E6D967EC50A205624866D /* KVONSObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVONSObject.m; path = Pod/Classes/KVONSObject.m; sourceTree = "<group>"; };
 		BCD2E27AC786C947C5BC3E029077F5A0 /* Pods-KVO-MVVM_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KVO-MVVM_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		BE40255A16120064EBD36091E62BFCA8 /* KVOUIScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUIScrollView.m; path = Pod/Classes/KVOUIScrollView.m; sourceTree = "<group>"; };
-		CA273C8885DE26589258E6ACAD3DD630 /* KVOUIViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUIViewController.h; path = Pod/Classes/KVOUIViewController.h; sourceTree = "<group>"; };
-		D2343A441E439AA54272F4E66F52C352 /* KVOUILabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUILabel.h; path = Pod/Classes/KVOUILabel.h; sourceTree = "<group>"; };
-		E001C978FEE0CCB40C5EAAC1E3070A9A /* KVO-MVVM-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KVO-MVVM-dummy.m"; sourceTree = "<group>"; };
-		E7403B0777DA68902E1DAF95F286CEC1 /* KVOUIView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUIView.m; path = Pod/Classes/KVOUIView.m; sourceTree = "<group>"; };
-		ED0E8A7922B356F52047830F14F27CCE /* KVOUIResponder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUIResponder.h; path = Pod/Classes/KVOUIResponder.h; sourceTree = "<group>"; };
-		F30C31F4798448F6B20E315AF68866C2 /* KVO-MVVM.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "KVO-MVVM.xcconfig"; sourceTree = "<group>"; };
-		F4C417DDEEA3BB4F61BAB616FE31193E /* KVOUILabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUILabel.m; path = Pod/Classes/KVOUILabel.m; sourceTree = "<group>"; };
-		F532FFD3C393146BA11B3C9639CB611B /* KVOUICollectionReusableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUICollectionReusableView.h; path = Pod/Classes/KVOUICollectionReusableView.h; sourceTree = "<group>"; };
-		F851B5AB7E19980DC6B10FAC07D4C93D /* KVOUITableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUITableViewCell.m; path = Pod/Classes/KVOUITableViewCell.m; sourceTree = "<group>"; };
-		FD28E2C96010702D0E3C8013AE985D8A /* SuperKVOProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SuperKVOProtocol.h; path = Pod/Classes/SuperKVOProtocol.h; sourceTree = "<group>"; };
+		BD1F366E7AC0B77297369CF91A11310C /* KVONSObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVONSObject.h; path = Pod/Classes/KVONSObject.h; sourceTree = "<group>"; };
+		BEEF973D13AFA2F096AC12ED44873438 /* KVOUICollectionViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUICollectionViewController.m; path = Pod/Classes/KVOUICollectionViewController.m; sourceTree = "<group>"; };
+		BFF5B0CAE6A6504DA207DB24E9D19BF4 /* KVOUICollectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUICollectionViewCell.m; path = Pod/Classes/KVOUICollectionViewCell.m; sourceTree = "<group>"; };
+		BFF8F3B9945C2B44A0C8E908CEF2F205 /* SuperKVOPrivateImplementation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SuperKVOPrivateImplementation.h; path = Pod/Classes/SuperKVOPrivateImplementation.h; sourceTree = "<group>"; };
+		C0D7C163374A265BA02893A3D37F4905 /* KVOUIScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUIScrollView.m; path = Pod/Classes/KVOUIScrollView.m; sourceTree = "<group>"; };
+		CC6DB39E1B9287D08655BD6E42FE6155 /* KVOUINavigationItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUINavigationItem.m; path = Pod/Classes/KVOUINavigationItem.m; sourceTree = "<group>"; };
+		D657E607DC487BA45CC97A88D42DE03D /* KVOUIImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUIImageView.m; path = Pod/Classes/KVOUIImageView.m; sourceTree = "<group>"; };
+		D72FD7AB4B20FF2484C6B88624242017 /* KVOUITableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUITableView.m; path = Pod/Classes/KVOUITableView.m; sourceTree = "<group>"; };
+		DE9ACE385D4212674B07B5BC60C54447 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		E4A257EF4A1DD6C3BDD91A7D87538AD6 /* KVOUITableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUITableViewCell.h; path = Pod/Classes/KVOUITableViewCell.h; sourceTree = "<group>"; };
+		E6B5065A4D4D0DC25D6CBA5E82EF25A8 /* SuperKVOProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SuperKVOProtocol.h; path = Pod/Classes/SuperKVOProtocol.h; sourceTree = "<group>"; };
+		EF01244192AAD386C911B8EB580197E6 /* KVOUITextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUITextView.h; path = Pod/Classes/KVOUITextView.h; sourceTree = "<group>"; };
+		FF7B57816F0811397A9D85DBC0D89DFE /* KVOUITableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KVOUITableView.h; path = Pod/Classes/KVOUITableView.h; sourceTree = "<group>"; };
+		FFFC20BFE76D8839C6AD8481D47F332D /* KVOUIButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KVOUIButton.m; path = Pod/Classes/KVOUIButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,11 +136,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C506839420EB6E6C51DAB6F17CED5390 /* Frameworks */ = {
+		42078A5902509359C27E22F23868F88C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA97C2F3A9ECF53F4F3EEFA4C3A9EF74 /* Foundation.framework in Frameworks */,
+				636EF7E1A1F3C14090EF1A014B7842E8 /* CoreData.framework in Frameworks */,
+				01DFF6ECABBFFDDCC9E5FAD5AA64E097 /* Foundation.framework in Frameworks */,
+				612F606D4266F366D5F1E6A267A02203 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,77 +173,101 @@
 			path = "Target Support Files/Pods-KVO-MVVM_Tests";
 			sourceTree = "<group>";
 		};
-		239AC8ADF8CCBBD0C94F1B37A2AABA20 /* Support Files */ = {
+		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F30C31F4798448F6B20E315AF68866C2 /* KVO-MVVM.xcconfig */,
-				E001C978FEE0CCB40C5EAAC1E3070A9A /* KVO-MVVM-dummy.m */,
-				181D5BF0789F7AFA46E5BFCB2C85164B /* KVO-MVVM-prefix.pch */,
+				A95125708E742DC1F60FE6F7AFFAD0EA /* iOS */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/KVO-MVVM";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7D0F50227FF41120F038ECBA0131C336 /* KVO-MVVM */ = {
+		15EA6F7D230B2548E79311C4AB833D5A /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				60241259079C85094D2DB71E27C34848 /* KVONSObject.h */,
-				BB8C5A9B4D9E6D967EC50A205624866D /* KVONSObject.m */,
-				98018FBC63273133FBA5D2B11BFCF212 /* KVOUIButton.h */,
-				B576D0E6C1423F66F557E9FF411D1CEF /* KVOUIButton.m */,
-				F532FFD3C393146BA11B3C9639CB611B /* KVOUICollectionReusableView.h */,
-				B55D8C4BA03021402F5B96A6E579851E /* KVOUICollectionReusableView.m */,
-				A6AF9E17D6CB6BB788CC01089DCD3CB4 /* KVOUICollectionView.h */,
-				40C68DE234ACA17D5E1366C5BA9B908B /* KVOUICollectionView.m */,
-				2FF15C95F2B0DE389DB2327C9AB6A4E4 /* KVOUICollectionViewCell.h */,
-				17681AD361B485472102BB5B1E227608 /* KVOUICollectionViewCell.m */,
-				304650E073924561FCF57567F27D6FAB /* KVOUIControl.h */,
-				0B7E6682DA588EDE8B8B18F620C25D2A /* KVOUIControl.m */,
-				A00FE35858263EE451E4CC8A7D090B67 /* KVOUIImageView.h */,
-				A75A6ED82FEEC0346CB77A9D744C05B7 /* KVOUIImageView.m */,
-				D2343A441E439AA54272F4E66F52C352 /* KVOUILabel.h */,
-				F4C417DDEEA3BB4F61BAB616FE31193E /* KVOUILabel.m */,
-				A2B67452EB2B75583B7FBC21E2502A39 /* KVOUINavigationItem.h */,
-				A50B2C609C7727195C3264317392F323 /* KVOUINavigationItem.m */,
-				ED0E8A7922B356F52047830F14F27CCE /* KVOUIResponder.h */,
-				A75344B5644A2DF3CFFEC5B30B6DD027 /* KVOUIResponder.m */,
-				787220DEC9C460A5EC31FC5DAA3E6615 /* KVOUIScrollView.h */,
-				BE40255A16120064EBD36091E62BFCA8 /* KVOUIScrollView.m */,
-				AE54035E75E5A820658F1334C3E68F1B /* KVOUITableView.h */,
-				88F659418FD73A449CCDE3B2D566676E /* KVOUITableView.m */,
-				BA1E17AA8AE9A6333AAA9F238850F982 /* KVOUITableViewCell.h */,
-				F851B5AB7E19980DC6B10FAC07D4C93D /* KVOUITableViewCell.m */,
-				AE752A1643181930763A6D61A3F9C5CC /* KVOUITextView.h */,
-				338B19DFA594209D94E786A818E33B36 /* KVOUITextView.m */,
-				82ADB0918319931EF9B176DA59D43946 /* KVOUIView.h */,
-				E7403B0777DA68902E1DAF95F286CEC1 /* KVOUIView.m */,
-				CA273C8885DE26589258E6ACAD3DD630 /* KVOUIViewController.h */,
-				8F6920F6AD5CD6D7BEEBE363EEE1CE8F /* KVOUIViewController.m */,
-				BA2BE95EC1CC9F555517ED5B0CF23EBA /* SuperKVOPrivateImplementation.h */,
-				FD28E2C96010702D0E3C8013AE985D8A /* SuperKVOProtocol.h */,
-				239AC8ADF8CCBBD0C94F1B37A2AABA20 /* Support Files */,
+				6F243A5187040FEF249EE9FAC6A3CEDD /* KVO-MVVM.podspec */,
+				7FBE1FB97FEE72C5A69DAA9836D6D459 /* LICENSE */,
+				DE9ACE385D4212674B07B5BC60C54447 /* README.md */,
 			);
-			name = "KVO-MVVM";
-			path = ../..;
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		49BCAD422E79941C91B7B03B6969E2C6 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				802024234C7D4B802061F058360C35C8 /* KVO-MVVM */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				EC3AEE7EF8ED0C2B05157CECC6AECD3C /* Development Pods */,
-				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				49BCAD422E79941C91B7B03B6969E2C6 /* Development Pods */,
+				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
 				0C3FD4C7809E94A983C6FB00D0C1C593 /* Products */,
 				D04254BC979B0C9E4963155AEF65B3FC /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+		802024234C7D4B802061F058360C35C8 /* KVO-MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+				4AED573542008BBA0373FFA2767F2118 /* KVONSManagedObject.h */,
+				455BCE2C91025B947B3A022559E5539F /* KVONSManagedObject.m */,
+				BD1F366E7AC0B77297369CF91A11310C /* KVONSObject.h */,
+				4E25511E85DE14EE5C7287D4925AAC53 /* KVONSObject.m */,
+				995E28BA5A2B31FC8B98DB65A094D246 /* KVOUIButton.h */,
+				FFFC20BFE76D8839C6AD8481D47F332D /* KVOUIButton.m */,
+				B0B56BB1825C66D7D4595D9639A11DAF /* KVOUICollectionReusableView.h */,
+				85F9C4C8835E3CA9553140801021BD32 /* KVOUICollectionReusableView.m */,
+				331755C6D8C3BC5F9F1D3D92DAA57120 /* KVOUICollectionView.h */,
+				196DDD6749DD8FAB63CC2116AD27BC7E /* KVOUICollectionView.m */,
+				6526564E9301AF23BF604B61D0A3D834 /* KVOUICollectionViewCell.h */,
+				BFF5B0CAE6A6504DA207DB24E9D19BF4 /* KVOUICollectionViewCell.m */,
+				4754E4D9EF130E44D723C26FC7E3F463 /* KVOUICollectionViewController.h */,
+				BEEF973D13AFA2F096AC12ED44873438 /* KVOUICollectionViewController.m */,
+				01088994529738805321FA4FA4EDE566 /* KVOUIControl.h */,
+				808B58CB05C0046DDDED7ACDB715BEC7 /* KVOUIControl.m */,
+				690828B6B4A3CC7E5EB3BD04023D9FF0 /* KVOUIImageView.h */,
+				D657E607DC487BA45CC97A88D42DE03D /* KVOUIImageView.m */,
+				8B0C2E41435121E77BB1BA4965C9C25B /* KVOUILabel.h */,
+				99AA805F04BA90F4679F5F80E4E55AE5 /* KVOUILabel.m */,
+				2DDDAC688E1E89A3060551EB9306B53F /* KVOUINavigationItem.h */,
+				CC6DB39E1B9287D08655BD6E42FE6155 /* KVOUINavigationItem.m */,
+				29B026073818AC75A2E7DD85C4471265 /* KVOUIResponder.h */,
+				2C8A1AB804D232675CAC3964C937848E /* KVOUIResponder.m */,
+				A48B6B44334FD5337F08B89B99E4892A /* KVOUIScrollView.h */,
+				C0D7C163374A265BA02893A3D37F4905 /* KVOUIScrollView.m */,
+				FF7B57816F0811397A9D85DBC0D89DFE /* KVOUITableView.h */,
+				D72FD7AB4B20FF2484C6B88624242017 /* KVOUITableView.m */,
+				E4A257EF4A1DD6C3BDD91A7D87538AD6 /* KVOUITableViewCell.h */,
+				8219CCDBB9F1ACF1381297481E712679 /* KVOUITableViewCell.m */,
+				8B96A7C6D9A8A7FA9C33DB90CD4CA35D /* KVOUITableViewController.h */,
+				40ED720B23FA684D86F478E79F92865B /* KVOUITableViewController.m */,
+				EF01244192AAD386C911B8EB580197E6 /* KVOUITextView.h */,
+				1A56416D095C2301C1B7ABE2E00B89B8 /* KVOUITextView.m */,
+				5E75A5991776DDA211FD12C68337B463 /* KVOUIView.h */,
+				45FE2ECF1AF9C809143DC6AD97DB527E /* KVOUIView.m */,
+				1FDA5A410AF5E7B677EAF8C2293D0F68 /* KVOUIViewController.h */,
+				4D9F998C18474AE11180B5FFAB3A3691 /* KVOUIViewController.m */,
+				BFF8F3B9945C2B44A0C8E908CEF2F205 /* SuperKVOPrivateImplementation.h */,
+				E6B5065A4D4D0DC25D6CBA5E82EF25A8 /* SuperKVOProtocol.h */,
+				15EA6F7D230B2548E79311C4AB833D5A /* Pod */,
+				F783440F5D98D94CD388061565A9189A /* Support Files */,
 			);
-			name = Frameworks;
+			name = "KVO-MVVM";
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		A95125708E742DC1F60FE6F7AFFAD0EA /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6788C15B51D04030F9334A66BAF4776E /* CoreData.framework */,
+				567CC9627FCF9E142805D264D34518CC /* Foundation.framework */,
+				65FD025D71C79552EB4B3C43A32AA6ED /* UIKit.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		D04254BC979B0C9E4963155AEF65B3FC /* Targets Support Files */ = {
@@ -233,53 +278,68 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+		F783440F5D98D94CD388061565A9189A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+				3524ECC1E28DD86FB18A588AB4085E77 /* KVO-MVVM.xcconfig */,
+				40C657279E708127FD639CE7244A5A43 /* KVO-MVVM-dummy.m */,
+				2DF538EF653837278E66684BD6C21747 /* KVO-MVVM-prefix.pch */,
 			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		EC3AEE7EF8ED0C2B05157CECC6AECD3C /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7D0F50227FF41120F038ECBA0131C336 /* KVO-MVVM */,
-			);
-			name = "Development Pods";
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/KVO-MVVM";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		FB4F5545D14748E36A8869F25CBD8DA1 /* Headers */ = {
+		38EC8C9092BC6CDB25C4AF807661CD3A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D649185B43C589B1CCC186DA18846B8 /* KVONSObject.h in Headers */,
-				24B044F317D008116389B7B00120BEF9 /* KVOUIButton.h in Headers */,
-				DF8B1C5A18B9E88BAC5C712CF8ADA11A /* KVOUICollectionReusableView.h in Headers */,
-				D3A2A57EE6AF4E03F5C53945173E39B4 /* KVOUICollectionView.h in Headers */,
-				079F370E91407FAEAF79A66E3A81F67A /* KVOUICollectionViewCell.h in Headers */,
-				B971ECC11A0A99660BAFEA809E7F3DB0 /* KVOUIControl.h in Headers */,
-				BBBCDB5DC34A432B46CA1090835FEA9F /* KVOUIImageView.h in Headers */,
-				1414D9AD21095636DDF2B355BAD52DE6 /* KVOUILabel.h in Headers */,
-				B033ACE41BA7E8792BE73A3C4730015F /* KVOUINavigationItem.h in Headers */,
-				3CD49D762FAF5D9504B4C91FB341E216 /* KVOUIResponder.h in Headers */,
-				4481A479E921D7D66EDC8EA2F20876CF /* KVOUIScrollView.h in Headers */,
-				EF6A9CB0D6082EB0407782E3EC3D9BC2 /* KVOUITableView.h in Headers */,
-				BDB10DAB747A546E8EF2577021A44A9F /* KVOUITableViewCell.h in Headers */,
-				EA2577A5F5B78A2BCD53D2A900E998A1 /* KVOUITextView.h in Headers */,
-				81FE111B969B25B44FCF7758CFF6F820 /* KVOUIView.h in Headers */,
-				BDF2F3B0F23EA7E5DF150D570286B4DF /* KVOUIViewController.h in Headers */,
-				A583D40148AFC84BDDC5F1C9F0F72246 /* SuperKVOPrivateImplementation.h in Headers */,
-				1A17E611E9B9E76C163F58705B01EA9C /* SuperKVOProtocol.h in Headers */,
+				68761B471307228F96248139C1F33F0B /* KVONSManagedObject.h in Headers */,
+				92FD573FA5D4E87451C28477829A9FBB /* KVONSObject.h in Headers */,
+				D7DB652B7F6B764E27975A8E94F198DC /* KVOUIButton.h in Headers */,
+				26A7EE0E1B7EA9E187BCF3855902514D /* KVOUICollectionReusableView.h in Headers */,
+				69A6FA49AEA68F0ABE6F8528C6C9A6CE /* KVOUICollectionView.h in Headers */,
+				BB5FDE49F58A2A147FF9372491412CCA /* KVOUICollectionViewCell.h in Headers */,
+				CAA16C1460D5947EEAFDBEB47ACC6F44 /* KVOUICollectionViewController.h in Headers */,
+				1EFBB1AF07EB34D9A2A105EFBD7D7C2C /* KVOUIControl.h in Headers */,
+				7F72E6344E1BD80AE6D3A1AB65CD1015 /* KVOUIImageView.h in Headers */,
+				D97DDBAFB3468E2419B8569F3E5788C9 /* KVOUILabel.h in Headers */,
+				1C9BA0BCB06CA618CECFF73DE72172EF /* KVOUINavigationItem.h in Headers */,
+				EE811DA6DB4A28C8EE6FB01C248373E7 /* KVOUIResponder.h in Headers */,
+				34EFC4A509C6CEE01E9965D8E4D6D1FB /* KVOUIScrollView.h in Headers */,
+				F268CC64BFA0D94640B5CD8D716EAC79 /* KVOUITableView.h in Headers */,
+				C774D46E74E29AF1C5C44BC329817141 /* KVOUITableViewCell.h in Headers */,
+				A9DDBE3A038A3FF39A943E2CAACD0ADE /* KVOUITableViewController.h in Headers */,
+				F98D96B010AECE7BD3D22B16E8CCC995 /* KVOUITextView.h in Headers */,
+				6D7AF7829DAF93BD46B3B3BD85AAEE3F /* KVOUIView.h in Headers */,
+				5BE1D21D1BC42A8A1AB7692DB456B903 /* KVOUIViewController.h in Headers */,
+				07E5463ADFD9F1BF6BC98121194E495D /* SuperKVOPrivateImplementation.h in Headers */,
+				C2FF9DFA6BDDFE92199595BD0AF99844 /* SuperKVOProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		1A6881E98B41D0896877ED9C4E4A0730 /* KVO-MVVM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C86CBF88B7FD51E812B8D4295012573 /* Build configuration list for PBXNativeTarget "KVO-MVVM" */;
+			buildPhases = (
+				87E2818F79E3CBDD2999192148C9861E /* Sources */,
+				42078A5902509359C27E22F23868F88C /* Frameworks */,
+				38EC8C9092BC6CDB25C4AF807661CD3A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "KVO-MVVM";
+			productName = "KVO-MVVM";
+			productReference = 9BAA6F706C8C65C8A8D44268EC06A3E8 /* libKVO-MVVM.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		CEA12312E7FE3C65A3342735728DE711 /* Pods-KVO-MVVM_Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF768ED55C97F2EF939A185B692A5811 /* Build configuration list for PBXNativeTarget "Pods-KVO-MVVM_Tests" */;
@@ -297,31 +357,14 @@
 			productReference = 84EDDB6AF7E869751523A54FDCFA1D4A /* libPods-KVO-MVVM_Tests.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		D4232E7B8748F8812D0ED55EB264C559 /* KVO-MVVM */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E10209F4590D1EA5863553248A536DB2 /* Build configuration list for PBXNativeTarget "KVO-MVVM" */;
-			buildPhases = (
-				DFBC4EAD33ABBAC2DC9A30717A5A5AE6 /* Sources */,
-				C506839420EB6E6C51DAB6F17CED5390 /* Frameworks */,
-				FB4F5545D14748E36A8869F25CBD8DA1 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "KVO-MVVM";
-			productName = "KVO-MVVM";
-			productReference = 9BAA6F706C8C65C8A8D44268EC06A3E8 /* libKVO-MVVM.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0700;
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -335,42 +378,45 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D4232E7B8748F8812D0ED55EB264C559 /* KVO-MVVM */,
+				1A6881E98B41D0896877ED9C4E4A0730 /* KVO-MVVM */,
 				CEA12312E7FE3C65A3342735728DE711 /* Pods-KVO-MVVM_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		87E2818F79E3CBDD2999192148C9861E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0C82B106C46AC14636819C38ECF639D /* KVO-MVVM-dummy.m in Sources */,
+				D96E463912E6A8EDE3A945380702E53E /* KVONSManagedObject.m in Sources */,
+				EBFB6EB0752553A695A98EC6C0D11420 /* KVONSObject.m in Sources */,
+				42084B3A4D1E48DA7F7141559D697E11 /* KVOUIButton.m in Sources */,
+				70BDCDF89DF471372B8B102A75F2A51A /* KVOUICollectionReusableView.m in Sources */,
+				8DA12DECE78C888B32DCBFA327877DBC /* KVOUICollectionView.m in Sources */,
+				9211935A91DCDC16FFF8F911D22ECE67 /* KVOUICollectionViewCell.m in Sources */,
+				86C18FA1FE7BE085413A9FF3902A4708 /* KVOUICollectionViewController.m in Sources */,
+				6C9BA726C33A266A051F6EA26CDA1CBB /* KVOUIControl.m in Sources */,
+				B8233F321F64EE59B7115972DBB3740A /* KVOUIImageView.m in Sources */,
+				0D344C8A94EDCA1CFB03D45F7A2B4083 /* KVOUILabel.m in Sources */,
+				C57F79E5E6F3EC37B96A436526D55421 /* KVOUINavigationItem.m in Sources */,
+				96B1D10FEE383A5E1C19E103CA767DE6 /* KVOUIResponder.m in Sources */,
+				E7B541116F564BD151A5C0624D955410 /* KVOUIScrollView.m in Sources */,
+				54C44CAFDBFCFC5FA19B507EBBB3958C /* KVOUITableView.m in Sources */,
+				6B9478F1F1642BBD0CCA6674C958202F /* KVOUITableViewCell.m in Sources */,
+				F4844B299C206FC992F67EBE91D9FE27 /* KVOUITableViewController.m in Sources */,
+				342F6910FA1A13F818F9C2CB3C0ABC00 /* KVOUITextView.m in Sources */,
+				37DADD178F6B06E82DD1488D17B4EC6B /* KVOUIView.m in Sources */,
+				6D8FB24C9F96588FEE2488D067F3BC28 /* KVOUIViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC6281B43822A78866D989B92CA5F915 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B764090B860C7BFEA479C61FDFE172B6 /* Pods-KVO-MVVM_Tests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DFBC4EAD33ABBAC2DC9A30717A5A5AE6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3AA2355CCDF5F1B728A8234E76444657 /* KVO-MVVM-dummy.m in Sources */,
-				ED95B67CDB34A5CE8C0415B6F7E9BEEC /* KVONSObject.m in Sources */,
-				C788699A3D77F1FD80532493E8206424 /* KVOUIButton.m in Sources */,
-				65CD0A8DBFE74088A5C8D8E25AF744A6 /* KVOUICollectionReusableView.m in Sources */,
-				774024058E8F9A9E45D2D7B6400248A6 /* KVOUICollectionView.m in Sources */,
-				EBCE869A21DD3421EE0310214884E9ED /* KVOUICollectionViewCell.m in Sources */,
-				6F52F146FA6DAC0F57551FE64931692C /* KVOUIControl.m in Sources */,
-				24E5249FA88E8D1BF5F57DD653C17957 /* KVOUIImageView.m in Sources */,
-				271C5631466E5E01868371FD1C7B5785 /* KVOUILabel.m in Sources */,
-				28EFF36F1B4C3CD6043AD62CC4ABDCCF /* KVOUINavigationItem.m in Sources */,
-				607E6A131A4CE902B42802BB70E0C378 /* KVOUIResponder.m in Sources */,
-				38F4EC04AED6B61E348659F08420E97D /* KVOUIScrollView.m in Sources */,
-				082C186DBE7CE035D0611AC9069B711B /* KVOUITableView.m in Sources */,
-				295683BBE1EB0C6FD5D40B4AE4621A4B /* KVOUITableViewCell.m in Sources */,
-				204F8FE292C5C5D29C63A8298C792992 /* KVOUITextView.m in Sources */,
-				113428ED34B621E2819DFCE0294DF9C4 /* KVOUIView.m in Sources */,
-				3F102EAAD36594E95666CED53F6C0A94 /* KVOUIViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,54 +426,89 @@
 		DBF4E9647E2DDD286CC6F19B96667FC3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "KVO-MVVM";
-			target = D4232E7B8748F8812D0ED55EB264C559 /* KVO-MVVM */;
+			target = 1A6881E98B41D0896877ED9C4E4A0730 /* KVO-MVVM */;
 			targetProxy = DB593C4968510214370608A08362F84D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1C7D17A37D091C98D2F0DD886C3A9320 /* Debug */ = {
+		B1A959389343FF16D290CB7C14F24FF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3524ECC1E28DD86FB18A588AB4085E77 /* KVO-MVVM.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/KVO-MVVM/KVO-MVVM-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C3E37FB098AE76440E29106ADBF00CEB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -435,161 +516,144 @@
 			};
 			name = Debug;
 		};
-		2261467D80880FBD26F955C81AE36E2E /* Release */ = {
+		CB26E21C35EDC5D11E211CF83927CF79 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2CFC1C691F1F8F0EF6AE29AC64896A7C /* Pods-KVO-MVVM_Tests.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		2DD726550A434D66533AA4FD1BAEEC6D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F30C31F4798448F6B20E315AF68866C2 /* KVO-MVVM.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/KVO-MVVM/KVO-MVVM-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-			};
-			name = Debug;
-		};
-		34FE9531DA9AF2820790339988D5FF41 /* Release */ = {
+		DA03565BE765DB55C6448FB363A44481 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_RELEASE=1",
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		CD633C7F65680C3D67E8F13C6670C86F /* Debug */ = {
+		DDADAF1DE0ACCC6468A807EDADF11CB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3DE6F97FBF1E5772A0B199F54BB23736 /* Pods-KVO-MVVM_Tests.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		D441616496C09E6BF7F7AFC2F1DF318E /* Release */ = {
+		FA5EAD7C2D6291D134187763F9FD972E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F30C31F4798448F6B20E315AF68866C2 /* KVO-MVVM.xcconfig */;
+			baseConfigurationReference = 3524ECC1E28DD86FB18A588AB4085E77 /* KVO-MVVM.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/KVO-MVVM/KVO-MVVM-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+		0C86CBF88B7FD51E812B8D4295012573 /* Build configuration list for PBXNativeTarget "KVO-MVVM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1C7D17A37D091C98D2F0DD886C3A9320 /* Debug */,
-				34FE9531DA9AF2820790339988D5FF41 /* Release */,
+				B1A959389343FF16D290CB7C14F24FF4 /* Debug */,
+				FA5EAD7C2D6291D134187763F9FD972E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E10209F4590D1EA5863553248A536DB2 /* Build configuration list for PBXNativeTarget "KVO-MVVM" */ = {
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2DD726550A434D66533AA4FD1BAEEC6D /* Debug */,
-				D441616496C09E6BF7F7AFC2F1DF318E /* Release */,
+				C3E37FB098AE76440E29106ADBF00CEB /* Debug */,
+				DA03565BE765DB55C6448FB363A44481 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -597,8 +661,8 @@
 		EF768ED55C97F2EF939A185B692A5811 /* Build configuration list for PBXNativeTarget "Pods-KVO-MVVM_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CD633C7F65680C3D67E8F13C6670C86F /* Debug */,
-				2261467D80880FBD26F955C81AE36E2E /* Release */,
+				DDADAF1DE0ACCC6468A807EDADF11CB0 /* Debug */,
+				CB26E21C35EDC5D11E211CF83927CF79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

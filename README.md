@@ -50,8 +50,8 @@ pod 'KVO-MVVM'
 
 ## Authors
 
-Anton Bukov, k06a@mlworks.com
-Andrew Podkovyrin, podkovyrin@mlworks.com
+Anton Bukov, k06aaa@gmail.com
+Andrew Podkovyrin, podkovyrin@gmail.com
 
 ## License
 
